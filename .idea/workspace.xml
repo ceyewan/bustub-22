@@ -1,0 +1,812 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="CMakePresetLoader"><![CDATA[{
+  "useNewFormat": true
+}]]></component>
+  <component name="CMakeReloadState">
+    <option name="reloaded" value="true" />
+  </component>
+  <component name="CMakeRunConfigurationManager">
+    <generated>
+      <config projectName="BusTub" targetName="bustub_statement" />
+      <config projectName="BusTub" targetName="catalog_test" />
+      <config projectName="BusTub" targetName="p3.14-topn_test" />
+      <config projectName="BusTub" targetName="check-public-ci-tests" />
+      <config projectName="BusTub" targetName="p3.leaderboard-q1_test" />
+      <config projectName="BusTub" targetName="buffer_pool_manager_instance_test" />
+      <config projectName="BusTub" targetName="deadlock_detection_test" />
+      <config projectName="BusTub" targetName="terrier-bench" />
+      <config projectName="BusTub" targetName="bustub_common" />
+      <config projectName="BusTub" targetName="extendible_hash_table_test" />
+      <config projectName="BusTub" targetName="bustub_type" />
+      <config projectName="BusTub" targetName="fix-clang-tidy" />
+      <config projectName="BusTub" targetName="p3.15-integration-1_test" />
+      <config projectName="BusTub" targetName="recovery_test" />
+      <config projectName="BusTub" targetName="check-lint" />
+      <config projectName="BusTub" targetName="bustub_container_disk_hash" />
+      <config projectName="BusTub" targetName="p3.13-sort-limit_test" />
+      <config projectName="BusTub" targetName="bustub_storage_index" />
+      <config projectName="BusTub" targetName="b_plus_tree_contention_test" />
+      <config projectName="BusTub" targetName="p3.04-index-scan_test" />
+      <config projectName="BusTub" targetName="rwlatch_test" />
+      <config projectName="BusTub" targetName="bustub_container_hash" />
+      <config projectName="BusTub" targetName="p3.09-simple-join_test" />
+      <config projectName="BusTub" targetName="transaction_test" />
+      <config projectName="BusTub" targetName="disk_manager_test" />
+      <config projectName="BusTub" targetName="p3.08-group-agg-2_test" />
+      <config projectName="BusTub" targetName="check-clang-tidy-p4" />
+      <config projectName="BusTub" targetName="check-clang-tidy-p3" />
+      <config projectName="BusTub" targetName="bustub_planner" />
+      <config projectName="BusTub" targetName="bustub_primer" />
+      <config projectName="BusTub" targetName="check-clang-tidy-p2" />
+      <config projectName="BusTub" targetName="fmt" />
+      <config projectName="BusTub" targetName="check-clang-tidy-p1" />
+      <config projectName="BusTub" targetName="fix-clang-tidy-diff" />
+      <config projectName="BusTub" targetName="check-clang-tidy-p0" />
+      <config projectName="BusTub" targetName="bustub_recovery" />
+      <config projectName="BusTub" targetName="bustub_concurrency" />
+      <config projectName="BusTub" targetName="p3.12-nested-index-join_test" />
+      <config projectName="BusTub" targetName="tuple_test" />
+      <config projectName="BusTub" targetName="sqllogictest" />
+      <config projectName="BusTub" targetName="hash_table_test" />
+      <config projectName="BusTub" targetName="gmock_main" />
+      <config projectName="BusTub" targetName="p3.07-group-agg-1_test" />
+      <config projectName="BusTub" targetName="b_plus_tree_insert_test" />
+      <config projectName="BusTub" targetName="p3.02-insert_test" />
+      <config projectName="BusTub" targetName="bustub_binder" />
+      <config projectName="BusTub" targetName="p3.leaderboard-q2_test" />
+      <config projectName="BusTub" targetName="b_plus_tree_concurrent_test" />
+      <config projectName="BusTub" targetName="bustub" />
+      <config projectName="BusTub" targetName="b_plus_tree_delete_test" />
+      <config projectName="BusTub" targetName="headers" />
+      <config projectName="BusTub" targetName="fort" />
+      <config projectName="BusTub" targetName="lru_k_replacer_test" />
+      <config projectName="BusTub" targetName="format" />
+      <config projectName="BusTub" targetName="test-p3" />
+      <config projectName="BusTub" targetName="check-tests" />
+      <config projectName="BusTub" targetName="p3.16-integration-2_test" />
+      <config projectName="BusTub" targetName="shell" />
+      <config projectName="BusTub" targetName="hash_table_page_test" />
+      <config projectName="BusTub" targetName="gmock" />
+      <config projectName="BusTub" targetName="bustub_catalog" />
+      <config projectName="BusTub" targetName="lock_manager_test" />
+      <config projectName="BusTub" targetName="build-tests" />
+      <config projectName="BusTub" targetName="bustub_linenoise" />
+      <config projectName="BusTub" targetName="b_plus_tree_printer" />
+      <config projectName="BusTub" targetName="p3.10-multi-way-join_test" />
+      <config projectName="BusTub" targetName="starter_trie_test" />
+      <config projectName="BusTub" targetName="p3.03-delete_test" />
+      <config projectName="BusTub" targetName="bustub_storage_table" />
+      <config projectName="BusTub" targetName="duckdb_pg_query" />
+      <config projectName="BusTub" targetName="type_test" />
+      <config projectName="BusTub" targetName="bustub_murmur3" />
+      <config projectName="BusTub" targetName="bustub_storage_page" />
+      <config projectName="BusTub" targetName="check-clang-tidy" />
+      <config projectName="BusTub" targetName="check-clang-tidy-diff" />
+      <config projectName="BusTub" targetName="p3.11-repeat-execute_test" />
+      <config projectName="BusTub" targetName="p3.06-simple-agg_test" />
+      <config projectName="BusTub" targetName="bustub_optimizer" />
+      <config projectName="BusTub" targetName="clock_replacer_test" />
+      <config projectName="BusTub" targetName="bustub_execution" />
+      <config projectName="BusTub" targetName="bustub_storage_disk" />
+      <config projectName="BusTub" targetName="p3.leaderboard-q3_test" />
+      <config projectName="BusTub" targetName="gtest_main" />
+      <config projectName="BusTub" targetName="submit-p2" />
+      <config projectName="BusTub" targetName="binder_test" />
+      <config projectName="BusTub" targetName="p3.01-seqscan_test" />
+      <config projectName="BusTub" targetName="submit-p3" />
+      <config projectName="BusTub" targetName="p3.05-empty-table_test" />
+      <config projectName="BusTub" targetName="submit-p1" />
+      <config projectName="BusTub" targetName="utf8proc" />
+      <config projectName="BusTub" targetName="gtest" />
+      <config projectName="BusTub" targetName="tmp_tuple_page_test" />
+      <config projectName="BusTub" targetName="check-format" />
+      <config projectName="BusTub" targetName="bustub_buffer" />
+      <config projectName="BusTub" targetName="submit-p4" />
+      <config projectName="BusTub" targetName="lru_replacer_test" />
+    </generated>
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="2af793d5-c270-4eb5-b732-71c4b961a13f" name="变更" comment="">
+      <change beforePath="$PROJECT_DIR$/src/buffer/buffer_pool_manager_instance.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/buffer/buffer_pool_manager_instance.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/buffer/lru_k_replacer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/buffer/lru_k_replacer.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/container/hash/extendible_hash_table.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/container/hash/extendible_hash_table.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/buffer/buffer_pool_manager_instance.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/buffer/buffer_pool_manager_instance.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/buffer/lru_k_replacer.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/buffer/lru_k_replacer.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/container/hash/extendible_hash_table.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/container/hash/extendible_hash_table.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/primer/p0_trie.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/primer/p0_trie.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/buffer/buffer_pool_manager_instance_test.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/test/buffer/buffer_pool_manager_instance_test.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/buffer/lru_k_replacer_test.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/test/buffer/lru_k_replacer_test.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/container/hash/extendible_hash_table_test.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/test/container/hash/extendible_hash_table_test.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/primer/starter_trie_test.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/test/primer/starter_trie_test.cpp" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectApplicationVersion">
+    <option name="ide" value="CLion" />
+    <option name="majorVersion" value="2022" />
+    <option name="minorVersion" value="3" />
+  </component>
+  <component name="ProjectId" id="2MN4WHJcnGTT4bTOBciUwuJeiaG" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "cf.advertisement.text.overridden": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "ctest.advertisement.all.test.configuration.is.created": "true",
+    "last_opened_file_path": "/Users/ceyewan/CodeField/bustub-22",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager" selected="Google Test.StarterTest.DISABLED_TrieNodeInsertTest">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StarterTest.DISABLED_TrieNodeInsertTest" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="starter_trie_test" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="BusTub" RUN_TARGET_NAME="starter_trie_test" TEST_CLASS="StarterTest" TEST_METHOD="DISABLED_TrieNodeInsertTest" TEST_MODE="SUITE_TEST">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="BeforeTestRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="b_plus_tree_concurrent_test" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="b_plus_tree_concurrent_test" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="BusTub" RUN_TARGET_NAME="b_plus_tree_concurrent_test" TEST_MODE="SUITE_TEST">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="BeforeTestRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="b_plus_tree_contention_test" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="b_plus_tree_contention_test" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="BusTub" RUN_TARGET_NAME="b_plus_tree_contention_test" TEST_MODE="SUITE_TEST">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="BeforeTestRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="b_plus_tree_delete_test" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="b_plus_tree_delete_test" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="BusTub" RUN_TARGET_NAME="b_plus_tree_delete_test" TEST_MODE="SUITE_TEST">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="BeforeTestRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="b_plus_tree_insert_test" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="b_plus_tree_insert_test" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="BusTub" RUN_TARGET_NAME="b_plus_tree_insert_test" TEST_MODE="SUITE_TEST">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="BeforeTestRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="binder_test" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="binder_test" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="BusTub" RUN_TARGET_NAME="binder_test" TEST_MODE="SUITE_TEST">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="BeforeTestRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="buffer_pool_manager_instance_test" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="buffer_pool_manager_instance_test" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="BusTub" RUN_TARGET_NAME="buffer_pool_manager_instance_test" TEST_MODE="SUITE_TEST">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="BeforeTestRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="catalog_test" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="catalog_test" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="BusTub" RUN_TARGET_NAME="catalog_test" TEST_MODE="SUITE_TEST">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="BeforeTestRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="clock_replacer_test" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="clock_replacer_test" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="BusTub" RUN_TARGET_NAME="clock_replacer_test" TEST_MODE="SUITE_TEST">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="BeforeTestRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="deadlock_detection_test" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="deadlock_detection_test" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="BusTub" RUN_TARGET_NAME="deadlock_detection_test" TEST_MODE="SUITE_TEST">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="BeforeTestRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="disk_manager_test" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="disk_manager_test" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="BusTub" RUN_TARGET_NAME="disk_manager_test" TEST_MODE="SUITE_TEST">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="BeforeTestRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="extendible_hash_table_test" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="extendible_hash_table_test" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="BusTub" RUN_TARGET_NAME="extendible_hash_table_test" TEST_MODE="SUITE_TEST">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="BeforeTestRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="hash_table_page_test" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="hash_table_page_test" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="BusTub" RUN_TARGET_NAME="hash_table_page_test" TEST_MODE="SUITE_TEST">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="BeforeTestRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="hash_table_test" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="hash_table_test" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="BusTub" RUN_TARGET_NAME="hash_table_test" TEST_MODE="SUITE_TEST">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="BeforeTestRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="lock_manager_test" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="lock_manager_test" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="BusTub" RUN_TARGET_NAME="lock_manager_test" TEST_MODE="SUITE_TEST">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="BeforeTestRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="lru_k_replacer_test" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="lru_k_replacer_test" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="BusTub" RUN_TARGET_NAME="lru_k_replacer_test" TEST_MODE="SUITE_TEST">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="BeforeTestRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="lru_replacer_test" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="lru_replacer_test" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="BusTub" RUN_TARGET_NAME="lru_replacer_test" TEST_MODE="SUITE_TEST">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="BeforeTestRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="recovery_test" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="recovery_test" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="BusTub" RUN_TARGET_NAME="recovery_test" TEST_MODE="SUITE_TEST">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="BeforeTestRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="rwlatch_test" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="rwlatch_test" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="BusTub" RUN_TARGET_NAME="rwlatch_test" TEST_MODE="SUITE_TEST">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="BeforeTestRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="starter_trie_test" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="starter_trie_test" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="BusTub" RUN_TARGET_NAME="starter_trie_test" TEST_MODE="SUITE_TEST">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="BeforeTestRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="tmp_tuple_page_test" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="tmp_tuple_page_test" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="BusTub" RUN_TARGET_NAME="tmp_tuple_page_test" TEST_MODE="SUITE_TEST">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="BeforeTestRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="transaction_test" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="transaction_test" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="BusTub" RUN_TARGET_NAME="transaction_test" TEST_MODE="SUITE_TEST">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="BeforeTestRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="tuple_test" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="tuple_test" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="BusTub" RUN_TARGET_NAME="tuple_test" TEST_MODE="SUITE_TEST">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="BeforeTestRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="type_test" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="type_test" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="BusTub" RUN_TARGET_NAME="type_test" TEST_MODE="SUITE_TEST">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="BeforeTestRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="b_plus_tree_printer" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="b_plus_tree_printer" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="BusTub" RUN_TARGET_NAME="b_plus_tree_printer">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="build-tests" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="build-tests" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="bustub" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="bustub" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="bustub_binder" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="bustub_binder" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="bustub_buffer" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="bustub_buffer" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="bustub_catalog" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="bustub_catalog" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="bustub_common" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="bustub_common" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="bustub_concurrency" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="bustub_concurrency" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="bustub_container_disk_hash" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="bustub_container_disk_hash" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="bustub_container_hash" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="bustub_container_hash" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="bustub_execution" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="bustub_execution" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="bustub_linenoise" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="bustub_linenoise" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="bustub_murmur3" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="bustub_murmur3" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="bustub_optimizer" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="bustub_optimizer" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="bustub_planner" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="bustub_planner" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="bustub_primer" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="bustub_primer" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="bustub_recovery" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="bustub_recovery" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="bustub_statement" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="bustub_statement" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="bustub_storage_disk" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="bustub_storage_disk" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="bustub_storage_index" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="bustub_storage_index" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="bustub_storage_page" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="bustub_storage_page" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="bustub_storage_table" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="bustub_storage_table" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="bustub_type" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="bustub_type" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="check-clang-tidy-diff" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="check-clang-tidy-diff" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="check-clang-tidy-p0" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="check-clang-tidy-p0" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="check-clang-tidy-p1" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="check-clang-tidy-p1" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="check-clang-tidy-p2" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="check-clang-tidy-p2" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="check-clang-tidy-p3" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="check-clang-tidy-p3" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="check-clang-tidy-p4" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="check-clang-tidy-p4" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="check-clang-tidy" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="check-clang-tidy" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="check-format" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="check-format" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="check-lint" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="check-lint" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="check-public-ci-tests" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="check-public-ci-tests" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="check-tests" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="check-tests" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="duckdb_pg_query" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="duckdb_pg_query" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="fix-clang-tidy-diff" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="fix-clang-tidy-diff" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="fix-clang-tidy" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="fix-clang-tidy" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="fmt" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="fmt" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="format" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="format" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="fort" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="fort" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="gmock" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="gmock" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="gmock_main" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="gmock_main" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="gtest" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="gtest" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="gtest_main" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="gtest_main" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="headers" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="headers" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="p3.01-seqscan_test" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="p3.01-seqscan_test" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="p3.02-insert_test" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="p3.02-insert_test" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="p3.03-delete_test" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="p3.03-delete_test" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="p3.04-index-scan_test" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="p3.04-index-scan_test" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="p3.05-empty-table_test" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="p3.05-empty-table_test" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="p3.06-simple-agg_test" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="p3.06-simple-agg_test" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="p3.07-group-agg-1_test" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="p3.07-group-agg-1_test" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="p3.08-group-agg-2_test" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="p3.08-group-agg-2_test" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="p3.09-simple-join_test" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="p3.09-simple-join_test" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="p3.10-multi-way-join_test" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="p3.10-multi-way-join_test" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="p3.11-repeat-execute_test" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="p3.11-repeat-execute_test" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="p3.12-nested-index-join_test" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="p3.12-nested-index-join_test" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="p3.13-sort-limit_test" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="p3.13-sort-limit_test" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="p3.14-topn_test" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="p3.14-topn_test" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="p3.15-integration-1_test" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="p3.15-integration-1_test" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="p3.16-integration-2_test" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="p3.16-integration-2_test" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="p3.leaderboard-q1_test" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="p3.leaderboard-q1_test" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="p3.leaderboard-q2_test" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="p3.leaderboard-q2_test" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="p3.leaderboard-q3_test" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="p3.leaderboard-q3_test" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="shell" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="shell" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="BusTub" RUN_TARGET_NAME="shell">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="sqllogictest" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="sqllogictest" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="BusTub" RUN_TARGET_NAME="sqllogictest">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="submit-p1" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="submit-p1" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="submit-p2" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="submit-p2" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="submit-p3" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="submit-p3" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="submit-p4" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="submit-p4" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="terrier-bench" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="terrier-bench" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="BusTub" RUN_TARGET_NAME="terrier-bench">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test-p3" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="test-p3" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="utf8proc" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="utf8proc" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="所有 CTest" type="CTestRunConfiguration" factoryName="CTestRun" PROGRAM_PARAMS="--extra-verbose" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" WORKING_DIR="file://$CMakeCurrentLocalGenerationDir$" PASS_PARENT_ENVS_2="true" RUN_PATH="$CTestCurrentExecutableName$" EXPLICIT_BUILD_TARGET_NAME="all" TEST_MODE="SUITE_TEST">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="BeforeTestRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="CMake 应用程序.check-clang-tidy" />
+      <item itemvalue="CMake 应用程序.check-clang-tidy-diff" />
+      <item itemvalue="CMake 应用程序.check-clang-tidy-p0" />
+      <item itemvalue="CMake 应用程序.check-clang-tidy-p1" />
+      <item itemvalue="CMake 应用程序.check-clang-tidy-p2" />
+      <item itemvalue="CMake 应用程序.check-clang-tidy-p3" />
+      <item itemvalue="CMake 应用程序.check-clang-tidy-p4" />
+      <item itemvalue="CMake 应用程序.check-format" />
+      <item itemvalue="CMake 应用程序.check-lint" />
+      <item itemvalue="CMake 应用程序.fix-clang-tidy" />
+      <item itemvalue="CMake 应用程序.fix-clang-tidy-diff" />
+      <item itemvalue="CMake 应用程序.format" />
+      <item itemvalue="CMake 应用程序.submit-p1" />
+      <item itemvalue="CMake 应用程序.submit-p2" />
+      <item itemvalue="CMake 应用程序.submit-p3" />
+      <item itemvalue="CMake 应用程序.submit-p4" />
+      <item itemvalue="CMake 应用程序.bustub" />
+      <item itemvalue="CMake 应用程序.bustub_binder" />
+      <item itemvalue="CMake 应用程序.bustub_statement" />
+      <item itemvalue="CMake 应用程序.bustub_buffer" />
+      <item itemvalue="CMake 应用程序.bustub_catalog" />
+      <item itemvalue="CMake 应用程序.bustub_common" />
+      <item itemvalue="CMake 应用程序.bustub_concurrency" />
+      <item itemvalue="CMake 应用程序.bustub_container_disk_hash" />
+      <item itemvalue="CMake 应用程序.bustub_container_hash" />
+      <item itemvalue="CMake 应用程序.bustub_execution" />
+      <item itemvalue="CMake 应用程序.bustub_optimizer" />
+      <item itemvalue="CMake 应用程序.bustub_planner" />
+      <item itemvalue="CMake 应用程序.bustub_primer" />
+      <item itemvalue="CMake 应用程序.bustub_recovery" />
+      <item itemvalue="CMake 应用程序.bustub_storage_disk" />
+      <item itemvalue="CMake 应用程序.bustub_storage_index" />
+      <item itemvalue="CMake 应用程序.bustub_storage_page" />
+      <item itemvalue="CMake 应用程序.bustub_storage_table" />
+      <item itemvalue="CMake 应用程序.bustub_type" />
+      <item itemvalue="CMake 应用程序.build-tests" />
+      <item itemvalue="CMake 应用程序.check-public-ci-tests" />
+      <item itemvalue="CMake 应用程序.check-tests" />
+      <item itemvalue="CMake 应用程序.p3.01-seqscan_test" />
+      <item itemvalue="CMake 应用程序.p3.02-insert_test" />
+      <item itemvalue="CMake 应用程序.p3.03-delete_test" />
+      <item itemvalue="CMake 应用程序.p3.04-index-scan_test" />
+      <item itemvalue="CMake 应用程序.p3.05-empty-table_test" />
+      <item itemvalue="CMake 应用程序.p3.06-simple-agg_test" />
+      <item itemvalue="CMake 应用程序.p3.07-group-agg-1_test" />
+      <item itemvalue="CMake 应用程序.p3.08-group-agg-2_test" />
+      <item itemvalue="CMake 应用程序.p3.09-simple-join_test" />
+      <item itemvalue="CMake 应用程序.p3.10-multi-way-join_test" />
+      <item itemvalue="CMake 应用程序.p3.11-repeat-execute_test" />
+      <item itemvalue="CMake 应用程序.p3.12-nested-index-join_test" />
+      <item itemvalue="CMake 应用程序.p3.13-sort-limit_test" />
+      <item itemvalue="CMake 应用程序.p3.14-topn_test" />
+      <item itemvalue="CMake 应用程序.p3.15-integration-1_test" />
+      <item itemvalue="CMake 应用程序.p3.16-integration-2_test" />
+      <item itemvalue="CMake 应用程序.p3.leaderboard-q1_test" />
+      <item itemvalue="CMake 应用程序.p3.leaderboard-q2_test" />
+      <item itemvalue="CMake 应用程序.p3.leaderboard-q3_test" />
+      <item itemvalue="CMake 应用程序.test-p3" />
+      <item itemvalue="CMake 应用程序.fmt" />
+      <item itemvalue="CMake 应用程序.gmock" />
+      <item itemvalue="CMake 应用程序.gmock_main" />
+      <item itemvalue="CMake 应用程序.gtest" />
+      <item itemvalue="CMake 应用程序.gtest_main" />
+      <item itemvalue="CMake 应用程序.headers" />
+      <item itemvalue="CMake 应用程序.fort" />
+      <item itemvalue="CMake 应用程序.duckdb_pg_query" />
+      <item itemvalue="CMake 应用程序.bustub_linenoise" />
+      <item itemvalue="CMake 应用程序.bustub_murmur3" />
+      <item itemvalue="CMake 应用程序.utf8proc" />
+      <item itemvalue="CMake 应用程序.b_plus_tree_printer" />
+      <item itemvalue="CMake 应用程序.shell" />
+      <item itemvalue="CMake 应用程序.sqllogictest" />
+      <item itemvalue="CMake 应用程序.terrier-bench" />
+      <item itemvalue="CTest 应用程序.所有 CTest" />
+      <item itemvalue="Google Test.b_plus_tree_concurrent_test" />
+      <item itemvalue="Google Test.b_plus_tree_contention_test" />
+      <item itemvalue="Google Test.b_plus_tree_delete_test" />
+      <item itemvalue="Google Test.b_plus_tree_insert_test" />
+      <item itemvalue="Google Test.binder_test" />
+      <item itemvalue="Google Test.buffer_pool_manager_instance_test" />
+      <item itemvalue="Google Test.catalog_test" />
+      <item itemvalue="Google Test.clock_replacer_test" />
+      <item itemvalue="Google Test.deadlock_detection_test" />
+      <item itemvalue="Google Test.disk_manager_test" />
+      <item itemvalue="Google Test.extendible_hash_table_test" />
+      <item itemvalue="Google Test.hash_table_page_test" />
+      <item itemvalue="Google Test.hash_table_test" />
+      <item itemvalue="Google Test.lock_manager_test" />
+      <item itemvalue="Google Test.lru_k_replacer_test" />
+      <item itemvalue="Google Test.lru_replacer_test" />
+      <item itemvalue="Google Test.recovery_test" />
+      <item itemvalue="Google Test.rwlatch_test" />
+      <item itemvalue="Google Test.starter_trie_test" />
+      <item itemvalue="Google Test.tmp_tuple_page_test" />
+      <item itemvalue="Google Test.transaction_test" />
+      <item itemvalue="Google Test.tuple_test" />
+      <item itemvalue="Google Test.type_test" />
+      <item itemvalue="Google Test.StarterTest.DISABLED_TrieNodeInsertTest" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Google Test.StarterTest.DISABLED_TrieNodeInsertTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="2af793d5-c270-4eb5-b732-71c4b961a13f" name="变更" comment="" />
+      <created>1677594736103</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1677594736103</updated>
+      <workItem from="1677594763765" duration="2653000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

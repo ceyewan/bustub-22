@@ -30,7 +30,7 @@ namespace bustub {
  * BufferPoolManager reads disk pages to and from its internal buffer pool.
  */
 class BufferPoolManagerInstance : public BufferPoolManager {
- public:
+public:
   /**
    * @brief Creates a new BufferPoolManagerInstance.
    * @param pool_size the size of the buffer pool
@@ -52,7 +52,7 @@ class BufferPoolManagerInstance : public BufferPoolManager {
   /** @brief Return the pointer to all the pages in the buffer pool. */
   auto GetPages() -> Page * { return pages_; }
 
- protected:
+protected:
   /**
    * TODO(P1): Add implementation
    *
@@ -70,6 +70,7 @@ class BufferPoolManagerInstance : public BufferPoolManager {
    * @param[out] page_id id of created page
    * @return nullptr if no new pages could be created, otherwise pointer to new page
    */
+
   auto NewPgImp(page_id_t *page_id) -> Page * override;
 
   /**

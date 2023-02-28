@@ -34,7 +34,7 @@ namespace bustub {
  */
 template <typename K, typename V>
 class ExtendibleHashTable : public HashTable<K, V> {
- public:
+public:
   /**
    *
    * TODO(P1): Add implementation
@@ -109,7 +109,7 @@ class ExtendibleHashTable : public HashTable<K, V> {
    * Bucket class for each hash table bucket that the directory points to.
    */
   class Bucket {
-   public:
+  public:
     explicit Bucket(size_t size, int depth = 0);
 
     /** @brief Check if a bucket is full. */
@@ -157,14 +157,14 @@ class ExtendibleHashTable : public HashTable<K, V> {
      */
     auto Insert(const K &key, const V &value) -> bool;
 
-   private:
+  private:
     // TODO(student): You may add additional private members and helper functions
     size_t size_;
     int depth_;
     std::list<std::pair<K, V>> list_;
   };
 
- private:
+private:
   // TODO(student): You may add additional private members and helper functions and remove the ones
   // you don't need.
 
