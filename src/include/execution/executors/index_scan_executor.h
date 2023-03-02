@@ -27,7 +27,7 @@ namespace bustub {
  */
 
 class IndexScanExecutor : public AbstractExecutor {
- public:
+public:
   /**
    * Creates a new index scan executor.
    * @param exec_ctx the executor context
@@ -35,14 +35,16 @@ class IndexScanExecutor : public AbstractExecutor {
    */
   IndexScanExecutor(ExecutorContext *exec_ctx, const IndexScanPlanNode *plan);
 
-  auto GetOutputSchema() const -> const Schema & override { return plan_->OutputSchema(); }
+  auto GetOutputSchema() const -> const Schema & override {
+    return plan_->OutputSchema();
+  }
 
   void Init() override;
 
   auto Next(Tuple *tuple, RID *rid) -> bool override;
 
- private:
+private:
   /** The index scan plan node to be executed. */
   const IndexScanPlanNode *plan_;
 };
-}  // namespace bustub
+} // namespace bustub

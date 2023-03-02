@@ -27,13 +27,14 @@ namespace bustub {
  * The TopNExecutor executor executes a topn.
  */
 class TopNExecutor : public AbstractExecutor {
- public:
+public:
   /**
    * Construct a new TopNExecutor instance.
    * @param exec_ctx The executor context
    * @param plan The topn plan to be executed
    */
-  TopNExecutor(ExecutorContext *exec_ctx, const TopNPlanNode *plan, std::unique_ptr<AbstractExecutor> &&child_executor);
+  TopNExecutor(ExecutorContext *exec_ctx, const TopNPlanNode *plan,
+               std::unique_ptr<AbstractExecutor> &&child_executor);
 
   /** Initialize the topn */
   void Init() override;
@@ -47,10 +48,12 @@ class TopNExecutor : public AbstractExecutor {
   auto Next(Tuple *tuple, RID *rid) -> bool override;
 
   /** @return The output schema for the topn */
-  auto GetOutputSchema() const -> const Schema & override { return plan_->OutputSchema(); }
+  auto GetOutputSchema() const -> const Schema & override {
+    return plan_->OutputSchema();
+  }
 
- private:
+private:
   /** The topn plan node to be executed */
   const TopNPlanNode *plan_;
 };
-}  // namespace bustub
+} // namespace bustub

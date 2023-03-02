@@ -26,7 +26,8 @@ auto Column::ToString(bool simplified) const -> std::string {
 
   std::ostringstream os;
 
-  os << "Column[" << column_name_ << ", " << Type::TypeIdToString(column_type_) << ", "
+  os << "Column[" << column_name_ << ", " << Type::TypeIdToString(column_type_)
+     << ", "
      << "Offset:" << column_offset_ << ", ";
 
   if (IsInlined()) {
@@ -38,4 +39,4 @@ auto Column::ToString(bool simplified) const -> std::string {
   return (os.str());
 }
 
-}  // namespace bustub
+} // namespace bustub

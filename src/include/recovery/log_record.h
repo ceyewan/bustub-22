@@ -35,7 +35,8 @@ enum class LogRecordType {
 };
 
 /**
- * For every write operation on the table page, you should write ahead a corresponding log record.
+ * For every write operation on the table page, you should write ahead a
+ *corresponding log record.
  *
  * For EACH log record, HEADER is like (5 fields in common, 20 bytes in total).
  *---------------------------------------------
@@ -51,7 +52,8 @@ enum class LogRecordType {
  *---------------------------------------------------------------
  * For update type log record
  *-----------------------------------------------------------------------------------
- * | HEADER | tuple_rid | tuple_size | old_tuple_data | tuple_size | new_tuple_data |
+ * | HEADER | tuple_rid | tuple_size | old_tuple_data | tuple_size |
+ *new_tuple_data |
  *-----------------------------------------------------------------------------------
  * For new page type log record
  *--------------------------
@@ -62,21 +64,25 @@ class LogRecord {
   friend class LogManager;
   friend class LogRecovery;
 
- public:
+public:
   LogRecord() = default;
 
   // constructor for Transaction type(BEGIN/COMMIT/ABORT)
   LogRecord(txn_id_t txn_id, lsn_t prev_lsn, LogRecordType log_record_type)
-      : size_(HEADER_SIZE), txn_id_(txn_id), prev_lsn_(prev_lsn), log_record_type_(log_record_type) {}
+      : size_(HEADER_SIZE), txn_id_(txn_id), prev_lsn_(prev_lsn),
+        log_record_type_(log_record_type) {}
 
   // constructor for INSERT/DELETE type
-  LogRecord(txn_id_t txn_id, lsn_t prev_lsn, LogRecordType log_record_type, const RID &rid, const Tuple &tuple)
-      : txn_id_(txn_id), prev_lsn_(prev_lsn), log_record_type_(log_record_type) {
+  LogRecord(txn_id_t txn_id, lsn_t prev_lsn, LogRecordType log_record_type,
+            const RID &rid, const Tuple &tuple)
+      : txn_id_(txn_id), prev_lsn_(prev_lsn),
+        log_record_type_(log_record_type) {
     if (log_record_type == LogRecordType::INSERT) {
       insert_rid_ = rid;
       insert_tuple_ = tuple;
     } else {
-      assert(log_record_type == LogRecordType::APPLYDELETE || log_record_type == LogRecordType::MARKDELETE ||
+      assert(log_record_type == LogRecordType::APPLYDELETE ||
+             log_record_type == LogRecordType::MARKDELETE ||
              log_record_type == LogRecordType::ROLLBACKDELETE);
       delete_rid_ = rid;
       delete_tuple_ = tuple;
@@ -86,27 +92,24 @@ class LogRecord {
   }
 
   // constructor for UPDATE type
-  LogRecord(txn_id_t txn_id, lsn_t prev_lsn, LogRecordType log_record_type, const RID &update_rid,
-            const Tuple &old_tuple, const Tuple &new_tuple)
-      : txn_id_(txn_id),
-        prev_lsn_(prev_lsn),
-        log_record_type_(log_record_type),
-        update_rid_(update_rid),
-        old_tuple_(old_tuple),
-        new_tuple_(new_tuple) {
+  LogRecord(txn_id_t txn_id, lsn_t prev_lsn, LogRecordType log_record_type,
+            const RID &update_rid, const Tuple &old_tuple,
+            const Tuple &new_tuple)
+      : txn_id_(txn_id), prev_lsn_(prev_lsn), log_record_type_(log_record_type),
+        update_rid_(update_rid), old_tuple_(old_tuple), new_tuple_(new_tuple) {
     // calculate log record size
-    size_ = HEADER_SIZE + sizeof(RID) + old_tuple.GetLength() + new_tuple.GetLength() + 2 * sizeof(int32_t);
+    size_ = HEADER_SIZE + sizeof(RID) + old_tuple.GetLength() +
+            new_tuple.GetLength() + 2 * sizeof(int32_t);
   }
 
   // constructor for NEWPAGE type
-  LogRecord(txn_id_t txn_id, lsn_t prev_lsn, LogRecordType log_record_type, page_id_t prev_page_id, page_id_t page_id)
-      : size_(HEADER_SIZE),
-        txn_id_(txn_id),
-        prev_lsn_(prev_lsn),
-        log_record_type_(log_record_type),
-        prev_page_id_(prev_page_id),
+  LogRecord(txn_id_t txn_id, lsn_t prev_lsn, LogRecordType log_record_type,
+            page_id_t prev_page_id, page_id_t page_id)
+      : size_(HEADER_SIZE), txn_id_(txn_id), prev_lsn_(prev_lsn),
+        log_record_type_(log_record_type), prev_page_id_(prev_page_id),
         page_id_(page_id) {
-    // calculate log record size, header size + sizeof(prev_page_id) + sizeof(page_id)
+    // calculate log record size, header size + sizeof(prev_page_id) +
+    // sizeof(page_id)
     size_ = HEADER_SIZE + sizeof(page_id_t) * 2;
   }
 
@@ -151,7 +154,7 @@ class LogRecord {
     return os.str();
   }
 
- private:
+private:
   // the length of log record(for serialization, in bytes)
   int32_t size_{0};
   // must have fields
@@ -177,6 +180,6 @@ class LogRecord {
   page_id_t prev_page_id_{INVALID_PAGE_ID};
   page_id_t page_id_{INVALID_PAGE_ID};
   static const int HEADER_SIZE = 20;
-};  // namespace bustub
+}; // namespace bustub
 
-}  // namespace bustub
+} // namespace bustub

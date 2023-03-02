@@ -1,9 +1,9 @@
 #pragma once
 
+#include "binder/bound_expression.h"
 #include <memory>
 #include <string>
 #include <utility>
-#include "binder/bound_expression.h"
 
 namespace bustub {
 
@@ -11,13 +11,18 @@ namespace bustub {
  * The alias in SELECT list, e.g. `SELECT count(x) AS y`, the `y` is an alias.
  */
 class BoundAlias : public BoundExpression {
- public:
+public:
   explicit BoundAlias(std::string alias, std::unique_ptr<BoundExpression> child)
-      : BoundExpression(ExpressionType::ALIAS), alias_(std::move(alias)), child_(std::move(child)) {}
+      : BoundExpression(ExpressionType::ALIAS), alias_(std::move(alias)),
+        child_(std::move(child)) {}
 
-  auto ToString() const -> std::string override { return fmt::format("({} as {})", child_, alias_); }
+  auto ToString() const -> std::string override {
+    return fmt::format("({} as {})", child_, alias_);
+  }
 
-  auto HasAggregation() const -> bool override { return child_->HasAggregation(); }
+  auto HasAggregation() const -> bool override {
+    return child_->HasAggregation();
+  }
 
   /** Alias name. */
   std::string alias_;
@@ -25,4 +30,4 @@ class BoundAlias : public BoundExpression {
   /** The actual expression */
   std::unique_ptr<BoundExpression> child_;
 };
-}  // namespace bustub
+} // namespace bustub

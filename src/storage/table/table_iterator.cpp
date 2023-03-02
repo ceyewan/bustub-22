@@ -39,15 +39,17 @@ auto TableIterator::operator->() -> Tuple * {
 
 auto TableIterator::operator++() -> TableIterator & {
   BufferPoolManager *buffer_pool_manager = table_heap_->buffer_pool_manager_;
-  auto cur_page = static_cast<TablePage *>(buffer_pool_manager->FetchPage(tuple_->rid_.GetPageId()));
-  BUSTUB_ENSURE(cur_page != nullptr, "BPM full");  // all pages are pinned
+  auto cur_page = static_cast<TablePage *>(
+      buffer_pool_manager->FetchPage(tuple_->rid_.GetPageId()));
+  BUSTUB_ENSURE(cur_page != nullptr, "BPM full"); // all pages are pinned
 
   cur_page->RLatch();
   RID next_tuple_rid;
   if (!cur_page->GetNextTupleRid(tuple_->rid_,
-                                 &next_tuple_rid)) {  // end of this page
+                                 &next_tuple_rid)) { // end of this page
     while (cur_page->GetNextPageId() != INVALID_PAGE_ID) {
-      auto next_page = static_cast<TablePage *>(buffer_pool_manager->FetchPage(cur_page->GetNextPageId()));
+      auto next_page = static_cast<TablePage *>(
+          buffer_pool_manager->FetchPage(cur_page->GetNextPageId()));
       cur_page->RUnlatch();
       buffer_pool_manager->UnpinPage(cur_page->GetTablePageId(), false);
       cur_page = next_page;
@@ -60,8 +62,9 @@ auto TableIterator::operator++() -> TableIterator & {
   tuple_->rid_ = next_tuple_rid;
 
   if (*this != table_heap_->End()) {
-    // DO NOT ACQUIRE READ LOCK twice in a single thread otherwise it may deadlock.
-    // See https://users.rust-lang.org/t/how-bad-is-the-potential-deadlock-mentioned-in-rwlocks-document/67234
+    // DO NOT ACQUIRE READ LOCK twice in a single thread otherwise it may
+    // deadlock. See
+    // https://users.rust-lang.org/t/how-bad-is-the-potential-deadlock-mentioned-in-rwlocks-document/67234
     if (!table_heap_->GetTuple(tuple_->rid_, tuple_, txn_, false)) {
       cur_page->RUnlatch();
       buffer_pool_manager->UnpinPage(cur_page->GetTablePageId(), false);
@@ -80,4 +83,4 @@ auto TableIterator::operator++(int) -> TableIterator {
   return clone;
 }
 
-}  // namespace bustub
+} // namespace bustub

@@ -11,26 +11,32 @@
 //===----------------------------------------------------------------------===//
 
 #pragma once
-#include <string>
 #include "common/exception.h"
 #include "type/type.h"
 #include "type/value.h"
+#include <string>
 
 namespace bustub {
 // A boolean value isn't a real SQL type, but we treat it as one to keep
 // consistent in the expression subsystem.
 class BooleanType : public Type {
- public:
+public:
   ~BooleanType() override = default;
   BooleanType();
 
   // Comparison functions
-  auto CompareEquals(const Value &left, const Value &right) const -> CmpBool override;
-  auto CompareNotEquals(const Value &left, const Value &right) const -> CmpBool override;
-  auto CompareLessThan(const Value &left, const Value &right) const -> CmpBool override;
-  auto CompareLessThanEquals(const Value &left, const Value &right) const -> CmpBool override;
-  auto CompareGreaterThan(const Value &left, const Value &right) const -> CmpBool override;
-  auto CompareGreaterThanEquals(const Value &left, const Value &right) const -> CmpBool override;
+  auto CompareEquals(const Value &left, const Value &right) const
+      -> CmpBool override;
+  auto CompareNotEquals(const Value &left, const Value &right) const
+      -> CmpBool override;
+  auto CompareLessThan(const Value &left, const Value &right) const
+      -> CmpBool override;
+  auto CompareLessThanEquals(const Value &left, const Value &right) const
+      -> CmpBool override;
+  auto CompareGreaterThan(const Value &left, const Value &right) const
+      -> CmpBool override;
+  auto CompareGreaterThanEquals(const Value &left, const Value &right) const
+      -> CmpBool override;
 
   // Decimal types are always inlined
   auto IsInlined(const Value &val) const -> bool override { return true; }
@@ -49,4 +55,4 @@ class BooleanType : public Type {
 
   auto CastAs(const Value &val, TypeId type_id) const -> Value override;
 };
-}  // namespace bustub
+} // namespace bustub

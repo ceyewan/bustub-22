@@ -12,11 +12,14 @@
 #include "execution/executors/index_scan_executor.h"
 
 namespace bustub {
-IndexScanExecutor::IndexScanExecutor(ExecutorContext *exec_ctx, const IndexScanPlanNode *plan)
+IndexScanExecutor::IndexScanExecutor(ExecutorContext *exec_ctx,
+                                     const IndexScanPlanNode *plan)
     : AbstractExecutor(exec_ctx) {}
 
-void IndexScanExecutor::Init() { throw NotImplementedException("IndexScanExecutor is not implemented"); }
+void IndexScanExecutor::Init() {
+  throw NotImplementedException("IndexScanExecutor is not implemented");
+}
 
 auto IndexScanExecutor::Next(Tuple *tuple, RID *rid) -> bool { return false; }
 
-}  // namespace bustub
+} // namespace bustub

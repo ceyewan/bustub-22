@@ -12,12 +12,12 @@
 
 #pragma once
 
-#include <sys/stat.h>
 #include <algorithm>
 #include <cstring>
 #include <iostream>
 #include <memory>
 #include <string>
+#include <sys/stat.h>
 #include <vector>
 
 #include "catalog/schema.h"
@@ -28,7 +28,8 @@
 
 namespace bustub {
 
-auto ParseCreateStatement(const std::string &sql_base) -> std::unique_ptr<Schema> {
+auto ParseCreateStatement(const std::string &sql_base)
+    -> std::unique_ptr<Schema> {
   std::string::size_type n;
   std::vector<Column> v{};
   std::string column_name;
@@ -86,10 +87,11 @@ auto ParseCreateStatement(const std::string &sql_base) -> std::unique_ptr<Schema
         v.emplace_back(col);
       }
     } else {
-      throw Exception(ExceptionType::UNKNOWN_TYPE, "unknown type for create table");
+      throw Exception(ExceptionType::UNKNOWN_TYPE,
+                      "unknown type for create table");
     }
   }
   return std::make_unique<Schema>(v);
 }
 
-}  // namespace bustub
+} // namespace bustub

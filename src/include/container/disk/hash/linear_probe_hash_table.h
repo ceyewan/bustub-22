@@ -33,7 +33,7 @@ namespace bustub {
  */
 template <typename KeyType, typename ValueType, typename KeyComparator>
 class LinearProbeHashTable {
- public:
+public:
   /**
    * Creates a new LinearProbeHashTable
    *
@@ -42,8 +42,11 @@ class LinearProbeHashTable {
    * @param num_buckets initial number of buckets contained by this hash table
    * @param hash_fn the hash function
    */
-  explicit LinearProbeHashTable(const std::string &name, BufferPoolManager *buffer_pool_manager,
-                                const KeyComparator &comparator, size_t num_buckets, HashFunction<KeyType> hash_fn);
+  explicit LinearProbeHashTable(const std::string &name,
+                                BufferPoolManager *buffer_pool_manager,
+                                const KeyComparator &comparator,
+                                size_t num_buckets,
+                                HashFunction<KeyType> hash_fn);
 
   /**
    * Inserts a key-value pair into the hash table.
@@ -52,7 +55,8 @@ class LinearProbeHashTable {
    * @param value the value to be associated with the key
    * @return true if insert succeeded, false otherwise
    */
-  auto Insert(Transaction *transaction, const KeyType &key, const ValueType &value) -> bool;
+  auto Insert(Transaction *transaction, const KeyType &key,
+              const ValueType &value) -> bool;
 
   /**
    * Deletes the associated value for the given key.
@@ -61,7 +65,8 @@ class LinearProbeHashTable {
    * @param value the value to delete
    * @return true if remove succeeded, false otherwise
    */
-  auto Remove(Transaction *transaction, const KeyType &key, const ValueType &value) -> bool;
+  auto Remove(Transaction *transaction, const KeyType &key,
+              const ValueType &value) -> bool;
 
   /**
    * Performs a point query on the hash table.
@@ -70,7 +75,8 @@ class LinearProbeHashTable {
    * @param[out] result the value(s) associated with a given key
    * @return the value(s) associated with the given key
    */
-  auto GetValue(Transaction *transaction, const KeyType &key, std::vector<ValueType> *result) -> bool;
+  auto GetValue(Transaction *transaction, const KeyType &key,
+                std::vector<ValueType> *result) -> bool;
 
   /**
    * Resizes the table to at least twice the initial size provided.
@@ -84,13 +90,15 @@ class LinearProbeHashTable {
    */
   auto GetSize() -> size_t;
 
- private:
+private:
   auto GetHeaderPage() -> HashTableHeaderPage *;
   auto GetBlockPage(page_id_t block_page_id) -> HASH_TABLE_BLOCK_TYPE *;
-  void ResizeInsert(HashTableHeaderPage *header_page, const KeyType &key, const ValueType &value);
+  void ResizeInsert(HashTableHeaderPage *header_page, const KeyType &key,
+                    const ValueType &value);
   void DeleteBlockPages(HashTableHeaderPage *old_header_page);
   void CreateNewBlockPages(HashTableHeaderPage *header_page, size_t num_blocks);
-  auto GetValueLatchFree(Transaction *transaction, const KeyType &key, std::vector<ValueType> *result) -> bool;
+  auto GetValueLatchFree(Transaction *transaction, const KeyType &key,
+                         std::vector<ValueType> *result) -> bool;
 
   // member variable
   page_id_t header_page_id_;
@@ -104,4 +112,4 @@ class LinearProbeHashTable {
   HashFunction<KeyType> hash_fn_;
 };
 
-}  // namespace bustub
+} // namespace bustub

@@ -21,7 +21,8 @@
 namespace bustub {
 
 // TODO(Amadou): It does not look like nulls are supported. Add a null bitmap?
-Tuple::Tuple(std::vector<Value> values, const Schema *schema) : allocated_(true) {
+Tuple::Tuple(std::vector<Value> values, const Schema *schema)
+    : allocated_(true) {
   assert(values.size() == schema->GetColumnCount());
 
   // 1. Calculate the size of the tuple.
@@ -61,7 +62,8 @@ Tuple::Tuple(std::vector<Value> values, const Schema *schema) : allocated_(true)
   }
 }
 
-Tuple::Tuple(const Tuple &other) : allocated_(other.allocated_), rid_(other.rid_), size_(other.size_) {
+Tuple::Tuple(const Tuple &other)
+    : allocated_(other.allocated_), rid_(other.rid_), size_(other.size_) {
   if (allocated_) {
     delete[] data_;
   }
@@ -95,7 +97,8 @@ auto Tuple::operator=(const Tuple &other) -> Tuple & {
   return *this;
 }
 
-auto Tuple::GetValue(const Schema *schema, const uint32_t column_idx) const -> Value {
+auto Tuple::GetValue(const Schema *schema, const uint32_t column_idx) const
+    -> Value {
   assert(schema);
   assert(data_);
   const TypeId column_type = schema->GetColumn(column_idx).GetType();
@@ -104,8 +107,8 @@ auto Tuple::GetValue(const Schema *schema, const uint32_t column_idx) const -> V
   return Value::DeserializeFrom(data_ptr, column_type);
 }
 
-auto Tuple::KeyFromTuple(const Schema &schema, const Schema &key_schema, const std::vector<uint32_t> &key_attrs)
-    -> Tuple {
+auto Tuple::KeyFromTuple(const Schema &schema, const Schema &key_schema,
+                         const std::vector<uint32_t> &key_attrs) -> Tuple {
   std::vector<Value> values;
   values.reserve(key_attrs.size());
   for (auto idx : key_attrs) {
@@ -114,7 +117,8 @@ auto Tuple::KeyFromTuple(const Schema &schema, const Schema &key_schema, const s
   return {values, &key_schema};
 }
 
-auto Tuple::GetDataPtr(const Schema *schema, const uint32_t column_idx) const -> const char * {
+auto Tuple::GetDataPtr(const Schema *schema, const uint32_t column_idx) const
+    -> const char * {
   assert(schema);
   assert(data_);
   const auto &col = schema->GetColumn(column_idx);
@@ -171,4 +175,4 @@ void Tuple::DeserializeFrom(const char *storage) {
   this->allocated_ = true;
 }
 
-}  // namespace bustub
+} // namespace bustub

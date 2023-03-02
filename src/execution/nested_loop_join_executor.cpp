@@ -16,18 +16,25 @@
 
 namespace bustub {
 
-NestedLoopJoinExecutor::NestedLoopJoinExecutor(ExecutorContext *exec_ctx, const NestedLoopJoinPlanNode *plan,
-                                               std::unique_ptr<AbstractExecutor> &&left_executor,
-                                               std::unique_ptr<AbstractExecutor> &&right_executor)
+NestedLoopJoinExecutor::NestedLoopJoinExecutor(
+    ExecutorContext *exec_ctx, const NestedLoopJoinPlanNode *plan,
+    std::unique_ptr<AbstractExecutor> &&left_executor,
+    std::unique_ptr<AbstractExecutor> &&right_executor)
     : AbstractExecutor(exec_ctx) {
-  if (!(plan->GetJoinType() == JoinType::LEFT || plan->GetJoinType() == JoinType::INNER)) {
+  if (!(plan->GetJoinType() == JoinType::LEFT ||
+        plan->GetJoinType() == JoinType::INNER)) {
     // Note for 2022 Fall: You ONLY need to implement left join and inner join.
-    throw bustub::NotImplementedException(fmt::format("join type {} not supported", plan->GetJoinType()));
+    throw bustub::NotImplementedException(
+        fmt::format("join type {} not supported", plan->GetJoinType()));
   }
 }
 
-void NestedLoopJoinExecutor::Init() { throw NotImplementedException("NestedLoopJoinExecutor is not implemented"); }
+void NestedLoopJoinExecutor::Init() {
+  throw NotImplementedException("NestedLoopJoinExecutor is not implemented");
+}
 
-auto NestedLoopJoinExecutor::Next(Tuple *tuple, RID *rid) -> bool { return false; }
+auto NestedLoopJoinExecutor::Next(Tuple *tuple, RID *rid) -> bool {
+  return false;
+}
 
-}  // namespace bustub
+} // namespace bustub

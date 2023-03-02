@@ -42,7 +42,7 @@ class Catalog;
 class ExecutionEngine;
 
 class ResultWriter {
- public:
+public:
   ResultWriter() = default;
   virtual ~ResultWriter() = default;
 
@@ -59,7 +59,7 @@ class ResultWriter {
 };
 
 class NoopWriter : public ResultWriter {
- public:
+public:
   NoopWriter() = default;
   void WriteCell(const std::string &cell) override {}
   void WriteHeaderCell(const std::string &cell) override {}
@@ -72,12 +72,20 @@ class NoopWriter : public ResultWriter {
 };
 
 class SimpleStreamWriter : public ResultWriter {
- public:
-  explicit SimpleStreamWriter(std::ostream &stream, bool disable_header = false, const char *separator = "\t")
-      : disable_header_(disable_header), stream_(stream), separator_(separator) {}
-  static auto BoldOn(std::ostream &os) -> std::ostream & { return os << "\e[1m"; }
-  static auto BoldOff(std::ostream &os) -> std::ostream & { return os << "\e[0m"; }
-  void WriteCell(const std::string &cell) override { stream_ << cell << separator_; }
+public:
+  explicit SimpleStreamWriter(std::ostream &stream, bool disable_header = false,
+                              const char *separator = "\t")
+      : disable_header_(disable_header), stream_(stream),
+        separator_(separator) {}
+  static auto BoldOn(std::ostream &os) -> std::ostream & {
+    return os << "\e[1m";
+  }
+  static auto BoldOff(std::ostream &os) -> std::ostream & {
+    return os << "\e[0m";
+  }
+  void WriteCell(const std::string &cell) override {
+    stream_ << cell << separator_;
+  }
   void WriteHeaderCell(const std::string &cell) override {
     if (!disable_header_) {
       stream_ << BoldOn << cell << BoldOff << separator_;
@@ -105,30 +113,30 @@ class HtmlWriter : public ResultWriter {
     buffer.reserve(data.size());
     for (const char &ch : data) {
       switch (ch) {
-        case '&':
-          buffer.append("&amp;");
-          break;
-        case '\"':
-          buffer.append("&quot;");
-          break;
-        case '\'':
-          buffer.append("&apos;");
-          break;
-        case '<':
-          buffer.append("&lt;");
-          break;
-        case '>':
-          buffer.append("&gt;");
-          break;
-        default:
-          buffer.push_back(ch);
-          break;
+      case '&':
+        buffer.append("&amp;");
+        break;
+      case '\"':
+        buffer.append("&quot;");
+        break;
+      case '\'':
+        buffer.append("&apos;");
+        break;
+      case '<':
+        buffer.append("&lt;");
+        break;
+      case '>':
+        buffer.append("&gt;");
+        break;
+      default:
+        buffer.push_back(ch);
+        break;
       }
     }
     return buffer;
   }
 
- public:
+public:
   void WriteCell(const std::string &cell) override {
     std::cout << cell;
     if (!simplified_output_) {
@@ -183,7 +191,7 @@ class HtmlWriter : public ResultWriter {
 };
 
 class FortTableWriter : public ResultWriter {
- public:
+public:
   void WriteCell(const std::string &cell) override { table_ << cell; }
   void WriteHeaderCell(const std::string &cell) override { table_ << cell; }
   void BeginHeader() override { table_ << fort::header; }
@@ -204,13 +212,14 @@ class FortTableWriter : public ResultWriter {
 };
 
 class BustubInstance {
- private:
+private:
   /**
    * Get the executor context from the BusTub instance.
    */
-  auto MakeExecutorContext(Transaction *txn) -> std::unique_ptr<ExecutorContext>;
+  auto MakeExecutorContext(Transaction *txn)
+      -> std::unique_ptr<ExecutorContext>;
 
- public:
+public:
   explicit BustubInstance(const std::string &db_file_name);
 
   BustubInstance();
@@ -225,7 +234,8 @@ class BustubInstance {
   /**
    * Execute a SQL query in the BusTub instance with provided txn.
    */
-  auto ExecuteSqlTxn(const std::string &sql, ResultWriter &writer, Transaction *txn) -> bool;
+  auto ExecuteSqlTxn(const std::string &sql, ResultWriter &writer,
+                     Transaction *txn) -> bool;
 
   /**
    * FOR TEST ONLY. Generate test tables in this BusTub instance.
@@ -241,8 +251,9 @@ class BustubInstance {
    */
   void GenerateMockTable();
 
-  // TODO(chi): change to unique_ptr. Currently they're directly referenced by recovery test, so
-  // we cannot do anything on them until someone decides to refactor the recovery test.
+  // TODO(chi): change to unique_ptr. Currently they're directly referenced by
+  // recovery test, so we cannot do anything on them until someone decides to
+  // refactor the recovery test.
 
   DiskManager *disk_manager_;
   BufferPoolManager *buffer_pool_manager_;
@@ -262,11 +273,12 @@ class BustubInstance {
   }
 
   auto IsForceStarterRule() -> bool {
-    auto variable = StringUtil::Lower(GetSessionVariable("force_optimizer_starter_rule"));
+    auto variable =
+        StringUtil::Lower(GetSessionVariable("force_optimizer_starter_rule"));
     return variable == "1" || variable == "true" || variable == "yes";
   }
 
- private:
+private:
   void CmdDisplayTables(ResultWriter &writer);
   void CmdDisplayIndices(ResultWriter &writer);
   void CmdDisplayHelp(ResultWriter &writer);
@@ -274,4 +286,4 @@ class BustubInstance {
   std::unordered_map<std::string, std::string> session_variables_;
 };
 
-}  // namespace bustub
+} // namespace bustub

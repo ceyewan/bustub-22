@@ -1,11 +1,12 @@
 #include "optimizer/optimizer.h"
-#include <optional>
 #include "common/util/string_util.h"
 #include "execution/plans/abstract_plan.h"
+#include <optional>
 
 namespace bustub {
 
-auto Optimizer::Optimize(const AbstractPlanNodeRef &plan) -> AbstractPlanNodeRef {
+auto Optimizer::Optimize(const AbstractPlanNodeRef &plan)
+    -> AbstractPlanNodeRef {
   if (force_starter_rule_) {
     // Use starter rules when `force_starter_rule_` is set to true.
     auto p = plan;
@@ -20,7 +21,8 @@ auto Optimizer::Optimize(const AbstractPlanNodeRef &plan) -> AbstractPlanNodeRef
   return OptimizeCustom(plan);
 }
 
-auto Optimizer::EstimatedCardinality(const std::string &table_name) -> std::optional<size_t> {
+auto Optimizer::EstimatedCardinality(const std::string &table_name)
+    -> std::optional<size_t> {
   if (StringUtil::EndsWith(table_name, "_1m")) {
     return std::make_optional(1000000);
   }
@@ -42,4 +44,4 @@ auto Optimizer::EstimatedCardinality(const std::string &table_name) -> std::opti
   return std::nullopt;
 }
 
-}  // namespace bustub
+} // namespace bustub

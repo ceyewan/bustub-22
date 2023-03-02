@@ -21,15 +21,17 @@
 namespace bustub {
 
 /**
- * Page is the basic unit of storage within the database system. Page provides a wrapper for actual data pages being
- * held in main memory. Page also contains book-keeping information that is used by the buffer pool manager, e.g.
- * pin count, dirty flag, page id, etc.
+ * Page is the basic unit of storage within the database system. Page provides a
+ * wrapper for actual data pages being held in main memory. Page also contains
+ * book-keeping information that is used by the buffer pool manager, e.g. pin
+ * count, dirty flag, page id, etc.
  */
 class Page {
-  // There is book-keeping information inside the page that should only be relevant to the buffer pool manager.
+  // There is book-keeping information inside the page that should only be
+  // relevant to the buffer pool manager.
   friend class BufferPoolManagerInstance;
 
- public:
+public:
   /** Constructor. Zeros out the page data. */
   Page() { ResetMemory(); }
 
@@ -45,7 +47,8 @@ class Page {
   /** @return the pin count of this page */
   inline auto GetPinCount() -> int { return pin_count_; }
 
-  /** @return true if the page in memory has been modified from the page on disk, false otherwise */
+  /** @return true if the page in memory has been modified from the page on
+   * disk, false otherwise */
   inline auto IsDirty() -> bool { return is_dirty_; }
 
   /** Acquire the page write latch. */
@@ -61,12 +64,16 @@ class Page {
   inline void RUnlatch() { rwlatch_.RUnlock(); }
 
   /** @return the page LSN. */
-  inline auto GetLSN() -> lsn_t { return *reinterpret_cast<lsn_t *>(GetData() + OFFSET_LSN); }
+  inline auto GetLSN() -> lsn_t {
+    return *reinterpret_cast<lsn_t *>(GetData() + OFFSET_LSN);
+  }
 
   /** Sets the page LSN. */
-  inline void SetLSN(lsn_t lsn) { memcpy(GetData() + OFFSET_LSN, &lsn, sizeof(lsn_t)); }
+  inline void SetLSN(lsn_t lsn) {
+    memcpy(GetData() + OFFSET_LSN, &lsn, sizeof(lsn_t));
+  }
 
- protected:
+protected:
   static_assert(sizeof(page_id_t) == 4);
   static_assert(sizeof(lsn_t) == 4);
 
@@ -74,9 +81,11 @@ class Page {
   static constexpr size_t OFFSET_PAGE_START = 0;
   static constexpr size_t OFFSET_LSN = 4;
 
- private:
+private:
   /** Zeroes out the data that is held within the page. */
-  inline void ResetMemory() { memset(data_, OFFSET_PAGE_START, BUSTUB_PAGE_SIZE); }
+  inline void ResetMemory() {
+    memset(data_, OFFSET_PAGE_START, BUSTUB_PAGE_SIZE);
+  }
 
   /** The actual data that is stored within a page. */
   char data_[BUSTUB_PAGE_SIZE]{};
@@ -84,10 +93,11 @@ class Page {
   page_id_t page_id_ = INVALID_PAGE_ID;
   /** The pin count of this page. */
   int pin_count_ = 0;
-  /** True if the page is dirty, i.e. it is different from its corresponding page on disk. */
+  /** True if the page is dirty, i.e. it is different from its corresponding
+   * page on disk. */
   bool is_dirty_ = false;
   /** Page latch. */
   ReaderWriterLatch rwlatch_;
 };
 
-}  // namespace bustub
+} // namespace bustub

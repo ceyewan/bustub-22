@@ -20,17 +20,20 @@
 namespace bustub {
 
 template <typename KeyType, typename ValueType, typename KeyComparator>
-auto HASH_TABLE_BUCKET_TYPE::GetValue(KeyType key, KeyComparator cmp, std::vector<ValueType> *result) -> bool {
+auto HASH_TABLE_BUCKET_TYPE::GetValue(KeyType key, KeyComparator cmp,
+                                      std::vector<ValueType> *result) -> bool {
   return false;
 }
 
 template <typename KeyType, typename ValueType, typename KeyComparator>
-auto HASH_TABLE_BUCKET_TYPE::Insert(KeyType key, ValueType value, KeyComparator cmp) -> bool {
+auto HASH_TABLE_BUCKET_TYPE::Insert(KeyType key, ValueType value,
+                                    KeyComparator cmp) -> bool {
   return true;
 }
 
 template <typename KeyType, typename ValueType, typename KeyComparator>
-auto HASH_TABLE_BUCKET_TYPE::Remove(KeyType key, ValueType value, KeyComparator cmp) -> bool {
+auto HASH_TABLE_BUCKET_TYPE::Remove(KeyType key, ValueType value,
+                                    KeyComparator cmp) -> bool {
   return false;
 }
 
@@ -97,7 +100,8 @@ void HASH_TABLE_BUCKET_TYPE::PrintBucket() {
     }
   }
 
-  LOG_INFO("Bucket Capacity: %lu, Size: %u, Taken: %u, Free: %u", BUCKET_ARRAY_SIZE, size, taken, free);
+  LOG_INFO("Bucket Capacity: %lu, Size: %u, Taken: %u, Free: %u",
+           BUCKET_ARRAY_SIZE, size, taken, free);
 }
 
 // DO NOT REMOVE ANYTHING BELOW THIS LINE
@@ -111,4 +115,4 @@ template class HashTableBucketPage<GenericKey<64>, RID, GenericComparator<64>>;
 
 // template class HashTableBucketPage<hash_t, TmpTuple, HashComparator>;
 
-}  // namespace bustub
+} // namespace bustub

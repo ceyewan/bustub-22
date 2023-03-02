@@ -33,14 +33,14 @@
 #include "execution/plans/limit_plan.h"
 #include "execution/plans/nested_index_join_plan.h"
 #include "execution/plans/seq_scan_plan.h"
-#include "gtest/gtest.h"
-#include "test_util.h"  // NOLINT
+#include "test_util.h" // NOLINT
 #include "type/value_factory.h"
+#include "gtest/gtest.h"
 
 namespace bustub {
 
 class TransactionTest : public ::testing::Test {
- public:
+public:
   // This function is called before every test.
   void SetUp() override {
     ::testing::Test::SetUp();
@@ -54,15 +54,24 @@ class TransactionTest : public ::testing::Test {
 };
 
 // --- Helper functions ---
-void CheckGrowing(Transaction *txn) { EXPECT_EQ(txn->GetState(), TransactionState::GROWING); }
+void CheckGrowing(Transaction *txn) {
+  EXPECT_EQ(txn->GetState(), TransactionState::GROWING);
+}
 
-void CheckShrinking(Transaction *txn) { EXPECT_EQ(txn->GetState(), TransactionState::SHRINKING); }
+void CheckShrinking(Transaction *txn) {
+  EXPECT_EQ(txn->GetState(), TransactionState::SHRINKING);
+}
 
-void CheckAborted(Transaction *txn) { EXPECT_EQ(txn->GetState(), TransactionState::ABORTED); }
+void CheckAborted(Transaction *txn) {
+  EXPECT_EQ(txn->GetState(), TransactionState::ABORTED);
+}
 
-void CheckCommitted(Transaction *txn) { EXPECT_EQ(txn->GetState(), TransactionState::COMMITTED); }
+void CheckCommitted(Transaction *txn) {
+  EXPECT_EQ(txn->GetState(), TransactionState::COMMITTED);
+}
 
-void CheckTxnRowLockSize(Transaction *txn, size_t shared_size, size_t exclusive_size) {
+void CheckTxnRowLockSize(Transaction *txn, size_t shared_size,
+                         size_t exclusive_size) {
   EXPECT_EQ(txn->GetSharedLockSet()->size(), shared_size);
   EXPECT_EQ(txn->GetExclusiveLockSet()->size(), exclusive_size);
 }
@@ -77,7 +86,9 @@ TEST_F(TransactionTest, DISABLED_SimpleInsertRollbackTest) {
   bustub_->ExecuteSql("CREATE TABLE empty_table2 (x int, y int);", noop_writer);
 
   auto *txn1 = bustub_->txn_manager_->Begin();
-  bustub_->ExecuteSqlTxn("INSERT INTO empty_table2 VALUES(200, 20), (201, 21), (202, 22)", noop_writer, txn1);
+  bustub_->ExecuteSqlTxn(
+      "INSERT INTO empty_table2 VALUES(200, 20), (201, 21), (202, 22)",
+      noop_writer, txn1);
   bustub_->txn_manager_->Abort(txn1);
   delete txn1;
 
@@ -100,12 +111,17 @@ TEST_F(TransactionTest, DISABLED_DirtyReadsTest) {
 
   auto noop_writer = NoopWriter();
 
-  bustub_->ExecuteSql("CREATE TABLE empty_table2 (colA int, colB int)", noop_writer);
+  bustub_->ExecuteSql("CREATE TABLE empty_table2 (colA int, colB int)",
+                      noop_writer);
 
-  auto *txn1 = bustub_->txn_manager_->Begin(nullptr, IsolationLevel::READ_UNCOMMITTED);
-  bustub_->ExecuteSqlTxn("INSERT INTO empty_table2 VALUES (200, 20), (201, 21), (202, 22)", noop_writer, txn1);
+  auto *txn1 =
+      bustub_->txn_manager_->Begin(nullptr, IsolationLevel::READ_UNCOMMITTED);
+  bustub_->ExecuteSqlTxn(
+      "INSERT INTO empty_table2 VALUES (200, 20), (201, 21), (202, 22)",
+      noop_writer, txn1);
 
-  auto *txn2 = bustub_->txn_manager_->Begin(nullptr, IsolationLevel::READ_UNCOMMITTED);
+  auto *txn2 =
+      bustub_->txn_manager_->Begin(nullptr, IsolationLevel::READ_UNCOMMITTED);
   std::stringstream ss;
   auto writer2 = SimpleStreamWriter(ss, true);
   bustub_->ExecuteSqlTxn("SELECT * FROM empty_table2", writer2, txn2);
@@ -119,4 +135,4 @@ TEST_F(TransactionTest, DISABLED_DirtyReadsTest) {
   delete txn1;
 }
 
-}  // namespace bustub
+} // namespace bustub

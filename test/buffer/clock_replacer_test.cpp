@@ -11,7 +11,7 @@
 //===----------------------------------------------------------------------===//
 
 #include <cstdio>
-#include <thread>  // NOLINT
+#include <thread> // NOLINT
 #include <vector>
 
 #include "buffer/clock_replacer.h"
@@ -42,7 +42,8 @@ TEST(ClockReplacerTest, DISABLED_SampleTest) {
   EXPECT_EQ(3, value);
 
   // Scenario: pin elements in the replacer.
-  // Note that 3 has already been victimized, so pinning 3 should have no effect.
+  // Note that 3 has already been victimized, so pinning 3 should have no
+  // effect.
   clock_replacer.Pin(3);
   clock_replacer.Pin(4);
   EXPECT_EQ(2, clock_replacer.Size());
@@ -59,4 +60,4 @@ TEST(ClockReplacerTest, DISABLED_SampleTest) {
   EXPECT_EQ(4, value);
 }
 
-}  // namespace bustub
+} // namespace bustub

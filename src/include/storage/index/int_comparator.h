@@ -19,7 +19,7 @@ namespace bustub {
  * = 0 if lhs = rhs .
  */
 class IntComparator {
- public:
+public:
   inline auto operator()(const int lhs, const int rhs) const -> int {
     if (lhs < rhs) {
       return -1;
@@ -30,4 +30,4 @@ class IntComparator {
     return 0;
   }
 };
-}  // namespace bustub
+} // namespace bustub

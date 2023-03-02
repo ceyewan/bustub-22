@@ -4,20 +4,21 @@
 
 #include <atomic>
 #include <random>
-#include <thread>  // NOLINT
+#include <thread> // NOLINT
 
 #include "common/config.h"
 #include "concurrency/lock_manager.h"
 #include "concurrency/transaction_manager.h"
 #include "gtest/gtest.h"
-#define TEST_TIMEOUT_BEGIN                           \
-  std::promise<bool> promisedFinished;               \
-  auto futureResult = promisedFinished.get_future(); \
+#define TEST_TIMEOUT_BEGIN                                                     \
+  std::promise<bool> promisedFinished;                                         \
+  auto futureResult = promisedFinished.get_future();                           \
                               std::thread([](std::promise<bool>& finished) {
-#define TEST_TIMEOUT_FAIL_END(X)                                                                  \
-  finished.set_value(true);                                                                       \
-  }, std::ref(promisedFinished)).detach();                                                        \
-  EXPECT_TRUE(futureResult.wait_for(std::chrono::milliseconds(X)) != std::future_status::timeout) \
+#define TEST_TIMEOUT_FAIL_END(X)                                               \
+  finished.set_value(true);                                                    \
+  }, std::ref(promisedFinished)).detach();                                     \
+  EXPECT_TRUE(futureResult.wait_for(std::chrono::milliseconds(X)) !=           \
+              std::future_status::timeout)                                     \
       << "Test Failed Due to Time Out";
 
 namespace bustub {
@@ -77,7 +78,8 @@ TEST(LockManagerDeadlockDetectionTest, DISABLED_BasicDeadlockDetectionTest) {
 
   std::thread t0([&] {
     // Lock and sleep
-    bool res = lock_mgr.LockTable(txn0, LockManager::LockMode::INTENTION_EXCLUSIVE, toid);
+    bool res = lock_mgr.LockTable(
+        txn0, LockManager::LockMode::INTENTION_EXCLUSIVE, toid);
     EXPECT_EQ(true, res);
     res = lock_mgr.LockRow(txn0, LockManager::LockMode::EXCLUSIVE, toid, rid0);
     EXPECT_EQ(true, res);
@@ -99,7 +101,8 @@ TEST(LockManagerDeadlockDetectionTest, DISABLED_BasicDeadlockDetectionTest) {
   std::thread t1([&] {
     // Sleep so T0 can take necessary locks
     std::this_thread::sleep_for(std::chrono::milliseconds(50));
-    bool res = lock_mgr.LockTable(txn1, LockManager::LockMode::INTENTION_EXCLUSIVE, toid);
+    bool res = lock_mgr.LockTable(
+        txn1, LockManager::LockMode::INTENTION_EXCLUSIVE, toid);
     EXPECT_EQ(res, true);
 
     res = lock_mgr.LockRow(txn1, LockManager::LockMode::EXCLUSIVE, toid, rid1);
@@ -122,4 +125,4 @@ TEST(LockManagerDeadlockDetectionTest, DISABLED_BasicDeadlockDetectionTest) {
   delete txn0;
   delete txn1;
 }
-}  // namespace bustub
+} // namespace bustub

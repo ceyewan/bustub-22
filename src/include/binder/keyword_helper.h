@@ -16,8 +16,9 @@
 // copies of the Software, and to permit persons to whom the Software is
 // furnished to do so, subject to the following conditions:
 
-// The above copyright notice and this permission notice (including the next paragraph)
-// shall be included in all copies or substantial portions of the Software.
+// The above copyright notice and this permission notice (including the next
+// paragraph) shall be included in all copies or substantial portions of the
+// Software.
 
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 // IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -37,15 +38,18 @@
 namespace bustub {
 
 class KeywordHelper {
- public:
+public:
   /** Return true if the given text matches a keyword of the parser. */
   static auto IsKeyword(const std::string &text) -> bool;
 
-  /** Return true if the given std::string needs to be quoted when written as an identifier. */
+  /** Return true if the given std::string needs to be quoted when written as an
+   * identifier. */
   static auto RequiresQuotes(const std::string &text) -> bool;
 
-  // Writes a std::string that is optionally quoted + escaped so it can be used as an identifier
-  static auto WriteOptionallyQuoted(const std::string &text, char quote = '"') -> std::string;
+  // Writes a std::string that is optionally quoted + escaped so it can be used
+  // as an identifier
+  static auto WriteOptionallyQuoted(const std::string &text, char quote = '"')
+      -> std::string;
 };
 
-}  // namespace bustub
+} // namespace bustub

@@ -13,7 +13,9 @@
 #include "storage/page/hash_table_header_page.h"
 
 namespace bustub {
-auto HashTableHeaderPage::GetBlockPageId(size_t index) -> page_id_t { return 0; }
+auto HashTableHeaderPage::GetBlockPageId(size_t index) -> page_id_t {
+  return 0;
+}
 
 auto HashTableHeaderPage::GetPageId() const -> page_id_t { return 0; }
 
@@ -31,4 +33,4 @@ void HashTableHeaderPage::SetSize(size_t size) {}
 
 auto HashTableHeaderPage::GetSize() const -> size_t { return 0; }
 
-}  // namespace bustub
+} // namespace bustub

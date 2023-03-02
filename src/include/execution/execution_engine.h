@@ -29,14 +29,15 @@ namespace bustub {
  * The ExecutionEngine class executes query plans.
  */
 class ExecutionEngine {
- public:
+public:
   /**
    * Construct a new ExecutionEngine instance.
    * @param bpm The buffer pool manager used by the execution engine
    * @param txn_mgr The transaction manager used by the execution engine
    * @param catalog The catalog used by the execution engine
    */
-  ExecutionEngine(BufferPoolManager *bpm, TransactionManager *txn_mgr, Catalog *catalog)
+  ExecutionEngine(BufferPoolManager *bpm, TransactionManager *txn_mgr,
+                  Catalog *catalog)
       : bpm_{bpm}, txn_mgr_{txn_mgr}, catalog_{catalog} {}
 
   DISALLOW_COPY_AND_MOVE(ExecutionEngine);
@@ -50,8 +51,8 @@ class ExecutionEngine {
    * @return `true` if execution of the query plan succeeds, `false` otherwise
    */
   // NOLINTNEXTLINE
-  auto Execute(const AbstractPlanNodeRef &plan, std::vector<Tuple> *result_set, Transaction *txn,
-               ExecutorContext *exec_ctx) -> bool {
+  auto Execute(const AbstractPlanNodeRef &plan, std::vector<Tuple> *result_set,
+               Transaction *txn, ExecutorContext *exec_ctx) -> bool {
     BUSTUB_ASSERT((txn == exec_ctx->GetTransaction()), "Broken Invariant");
 
     // Construct the executor for the abstract plan node
@@ -76,14 +77,15 @@ class ExecutionEngine {
     return executor_succeeded;
   }
 
- private:
+private:
   /**
    * Poll the executor until exhausted, or exception escapes.
    * @param executor The root executor
    * @param plan The plan to execute
    * @param result_set The tuple result set
    */
-  static void PollExecutor(AbstractExecutor *executor, const AbstractPlanNodeRef &plan,
+  static void PollExecutor(AbstractExecutor *executor,
+                           const AbstractPlanNodeRef &plan,
                            std::vector<Tuple> *result_set) {
     RID rid{};
     Tuple tuple{};
@@ -99,4 +101,4 @@ class ExecutionEngine {
   [[maybe_unused]] Catalog *catalog_;
 };
 
-}  // namespace bustub
+} // namespace bustub

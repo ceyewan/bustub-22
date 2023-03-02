@@ -3,9 +3,9 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
-  <component name="CMakePresetLoader"><![CDATA[{
-  "useNewFormat": true
-}]]></component>
+  <component name="CMakePresetLoader">{
+  &quot;useNewFormat&quot;: true
+}</component>
   <component name="CMakeReloadState">
     <option name="reloaded" value="true" />
   </component>
@@ -116,14 +116,298 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2af793d5-c270-4eb5-b732-71c4b961a13f" name="变更" comment="">
+      <change afterPath="$PROJECT_DIR$/.clang-tidy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/binder/bind_create.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/binder/bind_create.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/binder/bind_insert.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/binder/bind_insert.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/binder/bind_select.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/binder/bind_select.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/binder/bind_variable.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/binder/bind_variable.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/binder/binder.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/binder/binder.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/binder/bound_statement.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/binder/bound_statement.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/binder/fmt_impl.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/binder/fmt_impl.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/binder/keyword_helper.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/binder/keyword_helper.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/binder/node_tag_to_string.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/binder/node_tag_to_string.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/binder/statement/create_statement.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/binder/statement/create_statement.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/binder/statement/delete_statement.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/binder/statement/delete_statement.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/binder/statement/explain_statement.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/binder/statement/explain_statement.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/binder/statement/index_statement.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/binder/statement/index_statement.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/binder/statement/insert_statement.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/binder/statement/insert_statement.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/binder/statement/select_statement.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/binder/statement/select_statement.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/binder/statement/update_statement.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/binder/statement/update_statement.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/binder/transformer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/binder/transformer.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/buffer/buffer_pool_manager_instance.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/buffer/buffer_pool_manager_instance.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/buffer/clock_replacer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/buffer/clock_replacer.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/buffer/lru_k_replacer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/buffer/lru_k_replacer.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/buffer/lru_replacer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/buffer/lru_replacer.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/catalog/column.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/catalog/column.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/catalog/schema.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/catalog/schema.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/catalog/table_generator.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/catalog/table_generator.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/bustub_instance.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/bustub_instance.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/config.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/config.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/util/string_util.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/util/string_util.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/concurrency/lock_manager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/concurrency/lock_manager.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/concurrency/transaction_manager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/concurrency/transaction_manager.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/container/disk/hash/disk_extendible_hash_table.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/container/disk/hash/disk_extendible_hash_table.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/container/disk/hash/linear_probe_hash_table.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/container/disk/hash/linear_probe_hash_table.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/container/hash/extendible_hash_table.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/container/hash/extendible_hash_table.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/execution/aggregation_executor.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/execution/aggregation_executor.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/execution/delete_executor.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/execution/delete_executor.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/execution/executor_factory.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/execution/executor_factory.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/execution/filter_executor.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/execution/filter_executor.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/execution/fmt_impl.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/execution/fmt_impl.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/execution/hash_join_executor.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/execution/hash_join_executor.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/execution/index_scan_executor.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/execution/index_scan_executor.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/execution/insert_executor.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/execution/insert_executor.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/execution/limit_executor.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/execution/limit_executor.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/execution/mock_scan_executor.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/execution/mock_scan_executor.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/execution/nested_index_join_executor.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/execution/nested_index_join_executor.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/execution/nested_loop_join_executor.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/execution/nested_loop_join_executor.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/execution/plan_node.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/execution/plan_node.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/execution/projection_executor.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/execution/projection_executor.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/execution/seq_scan_executor.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/execution/seq_scan_executor.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/execution/sort_executor.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/execution/sort_executor.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/execution/topn_executor.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/execution/topn_executor.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/execution/update_executor.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/execution/update_executor.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/execution/values_executor.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/execution/values_executor.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/binder/binder.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/binder/binder.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/binder/bound_expression.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/binder/bound_expression.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/binder/bound_order_by.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/binder/bound_order_by.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/binder/bound_statement.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/binder/bound_statement.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/binder/bound_table_ref.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/binder/bound_table_ref.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/binder/expressions/bound_agg_call.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/binder/expressions/bound_agg_call.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/binder/expressions/bound_alias.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/binder/expressions/bound_alias.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/binder/expressions/bound_binary_op.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/binder/expressions/bound_binary_op.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/binder/expressions/bound_column_ref.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/binder/expressions/bound_column_ref.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/binder/expressions/bound_constant.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/binder/expressions/bound_constant.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/binder/expressions/bound_star.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/binder/expressions/bound_star.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/binder/expressions/bound_unary_op.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/binder/expressions/bound_unary_op.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/binder/keyword_helper.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/binder/keyword_helper.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/binder/simplified_token.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/binder/simplified_token.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/binder/statement/create_statement.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/binder/statement/create_statement.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/binder/statement/delete_statement.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/binder/statement/delete_statement.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/binder/statement/explain_statement.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/binder/statement/explain_statement.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/binder/statement/index_statement.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/binder/statement/index_statement.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/binder/statement/insert_statement.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/binder/statement/insert_statement.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/binder/statement/select_statement.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/binder/statement/select_statement.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/binder/statement/set_show_statement.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/binder/statement/set_show_statement.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/binder/statement/update_statement.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/binder/statement/update_statement.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/binder/table_ref/bound_base_table_ref.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/binder/table_ref/bound_base_table_ref.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/binder/table_ref/bound_cross_product_ref.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/binder/table_ref/bound_cross_product_ref.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/binder/table_ref/bound_cte_ref.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/binder/table_ref/bound_cte_ref.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/binder/table_ref/bound_expression_list_ref.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/binder/table_ref/bound_expression_list_ref.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/binder/table_ref/bound_join_ref.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/binder/table_ref/bound_join_ref.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/binder/table_ref/bound_subquery_ref.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/binder/table_ref/bound_subquery_ref.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/binder/tokens.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/binder/tokens.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/buffer/buffer_pool_manager.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/buffer/buffer_pool_manager.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/buffer/buffer_pool_manager_instance.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/buffer/buffer_pool_manager_instance.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/buffer/clock_replacer.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/buffer/clock_replacer.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/buffer/lru_k_replacer.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/buffer/lru_k_replacer.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/buffer/lru_replacer.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/buffer/lru_replacer.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/buffer/replacer.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/buffer/replacer.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/catalog/catalog.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/catalog/catalog.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/catalog/column.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/catalog/column.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/catalog/schema.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/catalog/schema.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/catalog/table_generator.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/catalog/table_generator.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/common/bustub_instance.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/common/bustub_instance.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/common/config.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/common/config.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/common/enums/statement_type.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/common/enums/statement_type.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/common/exception.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/common/exception.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/common/hash_util.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/common/hash_util.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/common/logger.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/common/logger.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/common/macros.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/common/macros.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/common/rid.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/common/rid.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/common/rwlatch.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/common/rwlatch.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/common/util/hash_util.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/common/util/hash_util.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/common/util/string_util.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/common/util/string_util.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/concurrency/lock_manager.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/concurrency/lock_manager.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/concurrency/transaction.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/concurrency/transaction.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/concurrency/transaction_manager.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/concurrency/transaction_manager.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/container/disk/hash/disk_extendible_hash_table.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/container/disk/hash/disk_extendible_hash_table.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/container/disk/hash/disk_hash_table.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/container/disk/hash/disk_hash_table.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/container/disk/hash/linear_probe_hash_table.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/container/disk/hash/linear_probe_hash_table.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/container/hash/extendible_hash_table.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/container/hash/extendible_hash_table.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/container/hash/hash_function.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/container/hash/hash_function.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/container/hash/hash_table.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/container/hash/hash_table.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/execution/execution_engine.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/execution/execution_engine.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/execution/executor_context.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/execution/executor_context.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/execution/executor_factory.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/execution/executor_factory.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/execution/executors/abstract_executor.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/execution/executors/abstract_executor.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/execution/executors/aggregation_executor.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/execution/executors/aggregation_executor.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/execution/executors/delete_executor.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/execution/executors/delete_executor.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/execution/executors/filter_executor.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/execution/executors/filter_executor.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/execution/executors/hash_join_executor.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/execution/executors/hash_join_executor.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/execution/executors/index_scan_executor.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/execution/executors/index_scan_executor.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/execution/executors/insert_executor.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/execution/executors/insert_executor.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/execution/executors/limit_executor.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/execution/executors/limit_executor.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/execution/executors/mock_scan_executor.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/execution/executors/mock_scan_executor.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/execution/executors/nested_index_join_executor.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/execution/executors/nested_index_join_executor.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/execution/executors/nested_loop_join_executor.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/execution/executors/nested_loop_join_executor.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/execution/executors/projection_executor.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/execution/executors/projection_executor.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/execution/executors/seq_scan_executor.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/execution/executors/seq_scan_executor.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/execution/executors/sort_executor.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/execution/executors/sort_executor.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/execution/executors/topn_executor.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/execution/executors/topn_executor.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/execution/executors/update_executor.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/execution/executors/update_executor.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/execution/executors/values_executor.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/execution/executors/values_executor.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/execution/expressions/abstract_expression.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/execution/expressions/abstract_expression.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/execution/expressions/arithmetic_expression.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/execution/expressions/arithmetic_expression.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/execution/expressions/column_value_expression.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/execution/expressions/column_value_expression.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/execution/expressions/comparison_expression.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/execution/expressions/comparison_expression.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/execution/expressions/constant_value_expression.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/execution/expressions/constant_value_expression.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/execution/expressions/logic_expression.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/execution/expressions/logic_expression.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/execution/plans/abstract_plan.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/execution/plans/abstract_plan.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/execution/plans/aggregation_plan.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/execution/plans/aggregation_plan.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/execution/plans/delete_plan.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/execution/plans/delete_plan.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/execution/plans/filter_plan.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/execution/plans/filter_plan.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/execution/plans/hash_join_plan.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/execution/plans/hash_join_plan.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/execution/plans/index_scan_plan.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/execution/plans/index_scan_plan.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/execution/plans/insert_plan.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/execution/plans/insert_plan.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/execution/plans/limit_plan.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/execution/plans/limit_plan.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/execution/plans/mock_scan_plan.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/execution/plans/mock_scan_plan.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/execution/plans/nested_index_join_plan.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/execution/plans/nested_index_join_plan.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/execution/plans/nested_loop_join_plan.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/execution/plans/nested_loop_join_plan.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/execution/plans/projection_plan.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/execution/plans/projection_plan.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/execution/plans/seq_scan_plan.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/execution/plans/seq_scan_plan.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/execution/plans/sort_plan.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/execution/plans/sort_plan.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/execution/plans/topn_plan.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/execution/plans/topn_plan.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/execution/plans/update_plan.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/execution/plans/update_plan.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/execution/plans/values_plan.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/execution/plans/values_plan.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/optimizer/optimizer.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/optimizer/optimizer.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/planner/planner.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/planner/planner.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/primer/p0_trie.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/primer/p0_trie.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/recovery/checkpoint_manager.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/recovery/checkpoint_manager.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/recovery/log_manager.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/recovery/log_manager.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/recovery/log_record.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/recovery/log_record.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/recovery/log_recovery.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/recovery/log_recovery.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/storage/disk/disk_manager.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/storage/disk/disk_manager.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/storage/disk/disk_manager_memory.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/storage/disk/disk_manager_memory.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/storage/index/b_plus_tree.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/storage/index/b_plus_tree.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/storage/index/b_plus_tree_index.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/storage/index/b_plus_tree_index.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/storage/index/extendible_hash_table_index.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/storage/index/extendible_hash_table_index.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/storage/index/generic_key.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/storage/index/generic_key.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/storage/index/hash_comparator.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/storage/index/hash_comparator.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/storage/index/index.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/storage/index/index.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/storage/index/index_iterator.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/storage/index/index_iterator.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/storage/index/int_comparator.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/storage/index/int_comparator.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/storage/index/linear_probe_hash_table_index.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/storage/index/linear_probe_hash_table_index.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/storage/index/stl_comparator_wrapper.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/storage/index/stl_comparator_wrapper.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/storage/page/b_plus_tree_internal_page.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/storage/page/b_plus_tree_internal_page.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/storage/page/b_plus_tree_leaf_page.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/storage/page/b_plus_tree_leaf_page.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/include/storage/page/b_plus_tree_page.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/storage/page/b_plus_tree_page.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/storage/page/hash_table_block_page.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/storage/page/hash_table_block_page.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/storage/page/hash_table_bucket_page.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/storage/page/hash_table_bucket_page.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/storage/page/hash_table_directory_page.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/storage/page/hash_table_directory_page.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/storage/page/hash_table_header_page.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/storage/page/hash_table_header_page.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/storage/page/hash_table_page_defs.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/storage/page/hash_table_page_defs.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/storage/page/header_page.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/storage/page/header_page.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/storage/page/page.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/storage/page/page.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/storage/page/table_page.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/storage/page/table_page.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/storage/page/tmp_tuple_page.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/storage/page/tmp_tuple_page.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/storage/table/table_heap.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/storage/table/table_heap.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/storage/table/table_iterator.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/storage/table/table_iterator.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/storage/table/tmp_tuple.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/storage/table/tmp_tuple.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/storage/table/tuple.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/storage/table/tuple.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/type/abstract_pool.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/type/abstract_pool.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/type/bigint_type.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/type/bigint_type.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/type/boolean_type.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/type/boolean_type.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/type/decimal_type.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/type/decimal_type.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/type/integer_parent_type.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/type/integer_parent_type.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/type/integer_type.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/type/integer_type.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/type/limits.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/type/limits.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/type/numeric_type.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/type/numeric_type.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/type/smallint_type.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/type/smallint_type.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/type/timestamp_type.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/type/timestamp_type.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/type/tinyint_type.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/type/tinyint_type.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/type/type.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/type/type.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/type/type_id.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/type/type_id.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/type/type_util.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/type/type_util.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/type/value.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/type/value.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/type/value_factory.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/type/value_factory.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include/type/varlen_type.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/include/type/varlen_type.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/optimizer/eliminate_true_filter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/optimizer/eliminate_true_filter.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/optimizer/merge_filter_nlj.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/optimizer/merge_filter_nlj.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/optimizer/merge_filter_scan.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/optimizer/merge_filter_scan.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/optimizer/merge_projection.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/optimizer/merge_projection.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/optimizer/nlj_as_hash_join.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/optimizer/nlj_as_hash_join.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/optimizer/nlj_as_index_join.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/optimizer/nlj_as_index_join.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/optimizer/optimizer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/optimizer/optimizer.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/optimizer/optimizer_custom_rules.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/optimizer/optimizer_custom_rules.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/optimizer/order_by_index_scan.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/optimizer/order_by_index_scan.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/optimizer/sort_limit_as_topn.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/optimizer/sort_limit_as_topn.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/planner/expression_factory.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/planner/expression_factory.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/planner/plan_aggregation.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/planner/plan_aggregation.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/planner/plan_expression.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/planner/plan_expression.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/planner/plan_insert.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/planner/plan_insert.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/planner/plan_select.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/planner/plan_select.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/planner/plan_table_ref.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/planner/plan_table_ref.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/planner/planner.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/planner/planner.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/recovery/checkpoint_manager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/recovery/checkpoint_manager.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/recovery/log_manager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/recovery/log_manager.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/recovery/log_recovery.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/recovery/log_recovery.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/storage/disk/disk_manager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/storage/disk/disk_manager.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/storage/disk/disk_manager_memory.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/storage/disk/disk_manager_memory.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/storage/index/b_plus_tree.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/storage/index/b_plus_tree.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/storage/index/b_plus_tree_index.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/storage/index/b_plus_tree_index.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/storage/index/extendible_hash_table_index.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/storage/index/extendible_hash_table_index.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/storage/index/index_iterator.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/storage/index/index_iterator.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/storage/index/linear_probe_hash_table_index.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/storage/index/linear_probe_hash_table_index.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/storage/page/b_plus_tree_internal_page.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/storage/page/b_plus_tree_internal_page.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/storage/page/b_plus_tree_leaf_page.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/storage/page/b_plus_tree_leaf_page.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/storage/page/b_plus_tree_page.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/storage/page/b_plus_tree_page.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/storage/page/hash_table_block_page.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/storage/page/hash_table_block_page.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/storage/page/hash_table_bucket_page.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/storage/page/hash_table_bucket_page.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/storage/page/hash_table_directory_page.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/storage/page/hash_table_directory_page.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/storage/page/hash_table_header_page.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/storage/page/hash_table_header_page.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/storage/page/header_page.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/storage/page/header_page.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/storage/page/table_page.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/storage/page/table_page.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/storage/table/table_heap.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/storage/table/table_heap.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/storage/table/table_iterator.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/storage/table/table_iterator.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/storage/table/tuple.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/storage/table/tuple.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/type/bigint_type.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/type/bigint_type.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/type/boolean_type.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/type/boolean_type.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/type/decimal_type.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/type/decimal_type.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/type/integer_parent_type.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/type/integer_parent_type.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/type/integer_type.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/type/integer_type.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/type/smallint_type.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/type/smallint_type.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/type/timestamp_type.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/type/timestamp_type.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/type/tinyint_type.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/type/tinyint_type.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/type/type.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/type/type.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/type/value.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/type/value.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/type/varlen_type.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/type/varlen_type.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/binder/binder_test.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/test/binder/binder_test.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/buffer/buffer_pool_manager_instance_test.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/test/buffer/buffer_pool_manager_instance_test.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/buffer/clock_replacer_test.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/test/buffer/clock_replacer_test.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/buffer/counter.h" beforeDir="false" afterPath="$PROJECT_DIR$/test/buffer/counter.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/buffer/lru_k_replacer_test.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/test/buffer/lru_k_replacer_test.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/buffer/lru_replacer_test.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/test/buffer/lru_replacer_test.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/buffer/mock_buffer_pool_manager.h" beforeDir="false" afterPath="$PROJECT_DIR$/test/buffer/mock_buffer_pool_manager.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/catalog/catalog_test.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/test/catalog/catalog_test.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/common/rwlatch_test.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/test/common/rwlatch_test.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/concurrency/deadlock_detection_test.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/test/concurrency/deadlock_detection_test.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/concurrency/lock_manager_test.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/test/concurrency/lock_manager_test.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/concurrency/transaction_test.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/test/concurrency/transaction_test.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/container/disk/hash/hash_table_page_test.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/test/container/disk/hash/hash_table_page_test.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/container/disk/hash/hash_table_test.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/test/container/disk/hash/hash_table_test.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/container/hash/extendible_hash_table_test.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/test/container/hash/extendible_hash_table_test.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/include/logging/common.h" beforeDir="false" afterPath="$PROJECT_DIR$/test/include/logging/common.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/include/test_util.h" beforeDir="false" afterPath="$PROJECT_DIR$/test/include/test_util.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/primer/starter_trie_test.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/test/primer/starter_trie_test.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/recovery/recovery_test.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/test/recovery/recovery_test.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/storage/b_plus_tree_concurrent_test.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/test/storage/b_plus_tree_concurrent_test.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/storage/b_plus_tree_contention_test.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/test/storage/b_plus_tree_contention_test.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/storage/b_plus_tree_delete_test.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/test/storage/b_plus_tree_delete_test.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/storage/b_plus_tree_insert_test.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/test/storage/b_plus_tree_insert_test.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/storage/disk_manager_test.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/test/storage/disk_manager_test.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/storage/tmp_tuple_page_test.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/test/storage/tmp_tuple_page_test.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/table/tuple_test.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/test/table/tuple_test.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/type/type_test.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/test/type/type_test.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="Git.Settings">
@@ -142,30 +426,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "cf.advertisement.text.overridden": "true",
-    "cf.first.check.clang-format": "false",
-    "cidr.known.project.marker": "true",
-    "ctest.advertisement.all.test.configuration.is.created": "true",
-    "last_opened_file_path": "/Users/ceyewan/CodeField/bustub-22",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;cf.advertisement.text.overridden&quot;: &quot;true&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;ctest.advertisement.all.test.configuration.is.created&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/ceyewan/CodeField/bustub-22&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
-  <component name="RunManager" selected="Google Test.StarterTest.DISABLED_TrieNodeInsertTest">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+}</component>
+  <component name="RunManager" selected="Google Test.BPlusTreeTests.InsertTest3">
+    <configuration name="BPlusTreeTests.InsertTest3" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" TEST_CLASS="BPlusTreeTests" TEST_METHOD="InsertTest3" TEST_MODE="SUITE_TEST">
       <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="BeforeTestRunTask" enabled="true" />
       </method>
     </configuration>
     <configuration name="StarterTest.DISABLED_TrieNodeInsertTest" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BusTub" TARGET_NAME="starter_trie_test" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="BusTub" RUN_TARGET_NAME="starter_trie_test" TEST_CLASS="StarterTest" TEST_METHOD="DISABLED_TrieNodeInsertTest" TEST_MODE="SUITE_TEST">
@@ -781,10 +1066,12 @@
       <item itemvalue="Google Test.transaction_test" />
       <item itemvalue="Google Test.tuple_test" />
       <item itemvalue="Google Test.type_test" />
+      <item itemvalue="Google Test.BPlusTreeTests.InsertTest3" />
       <item itemvalue="Google Test.StarterTest.DISABLED_TrieNodeInsertTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Google Test.BPlusTreeTests.InsertTest3" />
         <item itemvalue="Google Test.StarterTest.DISABLED_TrieNodeInsertTest" />
       </list>
     </recent_temporary>
@@ -797,7 +1084,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677594736103</updated>
-      <workItem from="1677594763765" duration="4020000" />
+      <workItem from="1677594763765" duration="4710000" />
+      <workItem from="1677679723733" duration="5431000" />
+      <workItem from="1677739828631" duration="2173000" />
     </task>
     <servers />
   </component>

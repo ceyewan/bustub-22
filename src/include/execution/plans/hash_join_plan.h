@@ -26,7 +26,7 @@ namespace bustub {
  * Hash join performs a JOIN operation with a hash table.
  */
 class HashJoinPlanNode : public AbstractPlanNode {
- public:
+public:
   /**
    * Construct a new HashJoinPlanNode instance.
    * @param output_schema The output schema for the JOIN
@@ -34,10 +34,13 @@ class HashJoinPlanNode : public AbstractPlanNode {
    * @param left_key_expression The expression for the left JOIN key
    * @param right_key_expression The expression for the right JOIN key
    */
-  HashJoinPlanNode(SchemaRef output_schema, AbstractPlanNodeRef left, AbstractPlanNodeRef right,
-                   AbstractExpressionRef left_key_expression, AbstractExpressionRef right_key_expression,
+  HashJoinPlanNode(SchemaRef output_schema, AbstractPlanNodeRef left,
+                   AbstractPlanNodeRef right,
+                   AbstractExpressionRef left_key_expression,
+                   AbstractExpressionRef right_key_expression,
                    JoinType join_type)
-      : AbstractPlanNode(std::move(output_schema), {std::move(left), std::move(right)}),
+      : AbstractPlanNode(std::move(output_schema),
+                         {std::move(left), std::move(right)}),
         left_key_expression_{std::move(left_key_expression)},
         right_key_expression_{std::move(right_key_expression)},
         join_type_(join_type) {}
@@ -46,20 +49,26 @@ class HashJoinPlanNode : public AbstractPlanNode {
   auto GetType() const -> PlanType override { return PlanType::HashJoin; }
 
   /** @return The expression to compute the left join key */
-  auto LeftJoinKeyExpression() const -> const AbstractExpression & { return *left_key_expression_; }
+  auto LeftJoinKeyExpression() const -> const AbstractExpression & {
+    return *left_key_expression_;
+  }
 
   /** @return The expression to compute the right join key */
-  auto RightJoinKeyExpression() const -> const AbstractExpression & { return *right_key_expression_; }
+  auto RightJoinKeyExpression() const -> const AbstractExpression & {
+    return *right_key_expression_;
+  }
 
   /** @return The left plan node of the hash join */
   auto GetLeftPlan() const -> AbstractPlanNodeRef {
-    BUSTUB_ASSERT(GetChildren().size() == 2, "Hash joins should have exactly two children plans.");
+    BUSTUB_ASSERT(GetChildren().size() == 2,
+                  "Hash joins should have exactly two children plans.");
     return GetChildAt(0);
   }
 
   /** @return The right plan node of the hash join */
   auto GetRightPlan() const -> AbstractPlanNodeRef {
-    BUSTUB_ASSERT(GetChildren().size() == 2, "Hash joins should have exactly two children plans.");
+    BUSTUB_ASSERT(GetChildren().size() == 2,
+                  "Hash joins should have exactly two children plans.");
     return GetChildAt(1);
   }
 
@@ -76,11 +85,11 @@ class HashJoinPlanNode : public AbstractPlanNode {
   /** The join type */
   JoinType join_type_;
 
- protected:
+protected:
   auto PlanNodeToString() const -> std::string override {
-    return fmt::format("HashJoin {{ type={}, left_key={}, right_key={} }}", join_type_, left_key_expression_,
-                       right_key_expression_);
+    return fmt::format("HashJoin {{ type={}, left_key={}, right_key={} }}",
+                       join_type_, left_key_expression_, right_key_expression_);
   }
 };
 
-}  // namespace bustub
+} // namespace bustub

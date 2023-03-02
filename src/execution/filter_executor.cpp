@@ -4,9 +4,11 @@
 
 namespace bustub {
 
-FilterExecutor::FilterExecutor(ExecutorContext *exec_ctx, const FilterPlanNode *plan,
-                               std::unique_ptr<AbstractExecutor> &&child_executor)
-    : AbstractExecutor(exec_ctx), plan_(plan), child_executor_(std::move(child_executor)) {}
+FilterExecutor::FilterExecutor(
+    ExecutorContext *exec_ctx, const FilterPlanNode *plan,
+    std::unique_ptr<AbstractExecutor> &&child_executor)
+    : AbstractExecutor(exec_ctx), plan_(plan),
+      child_executor_(std::move(child_executor)) {}
 
 void FilterExecutor::Init() {
   // Initialize the child executor
@@ -24,11 +26,12 @@ auto FilterExecutor::Next(Tuple *tuple, RID *rid) -> bool {
       return false;
     }
 
-    auto value = filter_expr->Evaluate(tuple, child_executor_->GetOutputSchema());
+    auto value =
+        filter_expr->Evaluate(tuple, child_executor_->GetOutputSchema());
     if (!value.IsNull() && value.GetAs<bool>()) {
       return true;
     }
   }
 }
 
-}  // namespace bustub
+} // namespace bustub

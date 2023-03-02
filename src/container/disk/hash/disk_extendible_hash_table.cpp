@@ -23,9 +23,12 @@
 namespace bustub {
 
 template <typename KeyType, typename ValueType, typename KeyComparator>
-HASH_TABLE_TYPE::DiskExtendibleHashTable(const std::string &name, BufferPoolManager *buffer_pool_manager,
-                                         const KeyComparator &comparator, HashFunction<KeyType> hash_fn)
-    : buffer_pool_manager_(buffer_pool_manager), comparator_(comparator), hash_fn_(std::move(hash_fn)) {
+HASH_TABLE_TYPE::DiskExtendibleHashTable(const std::string &name,
+                                         BufferPoolManager *buffer_pool_manager,
+                                         const KeyComparator &comparator,
+                                         HashFunction<KeyType> hash_fn)
+    : buffer_pool_manager_(buffer_pool_manager), comparator_(comparator),
+      hash_fn_(std::move(hash_fn)) {
   //  implement me!
 }
 
@@ -45,12 +48,15 @@ auto HASH_TABLE_TYPE::Hash(KeyType key) -> uint32_t {
 }
 
 template <typename KeyType, typename ValueType, typename KeyComparator>
-inline auto HASH_TABLE_TYPE::KeyToDirectoryIndex(KeyType key, HashTableDirectoryPage *dir_page) -> uint32_t {
+inline auto HASH_TABLE_TYPE::KeyToDirectoryIndex(
+    KeyType key, HashTableDirectoryPage *dir_page) -> uint32_t {
   return 0;
 }
 
 template <typename KeyType, typename ValueType, typename KeyComparator>
-inline auto HASH_TABLE_TYPE::KeyToPageId(KeyType key, HashTableDirectoryPage *dir_page) -> page_id_t {
+inline auto HASH_TABLE_TYPE::KeyToPageId(KeyType key,
+                                         HashTableDirectoryPage *dir_page)
+    -> page_id_t {
   return 0;
 }
 
@@ -60,7 +66,8 @@ auto HASH_TABLE_TYPE::FetchDirectoryPage() -> HashTableDirectoryPage * {
 }
 
 template <typename KeyType, typename ValueType, typename KeyComparator>
-auto HASH_TABLE_TYPE::FetchBucketPage(page_id_t bucket_page_id) -> HASH_TABLE_BUCKET_TYPE * {
+auto HASH_TABLE_TYPE::FetchBucketPage(page_id_t bucket_page_id)
+    -> HASH_TABLE_BUCKET_TYPE * {
   return nullptr;
 }
 
@@ -68,7 +75,8 @@ auto HASH_TABLE_TYPE::FetchBucketPage(page_id_t bucket_page_id) -> HASH_TABLE_BU
  * SEARCH
  *****************************************************************************/
 template <typename KeyType, typename ValueType, typename KeyComparator>
-auto HASH_TABLE_TYPE::GetValue(Transaction *transaction, const KeyType &key, std::vector<ValueType> *result) -> bool {
+auto HASH_TABLE_TYPE::GetValue(Transaction *transaction, const KeyType &key,
+                               std::vector<ValueType> *result) -> bool {
   return false;
 }
 
@@ -76,12 +84,14 @@ auto HASH_TABLE_TYPE::GetValue(Transaction *transaction, const KeyType &key, std
  * INSERTION
  *****************************************************************************/
 template <typename KeyType, typename ValueType, typename KeyComparator>
-auto HASH_TABLE_TYPE::Insert(Transaction *transaction, const KeyType &key, const ValueType &value) -> bool {
+auto HASH_TABLE_TYPE::Insert(Transaction *transaction, const KeyType &key,
+                             const ValueType &value) -> bool {
   return false;
 }
 
 template <typename KeyType, typename ValueType, typename KeyComparator>
-auto HASH_TABLE_TYPE::SplitInsert(Transaction *transaction, const KeyType &key, const ValueType &value) -> bool {
+auto HASH_TABLE_TYPE::SplitInsert(Transaction *transaction, const KeyType &key,
+                                  const ValueType &value) -> bool {
   return false;
 }
 
@@ -89,7 +99,8 @@ auto HASH_TABLE_TYPE::SplitInsert(Transaction *transaction, const KeyType &key, 
  * REMOVE
  *****************************************************************************/
 template <typename KeyType, typename ValueType, typename KeyComparator>
-auto HASH_TABLE_TYPE::Remove(Transaction *transaction, const KeyType &key, const ValueType &value) -> bool {
+auto HASH_TABLE_TYPE::Remove(Transaction *transaction, const KeyType &key,
+                             const ValueType &value) -> bool {
   return false;
 }
 
@@ -97,7 +108,8 @@ auto HASH_TABLE_TYPE::Remove(Transaction *transaction, const KeyType &key, const
  * MERGE
  *****************************************************************************/
 template <typename KeyType, typename ValueType, typename KeyComparator>
-void HASH_TABLE_TYPE::Merge(Transaction *transaction, const KeyType &key, const ValueType &value) {}
+void HASH_TABLE_TYPE::Merge(Transaction *transaction, const KeyType &key,
+                            const ValueType &value) {}
 
 /*****************************************************************************
  * GETGLOBALDEPTH - DO NOT TOUCH
@@ -129,10 +141,15 @@ void HASH_TABLE_TYPE::VerifyIntegrity() {
  *****************************************************************************/
 template class DiskExtendibleHashTable<int, int, IntComparator>;
 
-template class DiskExtendibleHashTable<GenericKey<4>, RID, GenericComparator<4>>;
-template class DiskExtendibleHashTable<GenericKey<8>, RID, GenericComparator<8>>;
-template class DiskExtendibleHashTable<GenericKey<16>, RID, GenericComparator<16>>;
-template class DiskExtendibleHashTable<GenericKey<32>, RID, GenericComparator<32>>;
-template class DiskExtendibleHashTable<GenericKey<64>, RID, GenericComparator<64>>;
+template class DiskExtendibleHashTable<GenericKey<4>, RID,
+                                       GenericComparator<4>>;
+template class DiskExtendibleHashTable<GenericKey<8>, RID,
+                                       GenericComparator<8>>;
+template class DiskExtendibleHashTable<GenericKey<16>, RID,
+                                       GenericComparator<16>>;
+template class DiskExtendibleHashTable<GenericKey<32>, RID,
+                                       GenericComparator<32>>;
+template class DiskExtendibleHashTable<GenericKey<64>, RID,
+                                       GenericComparator<64>>;
 
-}  // namespace bustub
+} // namespace bustub

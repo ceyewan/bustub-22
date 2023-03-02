@@ -19,7 +19,8 @@ namespace bustub {
 /**
  * Record related
  */
-auto HeaderPage::InsertRecord(const std::string &name, const page_id_t root_id) -> bool {
+auto HeaderPage::InsertRecord(const std::string &name, const page_id_t root_id)
+    -> bool {
   assert(name.length() < 32);
   assert(root_id > INVALID_PAGE_ID);
 
@@ -47,13 +48,15 @@ auto HeaderPage::DeleteRecord(const std::string &name) -> bool {
     return false;
   }
   int offset = index * 36 + 4;
-  memmove(GetData() + offset, GetData() + offset + 36, (record_num - index - 1) * 36);
+  memmove(GetData() + offset, GetData() + offset + 36,
+          (record_num - index - 1) * 36);
 
   SetRecordCount(record_num - 1);
   return true;
 }
 
-auto HeaderPage::UpdateRecord(const std::string &name, const page_id_t root_id) -> bool {
+auto HeaderPage::UpdateRecord(const std::string &name, const page_id_t root_id)
+    -> bool {
   assert(name.length() < 32);
 
   int index = FindRecord(name);
@@ -68,7 +71,8 @@ auto HeaderPage::UpdateRecord(const std::string &name, const page_id_t root_id) 
   return true;
 }
 
-auto HeaderPage::GetRootId(const std::string &name, page_id_t *root_id) -> bool {
+auto HeaderPage::GetRootId(const std::string &name, page_id_t *root_id)
+    -> bool {
   assert(name.length() < 32);
 
   int index = FindRecord(name);
@@ -86,9 +90,13 @@ auto HeaderPage::GetRootId(const std::string &name, page_id_t *root_id) -> bool 
  * helper functions
  */
 // record count
-auto HeaderPage::GetRecordCount() -> int { return *reinterpret_cast<int *>(GetData()); }
+auto HeaderPage::GetRecordCount() -> int {
+  return *reinterpret_cast<int *>(GetData());
+}
 
-void HeaderPage::SetRecordCount(int record_count) { memcpy(GetData(), &record_count, 4); }
+void HeaderPage::SetRecordCount(int record_count) {
+  memcpy(GetData(), &record_count, 4);
+}
 
 auto HeaderPage::FindRecord(const std::string &name) -> int {
   int record_num = GetRecordCount();
@@ -101,4 +109,4 @@ auto HeaderPage::FindRecord(const std::string &name) -> int {
   }
   return -1;
 }
-}  // namespace bustub
+} // namespace bustub

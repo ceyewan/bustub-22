@@ -5,7 +5,7 @@
 #include "concurrency/lock_manager.h"
 
 #include <random>
-#include <thread>  // NOLINT
+#include <thread> // NOLINT
 
 #include "common/config.h"
 #include "concurrency/transaction_manager.h"
@@ -19,38 +19,47 @@ namespace bustub {
  */
 
 // --- Helper functions ---
-void CheckGrowing(Transaction *txn) { EXPECT_EQ(txn->GetState(), TransactionState::GROWING); }
+void CheckGrowing(Transaction *txn) {
+  EXPECT_EQ(txn->GetState(), TransactionState::GROWING);
+}
 
-void CheckShrinking(Transaction *txn) { EXPECT_EQ(txn->GetState(), TransactionState::SHRINKING); }
+void CheckShrinking(Transaction *txn) {
+  EXPECT_EQ(txn->GetState(), TransactionState::SHRINKING);
+}
 
-void CheckAborted(Transaction *txn) { EXPECT_EQ(txn->GetState(), TransactionState::ABORTED); }
+void CheckAborted(Transaction *txn) {
+  EXPECT_EQ(txn->GetState(), TransactionState::ABORTED);
+}
 
-void CheckCommitted(Transaction *txn) { EXPECT_EQ(txn->GetState(), TransactionState::COMMITTED); }
+void CheckCommitted(Transaction *txn) {
+  EXPECT_EQ(txn->GetState(), TransactionState::COMMITTED);
+}
 
-void CheckTxnRowLockSize(Transaction *txn, table_oid_t oid, size_t shared_size, size_t exclusive_size) {
+void CheckTxnRowLockSize(Transaction *txn, table_oid_t oid, size_t shared_size,
+                         size_t exclusive_size) {
   EXPECT_EQ((*(txn->GetSharedRowLockSet()))[oid].size(), shared_size);
   EXPECT_EQ((*(txn->GetExclusiveRowLockSet()))[oid].size(), exclusive_size);
 }
 
 int GetTxnTableLockSize(Transaction *txn, LockManager::LockMode lock_mode) {
   switch (lock_mode) {
-    case LockManager::LockMode::SHARED:
-      return txn->GetSharedTableLockSet()->size();
-    case LockManager::LockMode::EXCLUSIVE:
-      return txn->GetExclusiveTableLockSet()->size();
-    case LockManager::LockMode::INTENTION_SHARED:
-      return txn->GetIntentionSharedTableLockSet()->size();
-    case LockManager::LockMode::INTENTION_EXCLUSIVE:
-      return txn->GetIntentionExclusiveTableLockSet()->size();
-    case LockManager::LockMode::SHARED_INTENTION_EXCLUSIVE:
-      return txn->GetSharedIntentionExclusiveTableLockSet()->size();
+  case LockManager::LockMode::SHARED:
+    return txn->GetSharedTableLockSet()->size();
+  case LockManager::LockMode::EXCLUSIVE:
+    return txn->GetExclusiveTableLockSet()->size();
+  case LockManager::LockMode::INTENTION_SHARED:
+    return txn->GetIntentionSharedTableLockSet()->size();
+  case LockManager::LockMode::INTENTION_EXCLUSIVE:
+    return txn->GetIntentionExclusiveTableLockSet()->size();
+  case LockManager::LockMode::SHARED_INTENTION_EXCLUSIVE:
+    return txn->GetSharedIntentionExclusiveTableLockSet()->size();
   }
 
   return -1;
 }
 
-void CheckTableLockSizes(Transaction *txn, size_t s_size, size_t x_size, size_t is_size, size_t ix_size,
-                         size_t six_size) {
+void CheckTableLockSizes(Transaction *txn, size_t s_size, size_t x_size,
+                         size_t is_size, size_t ix_size, size_t six_size) {
   EXPECT_EQ(s_size, txn->GetSharedTableLockSet()->size());
   EXPECT_EQ(x_size, txn->GetExclusiveTableLockSet()->size());
   EXPECT_EQ(is_size, txn->GetIntentionSharedTableLockSet()->size());
@@ -78,7 +87,8 @@ void TableLockTest1() {
   auto task = [&](int txn_id) {
     bool res;
     for (const table_oid_t &oid : oids) {
-      res = lock_mgr.LockTable(txns[txn_id], LockManager::LockMode::EXCLUSIVE, oid);
+      res = lock_mgr.LockTable(txns[txn_id], LockManager::LockMode::EXCLUSIVE,
+                               oid);
       EXPECT_TRUE(res);
       CheckGrowing(txns[txn_id]);
     }
@@ -109,7 +119,7 @@ void TableLockTest1() {
     delete txns[i];
   }
 }
-TEST(LockManagerTest, DISABLED_TableLockTest1) { TableLockTest1(); }  // NOLINT
+TEST(LockManagerTest, DISABLED_TableLockTest1) { TableLockTest1(); } // NOLINT
 
 /** Upgrading single transaction from S -> X */
 void TableLockUpgradeTest1() {
@@ -124,7 +134,8 @@ void TableLockUpgradeTest1() {
   CheckTableLockSizes(txn1, 1, 0, 0, 0, 0);
 
   /** Upgrade S to X */
-  EXPECT_EQ(true, lock_mgr.LockTable(txn1, LockManager::LockMode::EXCLUSIVE, oid));
+  EXPECT_EQ(true,
+            lock_mgr.LockTable(txn1, LockManager::LockMode::EXCLUSIVE, oid));
   CheckTableLockSizes(txn1, 0, 1, 0, 0, 0);
 
   /** Clean up */
@@ -134,7 +145,9 @@ void TableLockUpgradeTest1() {
 
   delete txn1;
 }
-TEST(LockManagerTest, DISABLED_TableLockUpgradeTest1) { TableLockUpgradeTest1(); }  // NOLINT
+TEST(LockManagerTest, DISABLED_TableLockUpgradeTest1) {
+  TableLockUpgradeTest1();
+} // NOLINT
 
 void RowLockTest1() {
   LockManager lock_mgr{};
@@ -150,7 +163,8 @@ void RowLockTest1() {
     EXPECT_EQ(i, txns[i]->GetTransactionId());
   }
 
-  /** Each transaction takes an S lock on the same table and row and then unlocks */
+  /** Each transaction takes an S lock on the same table and row and then
+   * unlocks */
   auto task = [&](int txn_id) {
     bool res;
 
@@ -158,7 +172,8 @@ void RowLockTest1() {
     EXPECT_TRUE(res);
     CheckGrowing(txns[txn_id]);
 
-    res = lock_mgr.LockRow(txns[txn_id], LockManager::LockMode::SHARED, oid, rid);
+    res =
+        lock_mgr.LockRow(txns[txn_id], LockManager::LockMode::SHARED, oid, rid);
     EXPECT_TRUE(res);
     CheckGrowing(txns[txn_id]);
     /** Lock set should be updated */
@@ -190,7 +205,7 @@ void RowLockTest1() {
     delete txns[i];
   }
 }
-TEST(LockManagerTest, DISABLED_RowLockTest1) { RowLockTest1(); }  // NOLINT
+TEST(LockManagerTest, DISABLED_RowLockTest1) { RowLockTest1(); } // NOLINT
 
 void TwoPLTest1() {
   LockManager lock_mgr{};
@@ -204,7 +219,8 @@ void TwoPLTest1() {
   EXPECT_EQ(0, txn->GetTransactionId());
 
   bool res;
-  res = lock_mgr.LockTable(txn, LockManager::LockMode::INTENTION_EXCLUSIVE, oid);
+  res =
+      lock_mgr.LockTable(txn, LockManager::LockMode::INTENTION_EXCLUSIVE, oid);
   EXPECT_TRUE(res);
 
   res = lock_mgr.LockRow(txn, LockManager::LockMode::SHARED, oid, rid0);
@@ -239,6 +255,6 @@ void TwoPLTest1() {
   delete txn;
 }
 
-TEST(LockManagerTest, DISABLED_TwoPLTest1) { TwoPLTest1(); }  // NOLINT
+TEST(LockManagerTest, DISABLED_TwoPLTest1) { TwoPLTest1(); } // NOLINT
 
-}  // namespace bustub
+} // namespace bustub

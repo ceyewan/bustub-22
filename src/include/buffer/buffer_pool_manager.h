@@ -13,7 +13,7 @@
 #pragma once
 
 #include <list>
-#include <mutex>  // NOLINT
+#include <mutex> // NOLINT
 #include <unordered_map>
 
 #include "buffer/lru_replacer.h"
@@ -27,9 +27,10 @@ namespace bustub {
  * BufferPoolManager reads disk pages to and from its internal buffer pool.
  */
 class BufferPoolManager {
- public:
+public:
   enum class CallbackType { BEFORE, AFTER };
-  using bufferpool_callback_fn = void (*)(enum CallbackType, const page_id_t page_id);
+  using bufferpool_callback_fn = void (*)(enum CallbackType,
+                                          const page_id_t page_id);
 
   BufferPoolManager() = default;
   /**
@@ -38,7 +39,8 @@ class BufferPoolManager {
   virtual ~BufferPoolManager() = default;
 
   /** Grading function. Do not modify! */
-  auto FetchPage(page_id_t page_id, bufferpool_callback_fn callback = nullptr) -> Page * {
+  auto FetchPage(page_id_t page_id, bufferpool_callback_fn callback = nullptr)
+      -> Page * {
     GradingCallback(callback, CallbackType::BEFORE, page_id);
     auto *result = FetchPgImp(page_id);
     GradingCallback(callback, CallbackType::AFTER, page_id);
@@ -46,7 +48,8 @@ class BufferPoolManager {
   }
 
   /** Grading function. Do not modify! */
-  auto UnpinPage(page_id_t page_id, bool is_dirty, bufferpool_callback_fn callback = nullptr) -> bool {
+  auto UnpinPage(page_id_t page_id, bool is_dirty,
+                 bufferpool_callback_fn callback = nullptr) -> bool {
     GradingCallback(callback, CallbackType::BEFORE, page_id);
     auto result = UnpinPgImp(page_id, is_dirty);
     GradingCallback(callback, CallbackType::AFTER, page_id);
@@ -54,7 +57,8 @@ class BufferPoolManager {
   }
 
   /** Grading function. Do not modify! */
-  auto FlushPage(page_id_t page_id, bufferpool_callback_fn callback = nullptr) -> bool {
+  auto FlushPage(page_id_t page_id, bufferpool_callback_fn callback = nullptr)
+      -> bool {
     GradingCallback(callback, CallbackType::BEFORE, page_id);
     auto result = FlushPgImp(page_id);
     GradingCallback(callback, CallbackType::AFTER, page_id);
@@ -62,7 +66,8 @@ class BufferPoolManager {
   }
 
   /** Grading function. Do not modify! */
-  auto NewPage(page_id_t *page_id, bufferpool_callback_fn callback = nullptr) -> Page * {
+  auto NewPage(page_id_t *page_id, bufferpool_callback_fn callback = nullptr)
+      -> Page * {
     GradingCallback(callback, CallbackType::BEFORE, INVALID_PAGE_ID);
     auto *result = NewPgImp(page_id);
     GradingCallback(callback, CallbackType::AFTER, *page_id);
@@ -70,7 +75,8 @@ class BufferPoolManager {
   }
 
   /** Grading function. Do not modify! */
-  auto DeletePage(page_id_t page_id, bufferpool_callback_fn callback = nullptr) -> bool {
+  auto DeletePage(page_id_t page_id, bufferpool_callback_fn callback = nullptr)
+      -> bool {
     GradingCallback(callback, CallbackType::BEFORE, page_id);
     auto result = DeletePgImp(page_id);
     GradingCallback(callback, CallbackType::AFTER, page_id);
@@ -87,7 +93,7 @@ class BufferPoolManager {
   /** @return size of the buffer pool */
   virtual auto GetPoolSize() -> size_t = 0;
 
- protected:
+protected:
   /**
    * Grading function. Do not modify!
    * Invokes the callback function if it is not null.
@@ -95,7 +101,8 @@ class BufferPoolManager {
    * @param callback_type BEFORE or AFTER
    * @param page_id the page id to invoke the callback with
    */
-  void GradingCallback(bufferpool_callback_fn callback, CallbackType callback_type, page_id_t page_id) {
+  void GradingCallback(bufferpool_callback_fn callback,
+                       CallbackType callback_type, page_id_t page_id) {
     if (callback != nullptr) {
       callback(callback_type, page_id);
     }
@@ -112,28 +119,32 @@ class BufferPoolManager {
    * Unpin the target page from the buffer pool.
    * @param page_id id of page to be unpinned
    * @param is_dirty true if the page should be marked as dirty, false otherwise
-   * @return false if the page pin count is <= 0 before this call, true otherwise
+   * @return false if the page pin count is <= 0 before this call, true
+   * otherwise
    */
   virtual auto UnpinPgImp(page_id_t page_id, bool is_dirty) -> bool = 0;
 
   /**
    * Flushes the target page to disk.
    * @param page_id id of page to be flushed, cannot be INVALID_PAGE_ID
-   * @return false if the page could not be found in the page table, true otherwise
+   * @return false if the page could not be found in the page table, true
+   * otherwise
    */
   virtual auto FlushPgImp(page_id_t page_id) -> bool = 0;
 
   /**
    * Creates a new page in the buffer pool.
    * @param[out] page_id id of created page
-   * @return nullptr if no new pages could be created, otherwise pointer to new page
+   * @return nullptr if no new pages could be created, otherwise pointer to new
+   * page
    */
   virtual auto NewPgImp(page_id_t *page_id) -> Page * = 0;
 
   /**
    * Deletes a page from the buffer pool.
    * @param page_id id of page to be deleted
-   * @return false if the page exists but could not be deleted, true if the page didn't exist or deletion succeeded
+   * @return false if the page exists but could not be deleted, true if the page
+   * didn't exist or deletion succeeded
    */
   virtual auto DeletePgImp(page_id_t page_id) -> bool = 0;
 
@@ -142,4 +153,4 @@ class BufferPoolManager {
    */
   virtual void FlushAllPgsImp() = 0;
 };
-}  // namespace bustub
+} // namespace bustub

@@ -13,13 +13,13 @@
 #include <cstring>
 
 #include "common/exception.h"
-#include "gtest/gtest.h"
 #include "storage/disk/disk_manager.h"
+#include "gtest/gtest.h"
 
 namespace bustub {
 
 class DiskManagerTest : public ::testing::Test {
- protected:
+protected:
   // This function is called before every test.
   void SetUp() override {
     remove("test.db");
@@ -41,7 +41,7 @@ TEST_F(DiskManagerTest, ReadWritePageTest) {
   auto dm = DiskManager(db_file);
   std::strncpy(data, "A test string.", sizeof(data));
 
-  dm.ReadPage(0, buf);  // tolerate empty read
+  dm.ReadPage(0, buf); // tolerate empty read
 
   dm.WritePage(0, data);
   dm.ReadPage(0, buf);
@@ -63,7 +63,7 @@ TEST_F(DiskManagerTest, ReadWriteLogTest) {
   auto dm = DiskManager(db_file);
   std::strncpy(data, "A test string.", sizeof(data));
 
-  dm.ReadLog(buf, sizeof(buf), 0);  // tolerate empty read
+  dm.ReadLog(buf, sizeof(buf), 0); // tolerate empty read
 
   dm.WriteLog(data, sizeof(data));
   dm.ReadLog(buf, sizeof(buf), 0);
@@ -73,6 +73,8 @@ TEST_F(DiskManagerTest, ReadWriteLogTest) {
 }
 
 // NOLINTNEXTLINE
-TEST_F(DiskManagerTest, ThrowBadFileTest) { EXPECT_THROW(DiskManager("dev/null\\/foo/bar/baz/test.db"), Exception); }
+TEST_F(DiskManagerTest, ThrowBadFileTest) {
+  EXPECT_THROW(DiskManager("dev/null\\/foo/bar/baz/test.db"), Exception);
+}
 
-}  // namespace bustub
+} // namespace bustub

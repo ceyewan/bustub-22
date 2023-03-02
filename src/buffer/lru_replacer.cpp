@@ -26,4 +26,4 @@ void LRUReplacer::Unpin(frame_id_t frame_id) {}
 
 auto LRUReplacer::Size() -> size_t { return 0; }
 
-}  // namespace bustub
+} // namespace bustub

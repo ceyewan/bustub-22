@@ -76,7 +76,8 @@ public:
    * @brief Whether this trie node has any children at all. This is useful
    * when implementing 'Remove' functionality.
    *
-   * @return True if this trie node has any child node, false if it has no child node.
+   * @return True if this trie node has any child node, false if it has no child
+   * node.
    */
   bool HasChildren() const { return !children_.empty(); }
 
@@ -101,23 +102,26 @@ public:
   /**
    * TODO(P0): Add implementation
    *
-   * @brief Insert a child node for this trie node into children_ map, given the key char and
-   * unique_ptr of the child node. If specified key_char already exists in children_,
-   * return nullptr. If parameter `child`'s key char is different than parameter
-   * `key_char`, return nullptr.
+   * @brief Insert a child node for this trie node into children_ map, given the
+   * key char and unique_ptr of the child node. If specified key_char already
+   * exists in children_, return nullptr. If parameter `child`'s key char is
+   * different than parameter `key_char`, return nullptr.
    *
    * Note that parameter `child` is rvalue and should be moved when it is
    * inserted into children_map.
    *
-   * The return value is a pointer to unique_ptr because pointer to unique_ptr can access the
-   * underlying data without taking ownership of the unique_ptr. Further, we can set the return
-   * value to nullptr when error occurs.
+   * The return value is a pointer to unique_ptr because pointer to unique_ptr
+   * can access the underlying data without taking ownership of the unique_ptr.
+   * Further, we can set the return value to nullptr when error occurs.
    *
    * @param key Key of child node
-   * @param child Unique pointer created for the child node. This should be added to children_ map.
-   * @return Pointer to unique_ptr of the inserted child node. If insertion fails, return nullptr.
+   * @param child Unique pointer created for the child node. This should be
+   * added to children_ map.
+   * @return Pointer to unique_ptr of the inserted child node. If insertion
+   * fails, return nullptr.
    */
-  std::unique_ptr<TrieNode> *InsertChildNode(char key_char, std::unique_ptr<TrieNode> &&child) {
+  std::unique_ptr<TrieNode> *
+  InsertChildNode(char key_char, std::unique_ptr<TrieNode> &&child) {
     if (children_.count(key_char) > 0 || child->GetKeyChar() != key_char) {
       return nullptr;
     }
@@ -128,8 +132,8 @@ public:
   /**
    * TODO(P0): Add implementation
    *
-   * @brief Get the child node given its key char. If child node for given key char does
-   * not exist, return nullptr.
+   * @brief Get the child node given its key char. If child node for given key
+   * char does not exist, return nullptr.
    *
    * @param key Key of child node
    * @return Pointer to unique_ptr of the child node, nullptr if child
@@ -180,8 +184,7 @@ protected:
  * TrieNodeWithValue is a node that mark the ending of a key, and it can
  * hold a value of any type T.
  */
-template <typename T>
-class TrieNodeWithValue : public TrieNode {
+template <typename T> class TrieNodeWithValue : public TrieNode {
 private:
   /* Value held by this trie node. */
   T value_;
@@ -190,11 +193,13 @@ public:
   /**
    * TODO(P0): Add implementation
    *
-   * @brief Construct a new TrieNodeWithValue object from a TrieNode object and specify its value.
-   * This is used when a non-terminal TrieNode is converted to terminal TrieNodeWithValue.
+   * @brief Construct a new TrieNodeWithValue object from a TrieNode object and
+   * specify its value. This is used when a non-terminal TrieNode is converted
+   * to terminal TrieNodeWithValue.
    *
-   * The children_ map of TrieNode should be moved to the new TrieNodeWithValue object.
-   * Since it contains unique pointers, the first parameter is a rvalue reference.
+   * The children_ map of TrieNode should be moved to the new TrieNodeWithValue
+   * object. Since it contains unique pointers, the first parameter is a rvalue
+   * reference.
    *
    * You should:
    * 1) invoke TrieNode's move constructor to move data from TrieNode to
@@ -205,7 +210,8 @@ public:
    * @param trieNode TrieNode whose data is to be moved to TrieNodeWithValue
    * @param value
    */
-  TrieNodeWithValue(TrieNode &&trieNode, T value) : TrieNode(std::forward<TrieNode>(trieNode)) {
+  TrieNodeWithValue(TrieNode &&trieNode, T value)
+      : TrieNode(std::forward<TrieNode>(trieNode)) {
     this->value_ = value;
     this->is_end_ = true;
   }
@@ -213,7 +219,8 @@ public:
   /**
    * TODO(P0): Add implementation
    *
-   * @brief Construct a new TrieNodeWithValue. This is used when a new terminal node is constructed.
+   * @brief Construct a new TrieNodeWithValue. This is used when a new terminal
+   * node is constructed.
    *
    * You should:
    * 1) Invoke the constructor for TrieNode with given key_char.
@@ -242,8 +249,8 @@ public:
 };
 
 /**
- * Trie is a concurrent key-value store. Each key is string and its corresponding
- * value can be any type.
+ * Trie is a concurrent key-value store. Each key is string and its
+ * corresponding value can be any type.
  */
 class Trie {
 private:
@@ -273,23 +280,23 @@ public:
    * you should never overwrite value of an existing key.
    *
    * When you reach the ending character of a key:
-   * 1. If TrieNode with this ending character does not exist, create new TrieNodeWithValue
-   * and add it to parent node's children_ map.
-   * 2. If the terminal node is a TrieNode, then convert it into TrieNodeWithValue by
-   * invoking the appropriate constructor.
+   * 1. If TrieNode with this ending character does not exist, create new
+   * TrieNodeWithValue and add it to parent node's children_ map.
+   * 2. If the terminal node is a TrieNode, then convert it into
+   * TrieNodeWithValue by invoking the appropriate constructor.
    * 3. If it is already a TrieNodeWithValue,
-   * then insertion fails and return false. Do not overwrite existing data with new data.
+   * then insertion fails and return false. Do not overwrite existing data with
+   * new data.
    *
-   * You can quickly check whether a TrieNode pointer holds TrieNode or TrieNodeWithValue
-   * by checking the is_end_ flag. If is_end_ == false, then it points to TrieNode. If
-   * is_end_ == true, it points to TrieNodeWithValue.
+   * You can quickly check whether a TrieNode pointer holds TrieNode or
+   * TrieNodeWithValue by checking the is_end_ flag. If is_end_ == false, then
+   * it points to TrieNode. If is_end_ == true, it points to TrieNodeWithValue.
    *
    * @param key Key used to traverse the trie and find correct node
    * @param value Value to be inserted
    * @return True if insertion succeeds, false if key already exists
    */
-  template <typename T>
-  bool Insert(const std::string &key, T value) {
+  template <typename T> bool Insert(const std::string &key, T value) {
     const size_t key_size = key.size();
     if (key_size == 0) {
       return false;
@@ -299,7 +306,8 @@ public:
     std::unique_ptr<TrieNode> *parent;
     for (size_t i = 0; i < key_size; i++) {
       if (curr->get()->GetChildNode(key[i]) == nullptr) {
-        curr->get()->InsertChildNode(key[i], std::make_unique<TrieNode>(key[i]));
+        curr->get()->InsertChildNode(key[i],
+                                     std::make_unique<TrieNode>(key[i]));
       }
       parent = curr;
       curr = curr->get()->GetChildNode(key[i]);
@@ -308,7 +316,8 @@ public:
       latch_.WUnlock();
       return false;
     }
-    auto new_node = std::make_unique<TrieNodeWithValue<T>>(std::move(**curr), value);
+    auto new_node =
+        std::make_unique<TrieNodeWithValue<T>>(std::move(**curr), value);
     (*parent)->RemoveChildNode(key[key_size - 1]);
     (*parent)->InsertChildNode(key[key_size - 1], std::move(new_node));
     latch_.WUnlock();
@@ -320,7 +329,8 @@ public:
   //   auto matched_node = &this->root_;
   //   for (size_t i = 0; i < key_size; i++) {
   //     if (matched_node->get()->GetChildNode(key[i]) == nullptr) {
-  //       matched_node->get()->InsertChildNode(key[i], std::make_unique<TrieNode>(key[i]));
+  //       matched_node->get()->InsertChildNode(key[i],
+  //       std::make_unique<TrieNode>(key[i]));
   //     }
   //     auto father_node = matched_node;
   //     matched_node = matched_node->get()->GetChildNode(key[i]);
@@ -328,8 +338,9 @@ public:
   //       if (matched_node->get()->IsEndNode()) {
   //         break;
   //       }
-  //       auto new_node = std::make_unique<TrieNodeWithValue<T>>(std::move(**matched_node), value);
-  //       father_node->get()->RemoveChildNode(key[i]);
+  //       auto new_node =
+  //       std::make_unique<TrieNodeWithValue<T>>(std::move(**matched_node),
+  //       value); father_node->get()->RemoveChildNode(key[i]);
   //       father_node->get()->InsertChildNode(key[i], std::move(new_node));
   //       return true;
   //     }
@@ -388,7 +399,8 @@ public:
   //   latch_.WUnlock();
   //   return true;
   // }
-  bool RemoveHelper(std::unique_ptr<TrieNode> *curr, size_t i, const std::string &key, bool *success) {
+  bool RemoveHelper(std::unique_ptr<TrieNode> *curr, size_t i,
+                    const std::string &key, bool *success) {
     if (i == key.size()) {
       *success = true;
       (*curr)->SetEndNode(false);
@@ -398,7 +410,8 @@ public:
       *success = false;
       return false;
     }
-    bool can_remove = RemoveHelper((*curr)->GetChildNode(key[i]), i + 1, key, success);
+    bool can_remove =
+        RemoveHelper((*curr)->GetChildNode(key[i]), i + 1, key, success);
     if (!*success) {
       return false;
     }
@@ -459,9 +472,9 @@ public:
    * @brief Get the corresponding value of type T given its key.
    * If key is empty, set success to false.
    * If key does not exist in trie, set success to false.
-   * If given type T is not the same as the value type stored in TrieNodeWithValue
-   * (ie. GetValue<int> is called but terminal node holds std::string),
-   * set success to false.
+   * If given type T is not the same as the value type stored in
+   * TrieNodeWithValue (ie. GetValue<int> is called but terminal node holds
+   * std::string), set success to false.
    *
    * To check whether the two types are the same, dynamic_cast
    * the terminal TrieNode to TrieNodeWithValue<T>. If the casted result
@@ -471,8 +484,7 @@ public:
    * @param success Whether GetValue is successful or not
    * @return Value of type T if type matches
    */
-  template <typename T>
-  T GetValue(const std::string &key, bool *success) {
+  template <typename T> T GetValue(const std::string &key, bool *success) {
     latch_.RLock();
     auto curr = &root_;
     size_t key_size = key.size();
@@ -500,4 +512,4 @@ public:
     return T();
   }
 };
-}  // namespace bustub
+} // namespace bustub

@@ -42,7 +42,7 @@ namespace bustub {
  *
  */
 class TablePage : public Page {
- public:
+public:
   /**
    * Initialize the TablePage header.
    * @param page_id the page ID of this table page
@@ -51,16 +51,23 @@ class TablePage : public Page {
    * @param log_manager the log manager in use
    * @param txn the transaction that this page is created in
    */
-  void Init(page_id_t page_id, uint32_t page_size, page_id_t prev_page_id, LogManager *log_manager, Transaction *txn);
+  void Init(page_id_t page_id, uint32_t page_size, page_id_t prev_page_id,
+            LogManager *log_manager, Transaction *txn);
 
   /** @return the page ID of this table page */
-  auto GetTablePageId() -> page_id_t { return *reinterpret_cast<page_id_t *>(GetData()); }
+  auto GetTablePageId() -> page_id_t {
+    return *reinterpret_cast<page_id_t *>(GetData());
+  }
 
   /** @return the page ID of the previous table page */
-  auto GetPrevPageId() -> page_id_t { return *reinterpret_cast<page_id_t *>(GetData() + OFFSET_PREV_PAGE_ID); }
+  auto GetPrevPageId() -> page_id_t {
+    return *reinterpret_cast<page_id_t *>(GetData() + OFFSET_PREV_PAGE_ID);
+  }
 
   /** @return the page ID of the next table page */
-  auto GetNextPageId() -> page_id_t { return *reinterpret_cast<page_id_t *>(GetData() + OFFSET_NEXT_PAGE_ID); }
+  auto GetNextPageId() -> page_id_t {
+    return *reinterpret_cast<page_id_t *>(GetData() + OFFSET_NEXT_PAGE_ID);
+  }
 
   /** Set the page id of the previous page in the table. */
   void SetPrevPageId(page_id_t prev_page_id) {
@@ -81,8 +88,8 @@ class TablePage : public Page {
    * @param log_manager the log manager
    * @return true if the insert is successful (i.e. there is enough space)
    */
-  auto InsertTuple(const Tuple &tuple, RID *rid, Transaction *txn, LockManager *lock_manager, LogManager *log_manager)
-      -> bool;
+  auto InsertTuple(const Tuple &tuple, RID *rid, Transaction *txn,
+                   LockManager *lock_manager, LogManager *log_manager) -> bool;
 
   /**
    * Mark a tuple as deleted. This does not actually delete the tuple.
@@ -90,9 +97,11 @@ class TablePage : public Page {
    * @param txn transaction performing the delete
    * @param lock_manager the lock manager
    * @param log_manager the log manager
-   * @return true if marking the tuple as deleted is successful (i.e the tuple exists)
+   * @return true if marking the tuple as deleted is successful (i.e the tuple
+   * exists)
    */
-  auto MarkDelete(const RID &rid, Transaction *txn, LockManager *lock_manager, LogManager *log_manager) -> bool;
+  auto MarkDelete(const RID &rid, Transaction *txn, LockManager *lock_manager,
+                  LogManager *log_manager) -> bool;
 
   /**
    * Update a tuple.
@@ -104,14 +113,18 @@ class TablePage : public Page {
    * @param log_manager the log manager
    * @return true if updating the tuple succeeded
    */
-  auto UpdateTuple(const Tuple &new_tuple, Tuple *old_tuple, const RID &rid, Transaction *txn,
-                   LockManager *lock_manager, LogManager *log_manager) -> bool;
+  auto UpdateTuple(const Tuple &new_tuple, Tuple *old_tuple, const RID &rid,
+                   Transaction *txn, LockManager *lock_manager,
+                   LogManager *log_manager) -> bool;
 
-  /** To be called on commit or abort. Actually perform the delete or rollback an insert. */
+  /** To be called on commit or abort. Actually perform the delete or rollback
+   * an insert. */
   void ApplyDelete(const RID &rid, Transaction *txn, LogManager *log_manager);
 
-  /** To be called on abort. Rollback a delete, i.e. this reverses a MarkDelete. */
-  void RollbackDelete(const RID &rid, Transaction *txn, LogManager *log_manager);
+  /** To be called on abort. Rollback a delete, i.e. this reverses a MarkDelete.
+   */
+  void RollbackDelete(const RID &rid, Transaction *txn,
+                      LogManager *log_manager);
 
   /**
    * Read a tuple from a table.
@@ -121,7 +134,8 @@ class TablePage : public Page {
    * @param lock_manager the lock manager
    * @return true if the read is successful (i.e. the tuple exists)
    */
-  auto GetTuple(const RID &rid, Tuple *tuple, Transaction *txn, LockManager *lock_manager) -> bool;
+  auto GetTuple(const RID &rid, Tuple *tuple, Transaction *txn,
+                LockManager *lock_manager) -> bool;
 
   /** @return the rid of the first tuple in this page */
 
@@ -138,7 +152,7 @@ class TablePage : public Page {
    */
   auto GetNextTupleRid(const RID &cur_rid, RID *next_rid) -> bool;
 
- private:
+private:
   static_assert(sizeof(page_id_t) == 4);
 
   static constexpr size_t SIZE_TABLE_PAGE_HEADER = 24;
@@ -147,48 +161,62 @@ class TablePage : public Page {
   static constexpr size_t OFFSET_NEXT_PAGE_ID = 12;
   static constexpr size_t OFFSET_FREE_SPACE = 16;
   static constexpr size_t OFFSET_TUPLE_COUNT = 20;
-  static constexpr size_t OFFSET_TUPLE_OFFSET = 24;  // Naming things is hard.
+  static constexpr size_t OFFSET_TUPLE_OFFSET = 24; // Naming things is hard.
   static constexpr size_t OFFSET_TUPLE_SIZE = 28;
 
-  /** @return pointer to the end of the current free space, see header comment */
-  auto GetFreeSpacePointer() -> uint32_t { return *reinterpret_cast<uint32_t *>(GetData() + OFFSET_FREE_SPACE); }
+  /** @return pointer to the end of the current free space, see header comment
+   */
+  auto GetFreeSpacePointer() -> uint32_t {
+    return *reinterpret_cast<uint32_t *>(GetData() + OFFSET_FREE_SPACE);
+  }
 
   /** Sets the pointer, this should be the end of the current free space. */
   void SetFreeSpacePointer(uint32_t free_space_pointer) {
-    memcpy(GetData() + OFFSET_FREE_SPACE, &free_space_pointer, sizeof(uint32_t));
+    memcpy(GetData() + OFFSET_FREE_SPACE, &free_space_pointer,
+           sizeof(uint32_t));
   }
 
   /**
-   * @note returned tuple count may be an overestimate because some slots may be empty
+   * @note returned tuple count may be an overestimate because some slots may be
+   * empty
    * @return at least the number of tuples in this page
    */
-  auto GetTupleCount() -> uint32_t { return *reinterpret_cast<uint32_t *>(GetData() + OFFSET_TUPLE_COUNT); }
+  auto GetTupleCount() -> uint32_t {
+    return *reinterpret_cast<uint32_t *>(GetData() + OFFSET_TUPLE_COUNT);
+  }
 
   /** Set the number of tuples in this page. */
-  void SetTupleCount(uint32_t tuple_count) { memcpy(GetData() + OFFSET_TUPLE_COUNT, &tuple_count, sizeof(uint32_t)); }
+  void SetTupleCount(uint32_t tuple_count) {
+    memcpy(GetData() + OFFSET_TUPLE_COUNT, &tuple_count, sizeof(uint32_t));
+  }
 
   auto GetFreeSpaceRemaining() -> uint32_t {
-    return GetFreeSpacePointer() - SIZE_TABLE_PAGE_HEADER - SIZE_TUPLE * GetTupleCount();
+    return GetFreeSpacePointer() - SIZE_TABLE_PAGE_HEADER -
+           SIZE_TUPLE * GetTupleCount();
   }
 
   /** @return tuple offset at slot slot_num */
   auto GetTupleOffsetAtSlot(uint32_t slot_num) -> uint32_t {
-    return *reinterpret_cast<uint32_t *>(GetData() + OFFSET_TUPLE_OFFSET + SIZE_TUPLE * slot_num);
+    return *reinterpret_cast<uint32_t *>(GetData() + OFFSET_TUPLE_OFFSET +
+                                         SIZE_TUPLE * slot_num);
   }
 
   /** Set tuple offset at slot slot_num. */
   void SetTupleOffsetAtSlot(uint32_t slot_num, uint32_t offset) {
-    memcpy(GetData() + OFFSET_TUPLE_OFFSET + SIZE_TUPLE * slot_num, &offset, sizeof(uint32_t));
+    memcpy(GetData() + OFFSET_TUPLE_OFFSET + SIZE_TUPLE * slot_num, &offset,
+           sizeof(uint32_t));
   }
 
   /** @return tuple size at slot slot_num */
   auto GetTupleSize(uint32_t slot_num) -> uint32_t {
-    return *reinterpret_cast<uint32_t *>(GetData() + OFFSET_TUPLE_SIZE + SIZE_TUPLE * slot_num);
+    return *reinterpret_cast<uint32_t *>(GetData() + OFFSET_TUPLE_SIZE +
+                                         SIZE_TUPLE * slot_num);
   }
 
   /** Set tuple size at slot slot_num. */
   void SetTupleSize(uint32_t slot_num, uint32_t size) {
-    memcpy(GetData() + OFFSET_TUPLE_SIZE + SIZE_TUPLE * slot_num, &size, sizeof(uint32_t));
+    memcpy(GetData() + OFFSET_TUPLE_SIZE + SIZE_TUPLE * slot_num, &size,
+           sizeof(uint32_t));
   }
 
   /** @return true if the tuple is deleted or empty */
@@ -206,4 +234,4 @@ class TablePage : public Page {
     return static_cast<uint32_t>(tuple_size & (~DELETE_MASK));
   }
 };
-}  // namespace bustub
+} // namespace bustub

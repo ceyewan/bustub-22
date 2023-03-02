@@ -29,19 +29,22 @@ class LockManager;
  * TransactionManager keeps track of all the transactions running in the system.
  */
 class TransactionManager {
- public:
-  explicit TransactionManager(LockManager *lock_manager, LogManager *log_manager = nullptr)
+public:
+  explicit TransactionManager(LockManager *lock_manager,
+                              LogManager *log_manager = nullptr)
       : lock_manager_(lock_manager), log_manager_(log_manager) {}
 
   ~TransactionManager() = default;
 
   /**
    * Begins a new transaction.
-   * @param txn an optional transaction object to be initialized, otherwise a new transaction is created.
+   * @param txn an optional transaction object to be initialized, otherwise a
+   * new transaction is created.
    * @param isolation_level an optional isolation level of the transaction.
    * @return an initialized transaction
    */
-  auto Begin(Transaction *txn = nullptr, IsolationLevel isolation_level = IsolationLevel::REPEATABLE_READ)
+  auto Begin(Transaction *txn = nullptr,
+             IsolationLevel isolation_level = IsolationLevel::REPEATABLE_READ)
       -> Transaction *;
 
   /**
@@ -60,7 +63,8 @@ class TransactionManager {
    * Global list of running transactions
    */
 
-  /** The transaction map is a global list of all the running transactions in the system. */
+  /** The transaction map is a global list of all the running transactions in
+   * the system. */
   static std::unordered_map<txn_id_t, Transaction *> txn_map;
   static std::shared_mutex txn_map_mutex;
 
@@ -71,19 +75,21 @@ class TransactionManager {
    */
   static auto GetTransaction(txn_id_t txn_id) -> Transaction * {
     std::shared_lock<std::shared_mutex> l(TransactionManager::txn_map_mutex);
-    assert(TransactionManager::txn_map.find(txn_id) != TransactionManager::txn_map.end());
+    assert(TransactionManager::txn_map.find(txn_id) !=
+           TransactionManager::txn_map.end());
     auto *res = TransactionManager::txn_map[txn_id];
     assert(res != nullptr);
     return res;
   }
 
-  /** Prevents all transactions from performing operations, used for checkpointing. */
+  /** Prevents all transactions from performing operations, used for
+   * checkpointing. */
   void BlockAllTransactions();
 
   /** Resumes all transactions, used for checkpointing. */
   void ResumeTransactions();
 
- private:
+private:
   /**
    * Releases all the locks held by the given transaction.
    * @param txn the transaction whose locks should be released
@@ -142,4 +148,4 @@ class TransactionManager {
   ReaderWriterLatch global_txn_latch_;
 };
 
-}  // namespace bustub
+} // namespace bustub

@@ -32,7 +32,7 @@ enum class OrderByType : uint8_t {
  * BoundOrderBy is an item in the ORDER BY clause.
  */
 class BoundOrderBy {
- public:
+public:
   explicit BoundOrderBy(OrderByType type, std::unique_ptr<BoundExpression> expr)
       : type_(type), expr_(std::move(expr)) {}
 
@@ -43,13 +43,16 @@ class BoundOrderBy {
   std::unique_ptr<BoundExpression> expr_;
 
   /** Render this statement as a string. */
-  auto ToString() const -> std::string { return fmt::format("BoundOrderBy {{ type={}, expr={} }}", type_, expr_); }
+  auto ToString() const -> std::string {
+    return fmt::format("BoundOrderBy {{ type={}, expr={} }}", type_, expr_);
+  }
 };
 
-}  // namespace bustub
+} // namespace bustub
 
 template <typename T>
-struct fmt::formatter<T, std::enable_if_t<std::is_base_of<bustub::BoundOrderBy, T>::value, char>>
+struct fmt::formatter<
+    T, std::enable_if_t<std::is_base_of<bustub::BoundOrderBy, T>::value, char>>
     : fmt::formatter<std::string> {
   template <typename FormatCtx>
   auto format(const bustub::BoundOrderBy &x, FormatCtx &ctx) const {
@@ -58,10 +61,13 @@ struct fmt::formatter<T, std::enable_if_t<std::is_base_of<bustub::BoundOrderBy, 
 };
 
 template <typename T>
-struct fmt::formatter<std::unique_ptr<T>, std::enable_if_t<std::is_base_of<bustub::BoundOrderBy, T>::value, char>>
+struct fmt::formatter<
+    std::unique_ptr<T>,
+    std::enable_if_t<std::is_base_of<bustub::BoundOrderBy, T>::value, char>>
     : fmt::formatter<std::string> {
   template <typename FormatCtx>
-  auto format(const std::unique_ptr<bustub::BoundOrderBy> &x, FormatCtx &ctx) const {
+  auto format(const std::unique_ptr<bustub::BoundOrderBy> &x,
+              FormatCtx &ctx) const {
     return fmt::formatter<std::string>::format(x->ToString(), ctx);
   }
 };
@@ -72,21 +78,21 @@ struct fmt::formatter<bustub::OrderByType> : formatter<string_view> {
   auto format(bustub::OrderByType c, FormatContext &ctx) const {
     string_view name;
     switch (c) {
-      case bustub::OrderByType::INVALID:
-        name = "Invalid";
-        break;
-      case bustub::OrderByType::ASC:
-        name = "Ascending";
-        break;
-      case bustub::OrderByType::DESC:
-        name = "Descending";
-        break;
-      case bustub::OrderByType::DEFAULT:
-        name = "Default";
-        break;
-      default:
-        name = "Unknown";
-        break;
+    case bustub::OrderByType::INVALID:
+      name = "Invalid";
+      break;
+    case bustub::OrderByType::ASC:
+      name = "Ascending";
+      break;
+    case bustub::OrderByType::DESC:
+      name = "Descending";
+      break;
+    case bustub::OrderByType::DEFAULT:
+      name = "Default";
+      break;
+    default:
+      name = "Unknown";
+      break;
     }
     return formatter<string_view>::format(name, ctx);
   }

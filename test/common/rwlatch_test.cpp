@@ -10,7 +10,7 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include <thread>  // NOLINT
+#include <thread> // NOLINT
 #include <vector>
 
 #include "common/rwlatch.h"
@@ -19,7 +19,7 @@
 namespace bustub {
 
 class Counter {
- public:
+public:
   Counter() = default;
   void Add(int num) {
     mutex_.WLock();
@@ -34,7 +34,7 @@ class Counter {
     return res;
   }
 
- private:
+private:
   int count_{0};
   ReaderWriterLatch mutex_{};
 };
@@ -57,4 +57,4 @@ TEST(RWLatchTest, BasicTest) {
   }
   EXPECT_EQ(counter.Read(), 55);
 }
-}  // namespace bustub
+} // namespace bustub

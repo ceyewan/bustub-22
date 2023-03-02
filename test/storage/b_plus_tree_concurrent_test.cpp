@@ -10,15 +10,15 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include <chrono>  // NOLINT
+#include <chrono> // NOLINT
 #include <cstdio>
 #include <functional>
-#include <thread>  // NOLINT
+#include <thread> // NOLINT
 
 #include "buffer/buffer_pool_manager_instance.h"
-#include "gtest/gtest.h"
 #include "storage/index/b_plus_tree.h"
-#include "test_util.h"  // NOLINT
+#include "test_util.h" // NOLINT
+#include "gtest/gtest.h"
 
 namespace bustub {
 // helper function to launch multiple threads
@@ -38,7 +38,8 @@ void LaunchParallelTest(uint64_t num_threads, Args &&...args) {
 }
 
 // helper function to insert
-void InsertHelper(BPlusTree<GenericKey<8>, RID, GenericComparator<8>> *tree, const std::vector<int64_t> &keys,
+void InsertHelper(BPlusTree<GenericKey<8>, RID, GenericComparator<8>> *tree,
+                  const std::vector<int64_t> &keys,
                   __attribute__((unused)) uint64_t thread_itr = 0) {
   GenericKey<8> index_key;
   RID rid;
@@ -54,8 +55,10 @@ void InsertHelper(BPlusTree<GenericKey<8>, RID, GenericComparator<8>> *tree, con
 }
 
 // helper function to seperate insert
-void InsertHelperSplit(BPlusTree<GenericKey<8>, RID, GenericComparator<8>> *tree, const std::vector<int64_t> &keys,
-                       int total_threads, __attribute__((unused)) uint64_t thread_itr) {
+void InsertHelperSplit(
+    BPlusTree<GenericKey<8>, RID, GenericComparator<8>> *tree,
+    const std::vector<int64_t> &keys, int total_threads,
+    __attribute__((unused)) uint64_t thread_itr) {
   GenericKey<8> index_key;
   RID rid;
   // create transaction
@@ -72,7 +75,8 @@ void InsertHelperSplit(BPlusTree<GenericKey<8>, RID, GenericComparator<8>> *tree
 }
 
 // helper function to delete
-void DeleteHelper(BPlusTree<GenericKey<8>, RID, GenericComparator<8>> *tree, const std::vector<int64_t> &remove_keys,
+void DeleteHelper(BPlusTree<GenericKey<8>, RID, GenericComparator<8>> *tree,
+                  const std::vector<int64_t> &remove_keys,
                   __attribute__((unused)) uint64_t thread_itr = 0) {
   GenericKey<8> index_key;
   // create transaction
@@ -85,9 +89,10 @@ void DeleteHelper(BPlusTree<GenericKey<8>, RID, GenericComparator<8>> *tree, con
 }
 
 // helper function to seperate delete
-void DeleteHelperSplit(BPlusTree<GenericKey<8>, RID, GenericComparator<8>> *tree,
-                       const std::vector<int64_t> &remove_keys, int total_threads,
-                       __attribute__((unused)) uint64_t thread_itr) {
+void DeleteHelperSplit(
+    BPlusTree<GenericKey<8>, RID, GenericComparator<8>> *tree,
+    const std::vector<int64_t> &remove_keys, int total_threads,
+    __attribute__((unused)) uint64_t thread_itr) {
   GenericKey<8> index_key;
   // create transaction
   auto *transaction = new Transaction(0);
@@ -100,7 +105,7 @@ void DeleteHelperSplit(BPlusTree<GenericKey<8>, RID, GenericComparator<8>> *tree
   delete transaction;
 }
 
-TEST(BPlusTreeConcurrentTest, DISABLED_InsertTest1) {
+TEST(BPlusTreeConcurrentTest, InsertTest1) {
   // create KeyComparator and index schema
   auto key_schema = ParseCreateStatement("a bigint");
   GenericComparator<8> comparator(key_schema.get());
@@ -108,7 +113,8 @@ TEST(BPlusTreeConcurrentTest, DISABLED_InsertTest1) {
   auto *disk_manager = new DiskManager("test.db");
   BufferPoolManager *bpm = new BufferPoolManagerInstance(50, disk_manager);
   // create b+ tree
-  BPlusTree<GenericKey<8>, RID, GenericComparator<8>> tree("foo_pk", bpm, comparator);
+  BPlusTree<GenericKey<8>, RID, GenericComparator<8>> tree("foo_pk", bpm,
+                                                           comparator);
   // create and fetch header_page
   page_id_t page_id;
   auto header_page = bpm->NewPage(&page_id);
@@ -136,7 +142,8 @@ TEST(BPlusTreeConcurrentTest, DISABLED_InsertTest1) {
   int64_t start_key = 1;
   int64_t current_key = start_key;
   index_key.SetFromInteger(start_key);
-  for (auto iterator = tree.Begin(index_key); iterator != tree.End(); ++iterator) {
+  for (auto iterator = tree.Begin(index_key); iterator != tree.End();
+       ++iterator) {
     auto location = (*iterator).second;
     EXPECT_EQ(location.GetPageId(), 0);
     EXPECT_EQ(location.GetSlotNum(), current_key);
@@ -152,14 +159,15 @@ TEST(BPlusTreeConcurrentTest, DISABLED_InsertTest1) {
   remove("test.log");
 }
 
-TEST(BPlusTreeConcurrentTest, DISABLED_InsertTest2) {
+TEST(BPlusTreeConcurrentTest, InsertTest2) {
   // create KeyComparator and index schema
   auto key_schema = ParseCreateStatement("a bigint");
   GenericComparator<8> comparator(key_schema.get());
   auto *disk_manager = new DiskManager("test.db");
   BufferPoolManager *bpm = new BufferPoolManagerInstance(50, disk_manager);
   // create b+ tree
-  BPlusTree<GenericKey<8>, RID, GenericComparator<8>> tree("foo_pk", bpm, comparator);
+  BPlusTree<GenericKey<8>, RID, GenericComparator<8>> tree("foo_pk", bpm,
+                                                           comparator);
   // create and fetch header_page
   page_id_t page_id;
   auto header_page = bpm->NewPage(&page_id);
@@ -187,7 +195,8 @@ TEST(BPlusTreeConcurrentTest, DISABLED_InsertTest2) {
   int64_t start_key = 1;
   int64_t current_key = start_key;
   index_key.SetFromInteger(start_key);
-  for (auto iterator = tree.Begin(index_key); iterator != tree.End(); ++iterator) {
+  for (auto iterator = tree.Begin(index_key); iterator != tree.End();
+       ++iterator) {
     auto location = (*iterator).second;
     EXPECT_EQ(location.GetPageId(), 0);
     EXPECT_EQ(location.GetSlotNum(), current_key);
@@ -203,7 +212,7 @@ TEST(BPlusTreeConcurrentTest, DISABLED_InsertTest2) {
   remove("test.log");
 }
 
-TEST(BPlusTreeConcurrentTest, DISABLED_DeleteTest1) {
+TEST(BPlusTreeConcurrentTest, DeleteTest1) {
   // create KeyComparator and index schema
   auto key_schema = ParseCreateStatement("a bigint");
   GenericComparator<8> comparator(key_schema.get());
@@ -211,7 +220,8 @@ TEST(BPlusTreeConcurrentTest, DISABLED_DeleteTest1) {
   auto *disk_manager = new DiskManager("test.db");
   BufferPoolManager *bpm = new BufferPoolManagerInstance(50, disk_manager);
   // create b+ tree
-  BPlusTree<GenericKey<8>, RID, GenericComparator<8>> tree("foo_pk", bpm, comparator);
+  BPlusTree<GenericKey<8>, RID, GenericComparator<8>> tree("foo_pk", bpm,
+                                                           comparator);
   GenericKey<8> index_key;
   // create and fetch header_page
   page_id_t page_id;
@@ -228,7 +238,8 @@ TEST(BPlusTreeConcurrentTest, DISABLED_DeleteTest1) {
   int64_t current_key = start_key;
   int64_t size = 0;
   index_key.SetFromInteger(start_key);
-  for (auto iterator = tree.Begin(index_key); iterator != tree.End(); ++iterator) {
+  for (auto iterator = tree.Begin(index_key); iterator != tree.End();
+       ++iterator) {
     auto location = (*iterator).second;
     EXPECT_EQ(location.GetPageId(), 0);
     EXPECT_EQ(location.GetSlotNum(), current_key);
@@ -245,7 +256,7 @@ TEST(BPlusTreeConcurrentTest, DISABLED_DeleteTest1) {
   remove("test.log");
 }
 
-TEST(BPlusTreeConcurrentTest, DISABLED_DeleteTest2) {
+TEST(BPlusTreeConcurrentTest, DeleteTest2) {
   // create KeyComparator and index schema
   auto key_schema = ParseCreateStatement("a bigint");
   GenericComparator<8> comparator(key_schema.get());
@@ -253,7 +264,8 @@ TEST(BPlusTreeConcurrentTest, DISABLED_DeleteTest2) {
   auto *disk_manager = new DiskManager("test.db");
   BufferPoolManager *bpm = new BufferPoolManagerInstance(50, disk_manager);
   // create b+ tree
-  BPlusTree<GenericKey<8>, RID, GenericComparator<8>> tree("foo_pk", bpm, comparator);
+  BPlusTree<GenericKey<8>, RID, GenericComparator<8>> tree("foo_pk", bpm,
+                                                           comparator);
   GenericKey<8> index_key;
   // create and fetch header_page
   page_id_t page_id;
@@ -271,7 +283,8 @@ TEST(BPlusTreeConcurrentTest, DISABLED_DeleteTest2) {
   int64_t current_key = start_key;
   int64_t size = 0;
   index_key.SetFromInteger(start_key);
-  for (auto iterator = tree.Begin(index_key); iterator != tree.End(); ++iterator) {
+  for (auto iterator = tree.Begin(index_key); iterator != tree.End();
+       ++iterator) {
     auto location = (*iterator).second;
     EXPECT_EQ(location.GetPageId(), 0);
     EXPECT_EQ(location.GetSlotNum(), current_key);
@@ -288,7 +301,7 @@ TEST(BPlusTreeConcurrentTest, DISABLED_DeleteTest2) {
   remove("test.log");
 }
 
-TEST(BPlusTreeConcurrentTest, DISABLED_MixTest) {
+TEST(BPlusTreeConcurrentTest, MixTest) {
   // create KeyComparator and index schema
   auto key_schema = ParseCreateStatement("a bigint");
   GenericComparator<8> comparator(key_schema.get());
@@ -296,7 +309,8 @@ TEST(BPlusTreeConcurrentTest, DISABLED_MixTest) {
   auto *disk_manager = new DiskManager("test.db");
   BufferPoolManager *bpm = new BufferPoolManagerInstance(50, disk_manager);
   // create b+ tree
-  BPlusTree<GenericKey<8>, RID, GenericComparator<8>> tree("foo_pk", bpm, comparator);
+  BPlusTree<GenericKey<8>, RID, GenericComparator<8>> tree("foo_pk", bpm,
+                                                           comparator);
   GenericKey<8> index_key;
 
   // create and fetch header_page
@@ -320,7 +334,8 @@ TEST(BPlusTreeConcurrentTest, DISABLED_MixTest) {
   int64_t start_key = 2;
   int64_t size = 0;
   index_key.SetFromInteger(start_key);
-  for (auto iterator = tree.Begin(index_key); iterator != tree.End(); ++iterator) {
+  for (auto iterator = tree.Begin(index_key); iterator != tree.End();
+       ++iterator) {
     size = size + 1;
   }
 
@@ -333,4 +348,4 @@ TEST(BPlusTreeConcurrentTest, DISABLED_MixTest) {
   remove("test.log");
 }
 
-}  // namespace bustub
+} // namespace bustub

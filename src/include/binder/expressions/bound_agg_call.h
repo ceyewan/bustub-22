@@ -13,11 +13,11 @@ namespace bustub {
  * A bound aggregate call, e.g., `sum(x)`.
  */
 class BoundAggCall : public BoundExpression {
- public:
-  explicit BoundAggCall(std::string func_name, bool is_distinct, std::vector<std::unique_ptr<BoundExpression>> args)
+public:
+  explicit BoundAggCall(std::string func_name, bool is_distinct,
+                        std::vector<std::unique_ptr<BoundExpression>> args)
       : BoundExpression(ExpressionType::AGG_CALL),
-        func_name_(std::move(func_name)),
-        is_distinct_(is_distinct),
+        func_name_(std::move(func_name)), is_distinct_(is_distinct),
         args_(std::move(args)) {}
 
   auto ToString() const -> std::string override;
@@ -33,4 +33,4 @@ class BoundAggCall : public BoundExpression {
   /** Arguments of the agg call. */
   std::vector<std::unique_ptr<BoundExpression>> args_;
 };
-}  // namespace bustub
+} // namespace bustub

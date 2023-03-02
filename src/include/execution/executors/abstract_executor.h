@@ -22,7 +22,7 @@ namespace bustub {
  * engine inherit, and defines the minimal interface that all executors support.
  */
 class AbstractExecutor {
- public:
+public:
   /**
    * Construct a new AbstractExecutor instance.
    * @param exec_ctx the executor context that the executor runs with
@@ -52,8 +52,8 @@ class AbstractExecutor {
   /** @return The executor context in which this executor runs */
   auto GetExecutorContext() -> ExecutorContext * { return exec_ctx_; }
 
- protected:
+protected:
   /** The executor context in which the executor runs */
   ExecutorContext *exec_ctx_;
 };
-}  // namespace bustub
+} // namespace bustub

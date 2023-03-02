@@ -14,7 +14,8 @@
 
 namespace bustub {
 
-LRUKReplacer::LRUKReplacer(size_t num_frames, size_t k) : replacer_size_(num_frames), k_(k) {}
+LRUKReplacer::LRUKReplacer(size_t num_frames, size_t k)
+    : replacer_size_(num_frames), k_(k) {}
 
 auto LRUKReplacer::Judge(frame_id_t s, frame_id_t t) -> bool {
   if (hash_[s].time_.size() < k_ && hash_[t].time_.size() == k_) {
@@ -93,4 +94,4 @@ void LRUKReplacer::Remove(frame_id_t frame_id) {
 
 auto LRUKReplacer::Size() -> size_t { return curr_size_; }
 
-}  // namespace bustub
+} // namespace bustub

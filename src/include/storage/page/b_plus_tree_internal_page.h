@@ -12,13 +12,16 @@
 
 #include <queue>
 
+#include "concurrency/transaction.h"
 #include "storage/page/b_plus_tree_page.h"
 
 namespace bustub {
 
-#define B_PLUS_TREE_INTERNAL_PAGE_TYPE BPlusTreeInternalPage<KeyType, ValueType, KeyComparator>
+#define B_PLUS_TREE_INTERNAL_PAGE_TYPE                                         \
+  BPlusTreeInternalPage<KeyType, ValueType, KeyComparator>
 #define INTERNAL_PAGE_HEADER_SIZE 24
-#define INTERNAL_PAGE_SIZE ((BUSTUB_PAGE_SIZE - INTERNAL_PAGE_HEADER_SIZE) / (sizeof(MappingType)))
+#define INTERNAL_PAGE_SIZE                                                     \
+  ((BUSTUB_PAGE_SIZE - INTERNAL_PAGE_HEADER_SIZE) / (sizeof(MappingType)))
 /**
  * Store n indexed keys and n+1 child pointers (page_id) within internal page.
  * Pointer PAGE_ID(i) points to a subtree in which all keys K satisfy:
@@ -34,30 +37,38 @@ namespace bustub {
  */
 INDEX_TEMPLATE_ARGUMENTS
 class BPlusTreeInternalPage : public BPlusTreePage {
- public:
+public:
   // must call initialize method after "create" a new node
-  void Init(page_id_t page_id, page_id_t parent_id = INVALID_PAGE_ID, int max_size = INTERNAL_PAGE_SIZE);
+  void Init(page_id_t page_id, page_id_t parent_id = INVALID_PAGE_ID,
+            int max_size = INTERNAL_PAGE_SIZE);
 
   auto KeyAt(int index) const -> KeyType;
   void SetKeyAt(int index, const KeyType &key);
   auto ValueAt(int index) const -> ValueType;
   void SetValueAt(int index, const ValueType &value);
 
-  auto Lookup(const KeyType &key, const KeyComparator &KeyComparator) ->ValueType;
-  void Insert(const MappingType &value, const KeyComparator &KeyComparator);
-  auto Break(const KeyType &key, Page *page_bother, Page *page_parent_page, const KeyComparator &keyComparator,
+  auto Lookup(const KeyType &key, const KeyComparator &keyComparator)
+      -> ValueType;
+  void Insert(const MappingType &value, const KeyComparator &keyComparator);
+  auto Break(const KeyType &key, Page *page_bother, Page *page_parent_page,
+             const KeyComparator &keyComparator,
              BufferPoolManager *buffer_pool_manager_) -> void;
   auto Delete(const KeyType &key, const KeyComparator &keyComparator) -> bool;
-  auto GetBotherPage(page_id_t child_page_id, Page *&bother_page, KeyType &key, bool &ispre,
-                     BufferPoolManager *buffer_pool_manager_) -> void;
-  auto GetBotherPageRW(page_id_t child_page_id, Page *&bother_page, KeyType &key, bool &ispre,
-                       BufferPoolManager *buffer_pool_manager_, Transaction *transaction) -> void;
-  auto Merge(const KeyType &key, Page *right_page, BufferPoolManager *buffer_pool_manager_) -> void;
+  auto GetBotherPage(page_id_t child_page_id, Page *&bother_page, KeyType &key,
+                     bool &ispre, BufferPoolManager *buffer_pool_manager_)
+      -> void;
+  auto GetBotherPageRW(page_id_t child_page_id, Page *&bother_page,
+                       KeyType &key, bool &ispre,
+                       BufferPoolManager *buffer_pool_manager_,
+                       Transaction *transaction) -> void;
+  auto Merge(const KeyType &key, Page *right_page,
+             BufferPoolManager *buffer_pool_manager_) -> void;
   auto KeyIndex(const KeyType &key, const KeyComparator &keyComparator) -> int;
   auto InsertFirst(const KeyType &key, const ValueType &value) -> void;
   void DeleteFirst();
- private:
+
+private:
   // Flexible array member for page data.
   MappingType array_[1];
 };
-}  // namespace bustub
+} // namespace bustub

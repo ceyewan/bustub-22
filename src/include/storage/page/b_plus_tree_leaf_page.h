@@ -17,9 +17,11 @@
 
 namespace bustub {
 
-#define B_PLUS_TREE_LEAF_PAGE_TYPE BPlusTreeLeafPage<KeyType, ValueType, KeyComparator>
+#define B_PLUS_TREE_LEAF_PAGE_TYPE                                             \
+  BPlusTreeLeafPage<KeyType, ValueType, KeyComparator>
 #define LEAF_PAGE_HEADER_SIZE 28
-#define LEAF_PAGE_SIZE ((BUSTUB_PAGE_SIZE - LEAF_PAGE_HEADER_SIZE) / sizeof(MappingType))
+#define LEAF_PAGE_SIZE                                                         \
+  ((BUSTUB_PAGE_SIZE - LEAF_PAGE_HEADER_SIZE) / sizeof(MappingType))
 
 /**
  * Store indexed key and record id(record id = page id combined with slot id,
@@ -41,18 +43,32 @@ namespace bustub {
  */
 INDEX_TEMPLATE_ARGUMENTS
 class BPlusTreeLeafPage : public BPlusTreePage {
- public:
+public:
   // After creating a new leaf page from buffer pool, must call initialize
   // method to set default values
-  void Init(page_id_t page_id, page_id_t parent_id = INVALID_PAGE_ID, int max_size = LEAF_PAGE_SIZE);
+  void Init(page_id_t page_id, page_id_t parent_id = INVALID_PAGE_ID,
+            int max_size = LEAF_PAGE_SIZE);
   // helper methods
   auto GetNextPageId() const -> page_id_t;
   void SetNextPageId(page_id_t next_page_id);
   auto KeyAt(int index) const -> KeyType;
+  auto ValueAt(int index) const -> ValueType;
 
- private:
+  auto Insert(MappingType value, int index, const KeyComparator &keyComparator)
+      -> bool;
+  auto KeyIndex(const KeyType &key, const KeyComparator &keyComparator) -> int;
+  auto Break(Page *bother_page) -> void;
+  auto Remove(const KeyType &key, int index, const KeyComparator &keyComparator)
+      -> bool;
+  auto Delete(const KeyType &key, const KeyComparator &keyComparator) -> bool;
+  auto Merge(Page *right, BufferPoolManager *buffer_pool_manager_) -> void;
+  auto InsertFirst(const KeyType &key, const ValueType &value) -> void;
+  auto InsertLast(const KeyType &key, const ValueType &value) -> void;
+  auto GetPair(int index) -> MappingType &;
+
+private:
   page_id_t next_page_id_;
   // Flexible array member for page data.
   MappingType array_[1];
 };
-}  // namespace bustub
+} // namespace bustub

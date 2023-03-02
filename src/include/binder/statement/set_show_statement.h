@@ -18,24 +18,25 @@
 namespace bustub {
 
 class VariableSetStatement : public BoundStatement {
- public:
+public:
   explicit VariableSetStatement(std::string variable, std::string value)
       : BoundStatement(StatementType::VARIABLE_SET_STATEMENT),
-        variable_(std::move(variable)),
-        value_(std::move(value)) {}
+        variable_(std::move(variable)), value_(std::move(value)) {}
 
   std::string variable_;
   std::string value_;
 
   auto ToString() const -> std::string override {
-    return fmt::format("BoundVariableSet {{ variable={}, value={} }}", variable_, value_);
+    return fmt::format("BoundVariableSet {{ variable={}, value={} }}",
+                       variable_, value_);
   }
 };
 
 class VariableShowStatement : public BoundStatement {
- public:
+public:
   explicit VariableShowStatement(std::string variable)
-      : BoundStatement(StatementType::VARIABLE_SHOW_STATEMENT), variable_(std::move(variable)) {}
+      : BoundStatement(StatementType::VARIABLE_SHOW_STATEMENT),
+        variable_(std::move(variable)) {}
 
   std::string variable_;
 
@@ -44,4 +45,4 @@ class VariableShowStatement : public BoundStatement {
   }
 };
 
-}  // namespace bustub
+} // namespace bustub

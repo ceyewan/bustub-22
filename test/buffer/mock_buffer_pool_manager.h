@@ -23,90 +23,114 @@ namespace bustub {
 
 // Add callback functions on BufferPoolManager
 class MockBufferPoolManager : public BufferPoolManagerInstance {
- public:
+public:
   enum class CallbackType { BEFORE, AFTER };
-  using bufferpool_callback_fn = void (MockBufferPoolManager::*)(enum CallbackType type, FuncType func_type);
+  using bufferpool_callback_fn = void (MockBufferPoolManager::*)(
+      enum CallbackType type, FuncType func_type);
 
-  MockBufferPoolManager(size_t pool_size, DiskManager *disk_manager, size_t replacer_k = LRUK_REPLACER_K,
+  MockBufferPoolManager(size_t pool_size, DiskManager *disk_manager,
+                        size_t replacer_k = LRUK_REPLACER_K,
                         LogManager *log_manager = nullptr)
-      : BufferPoolManagerInstance(pool_size, disk_manager, replacer_k, log_manager) {}
+      : BufferPoolManagerInstance(pool_size, disk_manager, replacer_k,
+                                  log_manager) {}
 
   void counter_callback(enum CallbackType type, FuncType func_type) {
     if (type == CallbackType::BEFORE) {
       counter.Reset();
     } else {
       switch (func_type) {
-        case FuncType::FetchPage:
-          counter.CheckFetchPage();
-          break;
-        case FuncType::UnpinPage:
-          counter.CheckUnpinPage();
-          break;
-        case FuncType::FlushPage:
-          counter.CheckFlushPage();
-          break;
-        case FuncType::NewPage:
-          counter.CheckNewPage();
-          break;
-        case FuncType::DeletePage:
-          counter.CheckDeletePage();
-          break;
-        case FuncType::FlushAllPages:
-          counter.CheckFlushAllPages();
-          break;
+      case FuncType::FetchPage:
+        counter.CheckFetchPage();
+        break;
+      case FuncType::UnpinPage:
+        counter.CheckUnpinPage();
+        break;
+      case FuncType::FlushPage:
+        counter.CheckFlushPage();
+        break;
+      case FuncType::NewPage:
+        counter.CheckNewPage();
+        break;
+      case FuncType::DeletePage:
+        counter.CheckDeletePage();
+        break;
+      case FuncType::FlushAllPages:
+        counter.CheckFlushAllPages();
+        break;
       }
     }
   }
 
   /** Grading function. Do not modify/call! */
-  Page *FetchPage(page_id_t page_id, bufferpool_callback_fn callback = &MockBufferPoolManager::counter_callback) {
-    GradingCallback(callback, CallbackType::BEFORE, FuncType::FetchPage, page_id);
+  Page *FetchPage(page_id_t page_id,
+                  bufferpool_callback_fn callback =
+                      &MockBufferPoolManager::counter_callback) {
+    GradingCallback(callback, CallbackType::BEFORE, FuncType::FetchPage,
+                    page_id);
     auto *result = FetchPgImp(page_id);
-    GradingCallback(callback, CallbackType::AFTER, FuncType::FetchPage, page_id);
+    GradingCallback(callback, CallbackType::AFTER, FuncType::FetchPage,
+                    page_id);
     return result;
   }
 
   /** Grading function. Do not modify/call! */
   bool UnpinPage(page_id_t page_id, bool is_dirty,
-                 bufferpool_callback_fn callback = &MockBufferPoolManager::counter_callback) {
-    GradingCallback(callback, CallbackType::BEFORE, FuncType::UnpinPage, page_id);
+                 bufferpool_callback_fn callback =
+                     &MockBufferPoolManager::counter_callback) {
+    GradingCallback(callback, CallbackType::BEFORE, FuncType::UnpinPage,
+                    page_id);
     auto result = UnpinPgImp(page_id, is_dirty);
-    GradingCallback(callback, CallbackType::AFTER, FuncType::UnpinPage, page_id);
+    GradingCallback(callback, CallbackType::AFTER, FuncType::UnpinPage,
+                    page_id);
     return result;
   }
 
   /** Grading function. Do not modify/call! */
-  bool FlushPage(page_id_t page_id, bufferpool_callback_fn callback = &MockBufferPoolManager::counter_callback) {
-    GradingCallback(callback, CallbackType::BEFORE, FuncType::FlushPage, page_id);
+  bool FlushPage(page_id_t page_id,
+                 bufferpool_callback_fn callback =
+                     &MockBufferPoolManager::counter_callback) {
+    GradingCallback(callback, CallbackType::BEFORE, FuncType::FlushPage,
+                    page_id);
     auto result = FlushPgImp(page_id);
-    GradingCallback(callback, CallbackType::AFTER, FuncType::FlushPage, page_id);
+    GradingCallback(callback, CallbackType::AFTER, FuncType::FlushPage,
+                    page_id);
     return result;
   }
 
   /** Grading function. Do not modify/call! */
-  Page *NewPage(page_id_t *page_id, bufferpool_callback_fn callback = &MockBufferPoolManager::counter_callback) {
-    GradingCallback(callback, CallbackType::BEFORE, FuncType::NewPage, INVALID_PAGE_ID);
+  Page *NewPage(page_id_t *page_id,
+                bufferpool_callback_fn callback =
+                    &MockBufferPoolManager::counter_callback) {
+    GradingCallback(callback, CallbackType::BEFORE, FuncType::NewPage,
+                    INVALID_PAGE_ID);
     auto *result = NewPgImp(page_id);
     GradingCallback(callback, CallbackType::AFTER, FuncType::NewPage, *page_id);
     return result;
   }
 
   /** Grading function. Do not modify/call! */
-  bool DeletePage(page_id_t page_id, bufferpool_callback_fn callback = &MockBufferPoolManager::counter_callback) {
-    GradingCallback(callback, CallbackType::BEFORE, FuncType::DeletePage, page_id);
+  bool DeletePage(page_id_t page_id,
+                  bufferpool_callback_fn callback =
+                      &MockBufferPoolManager::counter_callback) {
+    GradingCallback(callback, CallbackType::BEFORE, FuncType::DeletePage,
+                    page_id);
     auto result = DeletePgImp(page_id);
-    GradingCallback(callback, CallbackType::AFTER, FuncType::DeletePage, page_id);
+    GradingCallback(callback, CallbackType::AFTER, FuncType::DeletePage,
+                    page_id);
     return result;
   }
 
   /** Grading function. Do not modify/call! */
-  void FlushAllPages(bufferpool_callback_fn callback = &MockBufferPoolManager::counter_callback) {
-    GradingCallback(callback, CallbackType::BEFORE, FuncType::FlushAllPages, INVALID_PAGE_ID);
+  void FlushAllPages(bufferpool_callback_fn callback =
+                         &MockBufferPoolManager::counter_callback) {
+    GradingCallback(callback, CallbackType::BEFORE, FuncType::FlushAllPages,
+                    INVALID_PAGE_ID);
     FlushAllPgsImp();
-    GradingCallback(callback, CallbackType::AFTER, FuncType::FlushAllPages, INVALID_PAGE_ID);
+    GradingCallback(callback, CallbackType::AFTER, FuncType::FlushAllPages,
+                    INVALID_PAGE_ID);
   }
 
- private:
+private:
   /**
    * Grading function. Do not modify!
    * Invokes the callback function if it is not null.
@@ -114,7 +138,8 @@ class MockBufferPoolManager : public BufferPoolManagerInstance {
    * @param callback_type BEFORE or AFTER
    * @param page_id the page id to invoke the callback with
    */
-  void GradingCallback(bufferpool_callback_fn callback, CallbackType callback_type, FuncType func_type,
+  void GradingCallback(bufferpool_callback_fn callback,
+                       CallbackType callback_type, FuncType func_type,
                        page_id_t page_id) {
     if (callback != nullptr) {
       (this->*callback)(callback_type, func_type);
@@ -135,7 +160,8 @@ class MockBufferPoolManager : public BufferPoolManagerInstance {
    * Unpin the target page from the buffer pool.
    * @param page_id id of page to be unpinned
    * @param is_dirty true if the page should be marked as dirty, false otherwise
-   * @return false if the page pin count is <= 0 before this call, true otherwise
+   * @return false if the page pin count is <= 0 before this call, true
+   * otherwise
    */
   bool UnpinPgImp(page_id_t page_id, bool is_dirty) {
     counter.AddCount(FuncType::UnpinPage);
@@ -145,7 +171,8 @@ class MockBufferPoolManager : public BufferPoolManagerInstance {
   /**
    * Flushes the target page to disk.
    * @param page_id id of page to be flushed, cannot be INVALID_PAGE_ID
-   * @return false if the page could not be found in the page table, true otherwise
+   * @return false if the page could not be found in the page table, true
+   * otherwise
    */
   bool FlushPgImp(page_id_t page_id) {
     counter.AddCount(FuncType::FlushPage);
@@ -155,7 +182,8 @@ class MockBufferPoolManager : public BufferPoolManagerInstance {
   /**
    * Creates a new page in the buffer pool.
    * @param[out] page_id id of created page
-   * @return nullptr if no new pages could be created, otherwise pointer to new page
+   * @return nullptr if no new pages could be created, otherwise pointer to new
+   * page
    */
   Page *NewPgImp(page_id_t *page_id) {
     counter.AddCount(FuncType::NewPage);
@@ -165,7 +193,8 @@ class MockBufferPoolManager : public BufferPoolManagerInstance {
   /**
    * Deletes a page from the buffer pool.
    * @param page_id id of page to be deleted
-   * @return false if the page exists but could not be deleted, true if the page didn't exist or deletion succeeded
+   * @return false if the page exists but could not be deleted, true if the page
+   * didn't exist or deletion succeeded
    */
   bool DeletePgImp(page_id_t page_id) {
     counter.AddCount(FuncType::DeletePage);
@@ -196,8 +225,9 @@ class MockBufferPoolManager : public BufferPoolManagerInstance {
   Replacer *replacer_ __attribute__((__unused__));
   /** List of free pages. */
   std::list<page_id_t> free_list_;
-  /** This latch protects shared data structures. We recommend updating this comment to describe what it protects. */
+  /** This latch protects shared data structures. We recommend updating this
+   * comment to describe what it protects. */
   std::mutex latch_;
 };
 
-}  // namespace bustub
+} // namespace bustub

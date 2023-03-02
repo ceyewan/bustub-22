@@ -12,26 +12,32 @@
 
 #pragma once
 
-#include <string>
 #include "type/abstract_pool.h"
 #include "type/value.h"
+#include <string>
 
 namespace bustub {
 
 class TimestampType : public Type {
- public:
+public:
   static constexpr uint64_t K_USECS_PER_DATE = 86400000000UL;
 
   ~TimestampType() override = default;
   TimestampType();
 
   // Comparison functions
-  auto CompareEquals(const Value &left, const Value &right) const -> CmpBool override;
-  auto CompareNotEquals(const Value &left, const Value &right) const -> CmpBool override;
-  auto CompareLessThan(const Value &left, const Value &right) const -> CmpBool override;
-  auto CompareLessThanEquals(const Value &left, const Value &right) const -> CmpBool override;
-  auto CompareGreaterThan(const Value &left, const Value &right) const -> CmpBool override;
-  auto CompareGreaterThanEquals(const Value &left, const Value &right) const -> CmpBool override;
+  auto CompareEquals(const Value &left, const Value &right) const
+      -> CmpBool override;
+  auto CompareNotEquals(const Value &left, const Value &right) const
+      -> CmpBool override;
+  auto CompareLessThan(const Value &left, const Value &right) const
+      -> CmpBool override;
+  auto CompareLessThanEquals(const Value &left, const Value &right) const
+      -> CmpBool override;
+  auto CompareGreaterThan(const Value &left, const Value &right) const
+      -> CmpBool override;
+  auto CompareGreaterThanEquals(const Value &left, const Value &right) const
+      -> CmpBool override;
 
   // Other mathematical functions
   auto Min(const Value &left, const Value &right) const -> Value override;
@@ -54,4 +60,4 @@ class TimestampType : public Type {
   auto CastAs(const Value &val, TypeId type_id) const -> Value override;
 };
 
-}  // namespace bustub
+} // namespace bustub

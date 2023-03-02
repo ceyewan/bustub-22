@@ -77,4 +77,4 @@ auto Schema::ToString(bool simplified) const -> std::string {
   return os.str();
 }
 
-}  // namespace bustub
+} // namespace bustub

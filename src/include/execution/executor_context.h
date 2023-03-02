@@ -25,7 +25,7 @@ namespace bustub {
  * ExecutorContext stores all the context necessary to run an executor.
  */
 class ExecutorContext {
- public:
+public:
   /**
    * Creates an ExecutorContext for the transaction that is executing the query.
    * @param transaction The transaction executing the query
@@ -34,9 +34,11 @@ class ExecutorContext {
    * @param txn_mgr The transaction manager that the executor uses
    * @param lock_mgr The lock manager that the executor uses
    */
-  ExecutorContext(Transaction *transaction, Catalog *catalog, BufferPoolManager *bpm, TransactionManager *txn_mgr,
+  ExecutorContext(Transaction *transaction, Catalog *catalog,
+                  BufferPoolManager *bpm, TransactionManager *txn_mgr,
                   LockManager *lock_mgr)
-      : transaction_(transaction), catalog_{catalog}, bpm_{bpm}, txn_mgr_(txn_mgr), lock_mgr_(lock_mgr) {}
+      : transaction_(transaction), catalog_{catalog}, bpm_{bpm},
+        txn_mgr_(txn_mgr), lock_mgr_(lock_mgr) {}
 
   ~ExecutorContext() = default;
 
@@ -60,7 +62,7 @@ class ExecutorContext {
   /** @return the transaction manager */
   auto GetTransactionManager() -> TransactionManager * { return txn_mgr_; }
 
- private:
+private:
   /** The transaction context associated with this executor context */
   Transaction *transaction_;
   /** The datbase catalog associated with this executor context */
@@ -73,4 +75,4 @@ class ExecutorContext {
   LockManager *lock_mgr_;
 };
 
-}  // namespace bustub
+} // namespace bustub

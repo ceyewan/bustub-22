@@ -23,27 +23,33 @@
 
 namespace bustub {
 
-#define HASH_TABLE_INDEX_TYPE LinearProbeHashTableIndex<KeyType, ValueType, KeyComparator>
+#define HASH_TABLE_INDEX_TYPE                                                  \
+  LinearProbeHashTableIndex<KeyType, ValueType, KeyComparator>
 
 template <typename KeyType, typename ValueType, typename KeyComparator>
 class LinearProbeHashTableIndex : public Index {
- public:
-  LinearProbeHashTableIndex(std::unique_ptr<IndexMetadata> &&metadata, BufferPoolManager *buffer_pool_manager,
-                            size_t num_buckets, const HashFunction<KeyType> &hash_fn);
+public:
+  LinearProbeHashTableIndex(std::unique_ptr<IndexMetadata> &&metadata,
+                            BufferPoolManager *buffer_pool_manager,
+                            size_t num_buckets,
+                            const HashFunction<KeyType> &hash_fn);
 
   ~LinearProbeHashTableIndex() override = default;
 
-  void InsertEntry(const Tuple &key, RID rid, Transaction *transaction) override;
+  void InsertEntry(const Tuple &key, RID rid,
+                   Transaction *transaction) override;
 
-  void DeleteEntry(const Tuple &key, RID rid, Transaction *transaction) override;
+  void DeleteEntry(const Tuple &key, RID rid,
+                   Transaction *transaction) override;
 
-  void ScanKey(const Tuple &key, std::vector<RID> *result, Transaction *transaction) override;
+  void ScanKey(const Tuple &key, std::vector<RID> *result,
+               Transaction *transaction) override;
 
- protected:
+protected:
   // comparator for key
   KeyComparator comparator_;
   // container
   LinearProbeHashTable<KeyType, ValueType, KeyComparator> container_;
 };
 
-}  // namespace bustub
+} // namespace bustub

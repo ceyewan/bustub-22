@@ -13,7 +13,7 @@
 #pragma once
 
 #include <algorithm>
-#include <mutex>  // NOLINT
+#include <mutex> // NOLINT
 #include <unordered_map>
 
 #include "buffer/buffer_pool_manager.h"
@@ -26,9 +26,10 @@ namespace bustub {
  * Read log file from disk, redo and undo.
  */
 class LogRecovery {
- public:
+public:
   LogRecovery(DiskManager *disk_manager, BufferPoolManager *buffer_pool_manager)
-      : disk_manager_(disk_manager), buffer_pool_manager_(buffer_pool_manager), offset_(0) {
+      : disk_manager_(disk_manager), buffer_pool_manager_(buffer_pool_manager),
+        offset_(0) {
     log_buffer_ = new char[LOG_BUFFER_SIZE];
   }
 
@@ -41,7 +42,7 @@ class LogRecovery {
   void Undo();
   auto DeserializeLogRecord(const char *data, LogRecord *log_record) -> bool;
 
- private:
+private:
   DiskManager *disk_manager_ __attribute__((__unused__));
   BufferPoolManager *buffer_pool_manager_ __attribute__((__unused__));
 
@@ -50,8 +51,8 @@ class LogRecovery {
   /** Mapping the log sequence number to log file offset for undos. */
   std::unordered_map<lsn_t, int> lsn_mapping_;
 
-  int offset_ __attribute__((__unused__));  // NOLINT
+  int offset_ __attribute__((__unused__)); // NOLINT
   char *log_buffer_;
 };
 
-}  // namespace bustub
+} // namespace bustub

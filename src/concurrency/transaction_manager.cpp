@@ -12,7 +12,7 @@
 
 #include "concurrency/transaction_manager.h"
 
-#include <mutex>  // NOLINT
+#include <mutex> // NOLINT
 #include <shared_mutex>
 #include <unordered_map>
 #include <unordered_set>
@@ -24,7 +24,8 @@ namespace bustub {
 std::unordered_map<txn_id_t, Transaction *> TransactionManager::txn_map = {};
 std::shared_mutex TransactionManager::txn_map_mutex = {};
 
-auto TransactionManager::Begin(Transaction *txn, IsolationLevel isolation_level) -> Transaction * {
+auto TransactionManager::Begin(Transaction *txn, IsolationLevel isolation_level)
+    -> Transaction * {
   // Acquire the global transaction latch in shared mode.
   global_txn_latch_.RLock();
 
@@ -33,7 +34,8 @@ auto TransactionManager::Begin(Transaction *txn, IsolationLevel isolation_level)
   }
 
   if (enable_logging) {
-    LogRecord record = LogRecord(txn->GetTransactionId(), txn->GetPrevLSN(), LogRecordType::BEGIN);
+    LogRecord record = LogRecord(txn->GetTransactionId(), txn->GetPrevLSN(),
+                                 LogRecordType::BEGIN);
     lsn_t lsn = log_manager_->AppendLogRecord(&record);
     txn->SetPrevLSN(lsn);
   }
@@ -91,8 +93,9 @@ void TransactionManager::Abort(Transaction *txn) {
     // Metadata identifying the table that should be deleted from.
     TableInfo *table_info = catalog->GetTable(item.table_oid_);
     IndexInfo *index_info = catalog->GetIndex(item.index_oid_);
-    auto new_key = item.tuple_.KeyFromTuple(table_info->schema_, *(index_info->index_->GetKeySchema()),
-                                            index_info->index_->GetKeyAttrs());
+    auto new_key = item.tuple_.KeyFromTuple(
+        table_info->schema_, *(index_info->index_->GetKeySchema()),
+        index_info->index_->GetKeyAttrs());
     if (item.wtype_ == WType::DELETE) {
       index_info->index_->InsertEntry(new_key, item.rid_, txn);
     } else if (item.wtype_ == WType::INSERT) {
@@ -100,8 +103,9 @@ void TransactionManager::Abort(Transaction *txn) {
     } else if (item.wtype_ == WType::UPDATE) {
       // Delete the new key and insert the old key
       index_info->index_->DeleteEntry(new_key, item.rid_, txn);
-      auto old_key = item.old_tuple_.KeyFromTuple(table_info->schema_, *(index_info->index_->GetKeySchema()),
-                                                  index_info->index_->GetKeyAttrs());
+      auto old_key = item.old_tuple_.KeyFromTuple(
+          table_info->schema_, *(index_info->index_->GetKeySchema()),
+          index_info->index_->GetKeyAttrs());
       index_info->index_->InsertEntry(old_key, item.rid_, txn);
     }
     index_write_set->pop_back();
@@ -119,4 +123,4 @@ void TransactionManager::BlockAllTransactions() { global_txn_latch_.WLock(); }
 
 void TransactionManager::ResumeTransactions() { global_txn_latch_.WUnlock(); }
 
-}  // namespace bustub
+} // namespace bustub

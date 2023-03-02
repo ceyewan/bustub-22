@@ -24,7 +24,9 @@
 
 namespace bustub {
 
-inline auto GetCmpBool(bool boolean) -> CmpBool { return boolean ? CmpBool::CmpTrue : CmpBool::CmpFalse; }
+inline auto GetCmpBool(bool boolean) -> CmpBool {
+  return boolean ? CmpBool::CmpTrue : CmpBool::CmpFalse;
+}
 
 // A value is an abstract class that represents a view over SQL data stored in
 // some materialized state. All values have a type and comparison functions, but
@@ -43,8 +45,10 @@ class Value {
   friend class BooleanType;
   friend class VarlenType;
 
- public:
-  explicit Value(const TypeId type) : manage_data_(false), type_id_(type) { size_.len_ = BUSTUB_VALUE_NULL; }
+public:
+  explicit Value(const TypeId type) : manage_data_(false), type_id_(type) {
+    size_.len_ = BUSTUB_VALUE_NULL;
+  }
   // BOOLEAN and TINYINT
   Value(TypeId type, int8_t i);
   // DECIMAL
@@ -81,12 +85,15 @@ class Value {
   inline auto GetTypeId() const -> TypeId { return type_id_; }
 
   // Get the length of the variable length data
-  inline auto GetLength() const -> uint32_t { return Type::GetInstance(type_id_)->GetLength(*this); }
+  inline auto GetLength() const -> uint32_t {
+    return Type::GetInstance(type_id_)->GetLength(*this);
+  }
   // Access the raw variable length data
-  inline auto GetData() const -> const char * { return Type::GetInstance(type_id_)->GetData(*this); }
+  inline auto GetData() const -> const char * {
+    return Type::GetInstance(type_id_)->GetData(*this);
+  }
 
-  template <class T>
-  inline auto GetAs() const -> T {
+  template <class T> inline auto GetAs() const -> T {
     return *reinterpret_cast<const T *>(&value_);
   }
 
@@ -114,17 +121,37 @@ class Value {
   }
 
   // Other mathematical functions
-  inline auto Add(const Value &o) const -> Value { return Type::GetInstance(type_id_)->Add(*this, o); }
-  inline auto Subtract(const Value &o) const -> Value { return Type::GetInstance(type_id_)->Subtract(*this, o); }
-  inline auto Multiply(const Value &o) const -> Value { return Type::GetInstance(type_id_)->Multiply(*this, o); }
-  inline auto Divide(const Value &o) const -> Value { return Type::GetInstance(type_id_)->Divide(*this, o); }
-  inline auto Modulo(const Value &o) const -> Value { return Type::GetInstance(type_id_)->Modulo(*this, o); }
-  inline auto Min(const Value &o) const -> Value { return Type::GetInstance(type_id_)->Min(*this, o); }
-  inline auto Max(const Value &o) const -> Value { return Type::GetInstance(type_id_)->Max(*this, o); }
-  inline auto Sqrt() const -> Value { return Type::GetInstance(type_id_)->Sqrt(*this); }
+  inline auto Add(const Value &o) const -> Value {
+    return Type::GetInstance(type_id_)->Add(*this, o);
+  }
+  inline auto Subtract(const Value &o) const -> Value {
+    return Type::GetInstance(type_id_)->Subtract(*this, o);
+  }
+  inline auto Multiply(const Value &o) const -> Value {
+    return Type::GetInstance(type_id_)->Multiply(*this, o);
+  }
+  inline auto Divide(const Value &o) const -> Value {
+    return Type::GetInstance(type_id_)->Divide(*this, o);
+  }
+  inline auto Modulo(const Value &o) const -> Value {
+    return Type::GetInstance(type_id_)->Modulo(*this, o);
+  }
+  inline auto Min(const Value &o) const -> Value {
+    return Type::GetInstance(type_id_)->Min(*this, o);
+  }
+  inline auto Max(const Value &o) const -> Value {
+    return Type::GetInstance(type_id_)->Max(*this, o);
+  }
+  inline auto Sqrt() const -> Value {
+    return Type::GetInstance(type_id_)->Sqrt(*this);
+  }
 
-  inline auto OperateNull(const Value &o) const -> Value { return Type::GetInstance(type_id_)->OperateNull(*this, o); }
-  inline auto IsZero() const -> bool { return Type::GetInstance(type_id_)->IsZero(*this); }
+  inline auto OperateNull(const Value &o) const -> Value {
+    return Type::GetInstance(type_id_)->OperateNull(*this, o);
+  }
+  inline auto IsZero() const -> bool {
+    return Type::GetInstance(type_id_)->IsZero(*this);
+  }
   inline auto IsNull() const -> bool { return size_.len_ == BUSTUB_VALUE_NULL; }
 
   // Serialize this value into the given storage space. The inlined parameter
@@ -132,19 +159,26 @@ class Value {
   // space, or whether we must store only a reference to this value. If inlined
   // is false, we may use the provided data pool to allocate space for this
   // value, storing a reference into the allocated pool space in the storage.
-  inline void SerializeTo(char *storage) const { Type::GetInstance(type_id_)->SerializeTo(*this, storage); }
+  inline void SerializeTo(char *storage) const {
+    Type::GetInstance(type_id_)->SerializeTo(*this, storage);
+  }
 
   // Deserialize a value of the given type from the given storage space.
-  inline static auto DeserializeFrom(const char *storage, const TypeId type_id) -> Value {
+  inline static auto DeserializeFrom(const char *storage, const TypeId type_id)
+      -> Value {
     return Type::GetInstance(type_id)->DeserializeFrom(storage);
   }
 
   // Return a string version of this value
-  inline auto ToString() const -> std::string { return Type::GetInstance(type_id_)->ToString(*this); }
+  inline auto ToString() const -> std::string {
+    return Type::GetInstance(type_id_)->ToString(*this);
+  }
   // Create a copy of this value
-  inline auto Copy() const -> Value { return Type::GetInstance(type_id_)->Copy(*this); }
+  inline auto Copy() const -> Value {
+    return Type::GetInstance(type_id_)->Copy(*this);
+  }
 
- protected:
+protected:
   // The actual value item
   union Val {
     int8_t boolean_;
@@ -167,10 +201,11 @@ class Value {
   // The data type
   TypeId type_id_;
 };
-}  // namespace bustub
+} // namespace bustub
 
 template <typename T>
-struct fmt::formatter<T, std::enable_if_t<std::is_base_of<bustub::Value, T>::value, char>>
+struct fmt::formatter<
+    T, std::enable_if_t<std::is_base_of<bustub::Value, T>::value, char>>
     : fmt::formatter<std::string> {
   template <typename FormatCtx>
   auto format(const bustub::Value &x, FormatCtx &ctx) const {
@@ -179,7 +214,9 @@ struct fmt::formatter<T, std::enable_if_t<std::is_base_of<bustub::Value, T>::val
 };
 
 template <typename T>
-struct fmt::formatter<std::unique_ptr<T>, std::enable_if_t<std::is_base_of<bustub::Value, T>::value, char>>
+struct fmt::formatter<
+    std::unique_ptr<T>,
+    std::enable_if_t<std::is_base_of<bustub::Value, T>::value, char>>
     : fmt::formatter<std::string> {
   template <typename FormatCtx>
   auto format(const std::unique_ptr<bustub::Value> &x, FormatCtx &ctx) const {

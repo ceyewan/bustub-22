@@ -35,7 +35,7 @@ namespace bustub {
  */
 template <typename KeyType, typename ValueType, typename KeyComparator>
 class HashTableBlockPage {
- public:
+public:
   // Delete all constructor / destructor to ensure memory safety
   HashTableBlockPage() = delete;
 
@@ -68,7 +68,8 @@ class HashTableBlockPage {
    * index is marked as occupied before the key and value can be inserted,
    * Insert returns false.
    */
-  auto Insert(slot_offset_t bucket_ind, const KeyType &key, const ValueType &value) -> bool;
+  auto Insert(slot_offset_t bucket_ind, const KeyType &key,
+              const ValueType &value) -> bool;
 
   /**
    * Removes a key and value at index.
@@ -98,7 +99,8 @@ class HashTableBlockPage {
    *
    * @return true if at least one key matched
    */
-  auto GetValue(KeyType key, KeyComparator cmp, std::vector<ValueType> *result) -> bool;
+  auto GetValue(KeyType key, KeyComparator cmp, std::vector<ValueType> *result)
+      -> bool;
 
   /**
    * Attempts to insert a key and value in the bucket.
@@ -138,7 +140,7 @@ class HashTableBlockPage {
    */
   void PrintBucket();
 
- private:
+private:
   std::atomic_char occupied_[(BLOCK_ARRAY_SIZE - 1) / 8 + 1];
 
   // 0 if tombstone/brand new (never occupied), 1 otherwise.
@@ -147,4 +149,4 @@ class HashTableBlockPage {
   MappingType array_[1];
 };
 
-}  // namespace bustub
+} // namespace bustub

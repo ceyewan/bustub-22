@@ -7,8 +7,9 @@ namespace bustub {
 // Document this class! What does it represent?
 
 class TmpTuple {
- public:
-  TmpTuple(page_id_t page_id, size_t offset) : page_id_(page_id), offset_(offset) {}
+public:
+  TmpTuple(page_id_t page_id, size_t offset)
+      : page_id_(page_id), offset_(offset) {}
 
   inline auto operator==(const TmpTuple &rhs) const -> bool {
     return page_id_ == rhs.page_id_ && offset_ == rhs.offset_;
@@ -17,9 +18,9 @@ class TmpTuple {
   auto GetPageId() const -> page_id_t { return page_id_; }
   auto GetOffset() const -> size_t { return offset_; }
 
- private:
+private:
   page_id_t page_id_;
   size_t offset_;
 };
 
-}  // namespace bustub
+} // namespace bustub

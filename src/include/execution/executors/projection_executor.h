@@ -27,7 +27,7 @@ namespace bustub {
  * The ProjectionExecutor executor executes a projection.
  */
 class ProjectionExecutor : public AbstractExecutor {
- public:
+public:
   /**
    * Construct a new ProjectionExecutor instance.
    * @param exec_ctx The executor context
@@ -48,13 +48,15 @@ class ProjectionExecutor : public AbstractExecutor {
   auto Next(Tuple *tuple, RID *rid) -> bool override;
 
   /** @return The output schema for the projection plan */
-  auto GetOutputSchema() const -> const Schema & override { return plan_->OutputSchema(); }
+  auto GetOutputSchema() const -> const Schema & override {
+    return plan_->OutputSchema();
+  }
 
- private:
+private:
   /** The projection plan node to be executed */
   const ProjectionPlanNode *plan_;
 
   /** The child executor from which tuples are obtained */
   std::unique_ptr<AbstractExecutor> child_executor_;
 };
-}  // namespace bustub
+} // namespace bustub

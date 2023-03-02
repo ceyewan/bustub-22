@@ -11,10 +11,10 @@
 //===----------------------------------------------------------------------===//
 
 #include "binder/binder.h"
-#include <memory>
 #include "binder/bound_statement.h"
 #include "catalog/catalog.h"
 #include "gtest/gtest.h"
+#include <memory>
 
 namespace bustub {
 
@@ -31,22 +31,29 @@ auto TryBind(const std::string &query) {
   bustub::Binder binder(catalog);
   catalog.CreateTable(
       nullptr, "y",
-      bustub::Schema(std::vector{bustub::Column{"x", TypeId::INTEGER}, bustub::Column{"z", TypeId::INTEGER},
-                                 bustub::Column{"a", TypeId::INTEGER}, bustub::Column{"b", TypeId::INTEGER},
+      bustub::Schema(std::vector{bustub::Column{"x", TypeId::INTEGER},
+                                 bustub::Column{"z", TypeId::INTEGER},
+                                 bustub::Column{"a", TypeId::INTEGER},
+                                 bustub::Column{"b", TypeId::INTEGER},
                                  bustub::Column{"c", TypeId::INTEGER}}),
       false);
 
   catalog.CreateTable(
       nullptr, "a",
-      bustub::Schema(std::vector{bustub::Column{"x", TypeId::INTEGER}, bustub::Column{"y", TypeId::INTEGER}}), false);
+      bustub::Schema(std::vector{bustub::Column{"x", TypeId::INTEGER},
+                                 bustub::Column{"y", TypeId::INTEGER}}),
+      false);
 
   catalog.CreateTable(
       nullptr, "b",
-      bustub::Schema(std::vector{bustub::Column{"x", TypeId::INTEGER}, bustub::Column{"y", TypeId::INTEGER}}), false);
+      bustub::Schema(std::vector{bustub::Column{"x", TypeId::INTEGER},
+                                 bustub::Column{"y", TypeId::INTEGER}}),
+      false);
 
   catalog.CreateTable(
       nullptr, "c",
-      bustub::Schema(std::vector{bustub::Column{"x", TypeId::VARCHAR, 100}, bustub::Column{"y", TypeId::VARCHAR, 100}}),
+      bustub::Schema(std::vector{bustub::Column{"x", TypeId::VARCHAR, 100},
+                                 bustub::Column{"y", TypeId::VARCHAR, 100}}),
       false);
 
   binder.ParseAndSave(query);
@@ -58,7 +65,8 @@ auto TryBind(const std::string &query) {
   return statements;
 }
 
-void PrintStatements(const std::vector<std::unique_ptr<BoundStatement>> &statements) {
+void PrintStatements(
+    const std::vector<std::unique_ptr<BoundStatement>> &statements) {
   for (const auto &statement : statements) {
     std::cout << statement->ToString() << std::endl;
   }
@@ -95,7 +103,8 @@ TEST(BinderTest, BindSelectExpr) {
 }
 
 TEST(BinderTest, BindAgg) {
-  auto statements = TryBind("select z, max(a), min(b), first(c) from y group by z having max(a) > 0");
+  auto statements = TryBind(
+      "select z, max(a), min(b), first(c) from y group by z having max(a) > 0");
   PrintStatements(statements);
 }
 
@@ -105,7 +114,8 @@ TEST(BinderTest, BindCrossJoin) {
 }
 
 TEST(BinderTest, BindCrossThreeWayJoin) {
-  auto statements = TryBind("select * from a, b, y where a.x = b.y AND a.x = y.x");
+  auto statements =
+      TryBind("select * from a, b, y where a.x = b.y AND a.x = y.x");
   PrintStatements(statements);
 }
 
@@ -115,7 +125,8 @@ TEST(BinderTest, BindJoin) {
 }
 
 TEST(BinderTest, BindThreeWayJoin) {
-  auto statements = TryBind("select * from (a INNER JOIN b ON a.x = b.y) INNER JOIN y ON a.x = y.x");
+  auto statements = TryBind(
+      "select * from (a INNER JOIN b ON a.x = b.y) INNER JOIN y ON a.x = y.x");
   PrintStatements(statements);
 }
 
@@ -143,18 +154,24 @@ TEST(BinderTest, FailBindUnknownColumn) {
 
 TEST(BinderTest, BindCreateTable) { TryBind("CREATE TABLE tablex (v1 int)"); }
 
-TEST(BinderTest, BindInsert) { TryBind("INSERT INTO y VALUES (1,2,3,4,5), (6,7,8,9,10)"); }
+TEST(BinderTest, BindInsert) {
+  TryBind("INSERT INTO y VALUES (1,2,3,4,5), (6,7,8,9,10)");
+}
 
-TEST(BinderTest, BindInsertSelect) { TryBind("INSERT INTO y SELECT * FROM y WHERE x < 500"); }
+TEST(BinderTest, BindInsertSelect) {
+  TryBind("INSERT INTO y SELECT * FROM y WHERE x < 500");
+}
 
 TEST(BinderTest, BindVarchar) {
   TryBind(R"(INSERT INTO c VALUES ('1', '2'))");
   TryBind(R"(INSERT INTO c VALUES ('', ''))");
-  TryBind(fmt::format(R"(INSERT INTO c VALUES ('1', '{}'))", std::string(1024, 'a')));
+  TryBind(fmt::format(R"(INSERT INTO c VALUES ('1', '{}'))",
+                      std::string(1024, 'a')));
 }
 
 TEST(BinderTest, BindAliasInAgg) {
-  auto statements = TryBind("select z, max(a) as max_a, min(b), first(c) from y group by z having max(a) > 0");
+  auto statements = TryBind("select z, max(a) as max_a, min(b), first(c) from "
+                            "y group by z having max(a) > 0");
   PrintStatements(statements);
 }
 
@@ -175,7 +192,8 @@ TEST(BinderTest, BindBinaryOp) {
 
 // TODO(chi): subquery is not supported yet
 TEST(BinderTest, DISABLED_BindUncorrelatedSubquery) {
-  auto statements = TryBind("select * from (select * from a) INNER JOIN (select * from b) ON a.x = b.y");
+  auto statements = TryBind("select * from (select * from a) INNER JOIN "
+                            "(select * from b) ON a.x = b.y");
   PrintStatements(statements);
 }
 
@@ -185,4 +203,4 @@ TEST(BinderTest, DISABLED_BindUpdate) { TryBind("UPDATE y SET z = z + 1;"); }
 // TODO(chi): delete is not supported yet
 TEST(BinderTest, DISABLED_BindDelete) { TryBind("DELETE FROM y WHERE z = 1"); }
 
-}  // namespace bustub
+} // namespace bustub

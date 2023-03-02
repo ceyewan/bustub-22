@@ -18,7 +18,14 @@
 
 namespace bustub {
 
-enum FuncType { FetchPage, UnpinPage, FlushPage, NewPage, DeletePage, FlushAllPages };
+enum FuncType {
+  FetchPage,
+  UnpinPage,
+  FlushPage,
+  NewPage,
+  DeletePage,
+  FlushAllPages
+};
 
 struct Counter {
   // 0-FetchPage  1-UnpinPage  2-FlushPage 3-NewPage 4-DeletePage
@@ -87,4 +94,4 @@ struct Counter {
   }
 };
 
-}  // namespace bustub
+} // namespace bustub

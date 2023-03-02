@@ -24,25 +24,23 @@ namespace bustub {
 class Catalog;
 
 class SelectStatement : public BoundStatement {
- public:
-  explicit SelectStatement(std::unique_ptr<BoundTableRef> table,
-                           std::vector<std::unique_ptr<BoundExpression>> select_list,
-                           std::unique_ptr<BoundExpression> where,
-                           std::vector<std::unique_ptr<BoundExpression>> group_by,
-                           std::unique_ptr<BoundExpression> having, std::unique_ptr<BoundExpression> limit_count,
-                           std::unique_ptr<BoundExpression> limit_offset,
-                           std::vector<std::unique_ptr<BoundOrderBy>> sort, CTEList ctes, bool is_distinct)
+public:
+  explicit SelectStatement(
+      std::unique_ptr<BoundTableRef> table,
+      std::vector<std::unique_ptr<BoundExpression>> select_list,
+      std::unique_ptr<BoundExpression> where,
+      std::vector<std::unique_ptr<BoundExpression>> group_by,
+      std::unique_ptr<BoundExpression> having,
+      std::unique_ptr<BoundExpression> limit_count,
+      std::unique_ptr<BoundExpression> limit_offset,
+      std::vector<std::unique_ptr<BoundOrderBy>> sort, CTEList ctes,
+      bool is_distinct)
       : BoundStatement(StatementType::SELECT_STATEMENT),
-        table_(std::move(table)),
-        select_list_(std::move(select_list)),
-        where_(std::move(where)),
-        group_by_(std::move(group_by)),
-        having_(std::move(having)),
-        limit_count_(std::move(limit_count)),
-        limit_offset_(std::move(limit_offset)),
-        sort_(std::move(sort)),
-        ctes_(std::move(ctes)),
-        is_distinct_(is_distinct) {}
+        table_(std::move(table)), select_list_(std::move(select_list)),
+        where_(std::move(where)), group_by_(std::move(group_by)),
+        having_(std::move(having)), limit_count_(std::move(limit_count)),
+        limit_offset_(std::move(limit_offset)), sort_(std::move(sort)),
+        ctes_(std::move(ctes)), is_distinct_(is_distinct) {}
 
   /** Bound FROM clause. */
   std::unique_ptr<BoundTableRef> table_;
@@ -77,4 +75,4 @@ class SelectStatement : public BoundStatement {
   auto ToString() const -> std::string override;
 };
 
-}  // namespace bustub
+} // namespace bustub

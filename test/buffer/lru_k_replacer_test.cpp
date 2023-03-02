@@ -9,7 +9,7 @@
 #include <memory>
 #include <random>
 #include <set>
-#include <thread>  // NOLINT
+#include <thread> // NOLINT
 #include <vector>
 
 #include "gtest/gtest.h"
@@ -19,7 +19,8 @@ namespace bustub {
 TEST(LRUKReplacerTest, SampleTest) {
   LRUKReplacer lru_replacer(7, 2);
 
-  // Scenario: add six elements to the replacer. We have [1,2,3,4,5]. Frame 6 is non-evictable.
+  // Scenario: add six elements to the replacer. We have [1,2,3,4,5]. Frame 6 is
+  // non-evictable.
   lru_replacer.RecordAccess(1);
   lru_replacer.RecordAccess(2);
   lru_replacer.RecordAccess(3);
@@ -34,12 +35,13 @@ TEST(LRUKReplacerTest, SampleTest) {
   lru_replacer.SetEvictable(6, false);
   ASSERT_EQ(5, lru_replacer.Size());
 
-  // Scenario: Insert access history for frame 1. Now frame 1 has two access histories.
-  // All other frames have max backward k-dist. The order of eviction is [2,3,4,5,1].
+  // Scenario: Insert access history for frame 1. Now frame 1 has two access
+  // histories. All other frames have max backward k-dist. The order of eviction
+  // is [2,3,4,5,1].
   lru_replacer.RecordAccess(1);
 
-  // Scenario: Evict three pages from the replacer. Elements with max k-distance should be popped
-  // first based on LRU.
+  // Scenario: Evict three pages from the replacer. Elements with max k-distance
+  // should be popped first based on LRU.
   int value;
   lru_replacer.Evict(&value);
   ASSERT_EQ(2, value);
@@ -50,7 +52,8 @@ TEST(LRUKReplacerTest, SampleTest) {
   ASSERT_EQ(2, lru_replacer.Size());
 
   // Scenario: Now replacer has frames [5,1].
-  // Insert new frames 3, 4, and update access history for 5. We should end with [3,1,5,4]
+  // Insert new frames 3, 4, and update access history for 5. We should end with
+  // [3,1,5,4]
   lru_replacer.RecordAccess(3);
   lru_replacer.RecordAccess(4);
   lru_replacer.RecordAccess(5);
@@ -64,7 +67,8 @@ TEST(LRUKReplacerTest, SampleTest) {
   ASSERT_EQ(3, value);
   ASSERT_EQ(3, lru_replacer.Size());
 
-  // Set 6 to be evictable. 6 Should be evicted next since it has max backward k-dist.
+  // Set 6 to be evictable. 6 Should be evicted next since it has max backward
+  // k-dist.
   lru_replacer.SetEvictable(6, true);
   ASSERT_EQ(4, lru_replacer.Size());
   lru_replacer.Evict(&value);
@@ -97,4 +101,4 @@ TEST(LRUKReplacerTest, SampleTest) {
   lru_replacer.Remove(1);
   ASSERT_EQ(0, lru_replacer.Size());
 }
-}  // namespace bustub
+} // namespace bustub

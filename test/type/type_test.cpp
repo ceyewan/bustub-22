@@ -15,20 +15,20 @@
 #include <vector>
 
 #include "common/exception.h"
-#include "gtest/gtest.h"
 #include "type/value.h"
+#include "gtest/gtest.h"
 
 namespace bustub {
 //===--------------------------------------------------------------------===//
 // Type Tests
 //===--------------------------------------------------------------------===//
 const std::vector<TypeId> TYPE_TEST_TYPES = {
-    TypeId::BOOLEAN, TypeId::TINYINT, TypeId::SMALLINT, TypeId::INTEGER, TypeId::BIGINT, TypeId::DECIMAL,
+    TypeId::BOOLEAN, TypeId::TINYINT, TypeId::SMALLINT,
+    TypeId::INTEGER, TypeId::BIGINT,  TypeId::DECIMAL,
 };
 
-template <typename KeyType, typename ValueType>
-class BPlusTreePage {
- public:
+template <typename KeyType, typename ValueType> class BPlusTreePage {
+public:
   void GetInfo(KeyType key, ValueType val) {
     if (key.CompareEquals(val) == CmpBool::CmpTrue) {
       std::cout << "key info" << key.ToString() << '\n';
@@ -95,4 +95,4 @@ TEST(TypeTests, TemplateTest) {
   BPlusTreePage<Value, Value> node;
   node.GetInfo(val1, val2);
 }
-}  // namespace bustub
+} // namespace bustub

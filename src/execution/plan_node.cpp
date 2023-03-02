@@ -1,6 +1,3 @@
-#include <algorithm>
-#include <memory>
-#include <vector>
 #include "binder/table_ref/bound_base_table_ref.h"
 #include "catalog/catalog.h"
 #include "catalog/column.h"
@@ -10,19 +7,26 @@
 #include "execution/plans/nested_loop_join_plan.h"
 #include "execution/plans/projection_plan.h"
 #include "execution/plans/seq_scan_plan.h"
+#include <algorithm>
+#include <memory>
+#include <vector>
 
 namespace bustub {
 
-auto SeqScanPlanNode::InferScanSchema(const BoundBaseTableRef &table) -> Schema {
+auto SeqScanPlanNode::InferScanSchema(const BoundBaseTableRef &table)
+    -> Schema {
   std::vector<Column> schema;
   for (const auto &column : table.schema_.GetColumns()) {
-    auto col_name = fmt::format("{}.{}", table.GetBoundTableName(), column.GetName());
+    auto col_name =
+        fmt::format("{}.{}", table.GetBoundTableName(), column.GetName());
     schema.emplace_back(Column(col_name, column));
   }
   return Schema(schema);
 }
 
-auto NestedLoopJoinPlanNode::InferJoinSchema(const AbstractPlanNode &left, const AbstractPlanNode &right) -> Schema {
+auto NestedLoopJoinPlanNode::InferJoinSchema(const AbstractPlanNode &left,
+                                             const AbstractPlanNode &right)
+    -> Schema {
   std::vector<Column> schema;
   for (const auto &column : left.OutputSchema().GetColumns()) {
     schema.emplace_back(column);
@@ -33,21 +37,25 @@ auto NestedLoopJoinPlanNode::InferJoinSchema(const AbstractPlanNode &left, const
   return Schema(schema);
 }
 
-auto ProjectionPlanNode::InferProjectionSchema(const std::vector<AbstractExpressionRef> &expressions) -> Schema {
+auto ProjectionPlanNode::InferProjectionSchema(
+    const std::vector<AbstractExpressionRef> &expressions) -> Schema {
   std::vector<Column> schema;
   for (const auto &expr : expressions) {
     auto type_id = expr->GetReturnType();
     if (type_id != TypeId::VARCHAR) {
       schema.emplace_back("<unnamed>", type_id);
     } else {
-      // TODO(chi): infer the correct VARCHAR length. Maybe it doesn't matter for executors?
+      // TODO(chi): infer the correct VARCHAR length. Maybe it doesn't matter
+      // for executors?
       schema.emplace_back("<unnamed>", type_id, VARCHAR_DEFAULT_LENGTH);
     }
   }
   return Schema(schema);
 }
 
-auto ProjectionPlanNode::RenameSchema(const Schema &schema, const std::vector<std::string> &col_names) -> Schema {
+auto ProjectionPlanNode::RenameSchema(const Schema &schema,
+                                      const std::vector<std::string> &col_names)
+    -> Schema {
   std::vector<Column> output;
   if (col_names.size() != schema.GetColumnCount()) {
     throw bustub::Exception("mismatched number of columns");
@@ -59,9 +67,10 @@ auto ProjectionPlanNode::RenameSchema(const Schema &schema, const std::vector<st
   return Schema(output);
 }
 
-auto AggregationPlanNode::InferAggSchema(const std::vector<AbstractExpressionRef> &group_bys,
-                                         const std::vector<AbstractExpressionRef> &aggregates,
-                                         const std::vector<AggregationType> &agg_types) -> Schema {
+auto AggregationPlanNode::InferAggSchema(
+    const std::vector<AbstractExpressionRef> &group_bys,
+    const std::vector<AbstractExpressionRef> &aggregates,
+    const std::vector<AggregationType> &agg_types) -> Schema {
   std::vector<Column> output;
   output.reserve(group_bys.size() + aggregates.size());
   for (const auto &column : group_bys) {
@@ -79,4 +88,4 @@ auto AggregationPlanNode::InferAggSchema(const std::vector<AbstractExpressionRef
   return Schema(output);
 }
 
-}  // namespace bustub
+} // namespace bustub

@@ -21,10 +21,11 @@
 
 namespace bustub {
 /**
- * IndexScanPlanNode identifies a table that should be scanned with an optional predicate.
+ * IndexScanPlanNode identifies a table that should be scanned with an optional
+ * predicate.
  */
 class IndexScanPlanNode : public AbstractPlanNode {
- public:
+public:
   /**
    * Creates a new index scan plan node.
    * @param output the output format of this scan plan node
@@ -45,10 +46,10 @@ class IndexScanPlanNode : public AbstractPlanNode {
 
   // Add anything you want here for index lookup
 
- protected:
+protected:
   auto PlanNodeToString() const -> std::string override {
     return fmt::format("IndexScan {{ index_oid={} }}", index_oid_);
   }
 };
 
-}  // namespace bustub
+} // namespace bustub

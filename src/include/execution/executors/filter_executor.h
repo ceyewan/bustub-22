@@ -27,7 +27,7 @@ namespace bustub {
  * The FilterExecutor executor executes a filter.
  */
 class FilterExecutor : public AbstractExecutor {
- public:
+public:
   /**
    * Construct a new FilterExecutor instance.
    * @param exec_ctx The executor context
@@ -49,13 +49,15 @@ class FilterExecutor : public AbstractExecutor {
   auto Next(Tuple *tuple, RID *rid) -> bool override;
 
   /** @return The output schema for the filter plan */
-  auto GetOutputSchema() const -> const Schema & override { return plan_->OutputSchema(); }
+  auto GetOutputSchema() const -> const Schema & override {
+    return plan_->OutputSchema();
+  }
 
- private:
+private:
   /** The filter plan node to be executed */
   const FilterPlanNode *plan_;
 
   /** The child executor from which tuples are obtained */
   std::unique_ptr<AbstractExecutor> child_executor_;
 };
-}  // namespace bustub
+} // namespace bustub

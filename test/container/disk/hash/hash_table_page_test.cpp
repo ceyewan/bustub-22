@@ -10,15 +10,15 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include <thread>  // NOLINT
+#include <thread> // NOLINT
 #include <vector>
 
 #include "buffer/buffer_pool_manager_instance.h"
 #include "common/logger.h"
-#include "gtest/gtest.h"
 #include "storage/disk/disk_manager.h"
 #include "storage/page/hash_table_bucket_page.h"
 #include "storage/page/hash_table_directory_page.h"
+#include "gtest/gtest.h"
 
 namespace bustub {
 
@@ -29,8 +29,8 @@ TEST(HashTablePageTest, DISABLED_DirectoryPageSampleTest) {
 
   // get a directory page from the BufferPoolManager
   page_id_t directory_page_id = INVALID_PAGE_ID;
-  auto directory_page =
-      reinterpret_cast<HashTableDirectoryPage *>(bpm->NewPage(&directory_page_id, nullptr)->GetData());
+  auto directory_page = reinterpret_cast<HashTableDirectoryPage *>(
+      bpm->NewPage(&directory_page_id, nullptr)->GetData());
 
   EXPECT_EQ(0, directory_page->GetGlobalDepth());
   directory_page->SetPageId(10);
@@ -64,8 +64,9 @@ TEST(HashTablePageTest, DISABLED_BucketPageSampleTest) {
   // get a bucket page from the BufferPoolManager
   page_id_t bucket_page_id = INVALID_PAGE_ID;
 
-  auto bucket_page = reinterpret_cast<HashTableBucketPage<int, int, IntComparator> *>(
-      bpm->NewPage(&bucket_page_id, nullptr)->GetData());
+  auto bucket_page =
+      reinterpret_cast<HashTableBucketPage<int, int, IntComparator> *>(
+          bpm->NewPage(&bucket_page_id, nullptr)->GetData());
 
   // insert a few (key, value) pairs
   for (unsigned i = 0; i < 10; i++) {
@@ -114,4 +115,4 @@ TEST(HashTablePageTest, DISABLED_BucketPageSampleTest) {
   delete bpm;
 }
 
-}  // namespace bustub
+} // namespace bustub

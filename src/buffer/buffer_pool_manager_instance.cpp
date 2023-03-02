@@ -17,9 +17,12 @@
 
 namespace bustub {
 
-BufferPoolManagerInstance::BufferPoolManagerInstance(size_t pool_size, DiskManager *disk_manager, size_t replacer_k,
+BufferPoolManagerInstance::BufferPoolManagerInstance(size_t pool_size,
+                                                     DiskManager *disk_manager,
+                                                     size_t replacer_k,
                                                      LogManager *log_manager)
-    : pool_size_(pool_size), disk_manager_(disk_manager), log_manager_(log_manager) {
+    : pool_size_(pool_size), disk_manager_(disk_manager),
+      log_manager_(log_manager) {
   // we allocate a consecutive memory space for the buffer pool
   pages_ = new Page[pool_size_];
   page_table_ = new ExtendibleHashTable<page_id_t, frame_id_t>(bucket_size_);
@@ -30,10 +33,12 @@ BufferPoolManagerInstance::BufferPoolManagerInstance(size_t pool_size, DiskManag
     free_list_.emplace_back(static_cast<int>(i));
   }
 
-  // TODO(students): remove this line after you have implemented the buffer pool manager
+  // TODO(students): remove this line after you have implemented the buffer pool
+  // manager
   //  throw NotImplementedException(
-  //      "BufferPoolManager is not implemented yet. If you have finished implementing BPM, please remove the throw "
-  //      "exception line in `buffer_pool_manager_instance.cpp`.");
+  //      "BufferPoolManager is not implemented yet. If you have finished
+  //      implementing BPM, please remove the throw " "exception line in
+  //      `buffer_pool_manager_instance.cpp`.");
 }
 
 BufferPoolManagerInstance::~BufferPoolManagerInstance() {
@@ -50,7 +55,8 @@ auto BufferPoolManagerInstance::NewPgImp(page_id_t *page_id) -> Page * {
     free_list_.pop_front();
   } else if (replacer_->Evict(&frame_id)) {
     if (pages_[frame_id].IsDirty()) {
-      disk_manager_->WritePage(pages_[frame_id].GetPageId(), pages_[frame_id].GetData());
+      disk_manager_->WritePage(pages_[frame_id].GetPageId(),
+                               pages_[frame_id].GetData());
     }
     page_table_->Remove(pages_[frame_id].GetPageId());
   } else {
@@ -87,7 +93,8 @@ auto BufferPoolManagerInstance::FetchPgImp(page_id_t page_id) -> Page * {
     free_list_.pop_front();
   } else if (replacer_->Evict(&frame_id)) {
     if (pages_[frame_id].IsDirty()) {
-      disk_manager_->WritePage(pages_[frame_id].GetPageId(), pages_[frame_id].GetData());
+      disk_manager_->WritePage(pages_[frame_id].GetPageId(),
+                               pages_[frame_id].GetData());
     }
     page_table_->Remove(pages_[frame_id].GetPageId());
   } else {
@@ -107,10 +114,12 @@ auto BufferPoolManagerInstance::FetchPgImp(page_id_t page_id) -> Page * {
   return p;
 }
 
-auto BufferPoolManagerInstance::UnpinPgImp(page_id_t page_id, bool is_dirty) -> bool {
+auto BufferPoolManagerInstance::UnpinPgImp(page_id_t page_id, bool is_dirty)
+    -> bool {
   latch_.lock();
   frame_id_t frame_id;
-  if (!page_table_->Find(page_id, frame_id) || pages_[frame_id].GetPinCount() == 0) {
+  if (!page_table_->Find(page_id, frame_id) ||
+      pages_[frame_id].GetPinCount() == 0) {
     latch_.unlock();
     return false;
   }
@@ -132,7 +141,8 @@ auto BufferPoolManagerInstance::FlushPgImp(page_id_t page_id) -> bool {
     latch_.unlock();
     return false;
   }
-  disk_manager_->WritePage(pages_[frame_id].GetPageId(), pages_[frame_id].GetData());
+  disk_manager_->WritePage(pages_[frame_id].GetPageId(),
+                           pages_[frame_id].GetData());
   pages_->is_dirty_ = false;
   latch_.unlock();
   return true;
@@ -142,7 +152,8 @@ void BufferPoolManagerInstance::FlushAllPgsImp() {
   frame_id_t tmp;
   for (size_t frame_id = 0; frame_id < pool_size_; frame_id++) {
     if (page_table_->Find(pages_[frame_id].GetPageId(), tmp)) {
-      disk_manager_->WritePage(pages_[frame_id].GetPageId(), pages_[frame_id].GetData());
+      disk_manager_->WritePage(pages_[frame_id].GetPageId(),
+                               pages_[frame_id].GetData());
       pages_->is_dirty_ = false;
     }
   }
@@ -162,7 +173,8 @@ auto BufferPoolManagerInstance::DeletePgImp(page_id_t page_id) -> bool {
     return false;
   }
   if (pages_[frame_id].IsDirty()) {
-    disk_manager_->WritePage(pages_[frame_id].GetPageId(), pages_[frame_id].GetData());
+    disk_manager_->WritePage(pages_[frame_id].GetPageId(),
+                             pages_[frame_id].GetData());
     pages_->is_dirty_ = false;
   }
   replacer_->Remove(frame_id);
@@ -172,6 +184,8 @@ auto BufferPoolManagerInstance::DeletePgImp(page_id_t page_id) -> bool {
   return true;
 }
 
-auto BufferPoolManagerInstance::AllocatePage() -> page_id_t { return next_page_id_++; }
+auto BufferPoolManagerInstance::AllocatePage() -> page_id_t {
+  return next_page_id_++;
+}
 
-}  // namespace bustub
+} // namespace bustub

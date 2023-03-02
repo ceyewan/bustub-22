@@ -28,7 +28,7 @@ namespace bustub {
  * NestedLoopJoinPlanNode joins tuples from two child plan nodes.
  */
 class NestedLoopJoinPlanNode : public AbstractPlanNode {
- public:
+public:
   /**
    * Construct a new NestedLoopJoinPlanNode instance.
    * @param output The output format of this nested loop join node
@@ -36,11 +36,12 @@ class NestedLoopJoinPlanNode : public AbstractPlanNode {
    * @param predicate The predicate to join with, the tuples are joined
    * if predicate(tuple) = true.
    */
-  NestedLoopJoinPlanNode(SchemaRef output_schema, AbstractPlanNodeRef left, AbstractPlanNodeRef right,
+  NestedLoopJoinPlanNode(SchemaRef output_schema, AbstractPlanNodeRef left,
+                         AbstractPlanNodeRef right,
                          AbstractExpressionRef predicate, JoinType join_type)
-      : AbstractPlanNode(std::move(output_schema), {std::move(left), std::move(right)}),
-        predicate_(std::move(predicate)),
-        join_type_(join_type) {}
+      : AbstractPlanNode(std::move(output_schema),
+                         {std::move(left), std::move(right)}),
+        predicate_(std::move(predicate)), join_type_(join_type) {}
 
   /** @return The type of the plan node */
   auto GetType() const -> PlanType override { return PlanType::NestedLoopJoin; }
@@ -51,13 +52,15 @@ class NestedLoopJoinPlanNode : public AbstractPlanNode {
   /** @return The join type used in the nested loop join */
   auto GetJoinType() const -> JoinType { return join_type_; };
 
-  /** @return The left plan node of the nested loop join, by convention it should be the smaller table */
+  /** @return The left plan node of the nested loop join, by convention it
+   * should be the smaller table */
   auto GetLeftPlan() const -> AbstractPlanNodeRef { return GetChildAt(0); }
 
   /** @return The right plan node of the nested loop join */
   auto GetRightPlan() const -> AbstractPlanNodeRef { return GetChildAt(1); }
 
-  static auto InferJoinSchema(const AbstractPlanNode &left, const AbstractPlanNode &right) -> Schema;
+  static auto InferJoinSchema(const AbstractPlanNode &left,
+                              const AbstractPlanNode &right) -> Schema;
 
   BUSTUB_PLAN_NODE_CLONE_WITH_CHILDREN(NestedLoopJoinPlanNode);
 
@@ -67,10 +70,11 @@ class NestedLoopJoinPlanNode : public AbstractPlanNode {
   /** The join type */
   JoinType join_type_;
 
- protected:
+protected:
   auto PlanNodeToString() const -> std::string override {
-    return fmt::format("NestedLoopJoin {{ type={}, predicate={} }}", join_type_, predicate_);
+    return fmt::format("NestedLoopJoin {{ type={}, predicate={} }}", join_type_,
+                       predicate_);
   }
 };
 
-}  // namespace bustub
+} // namespace bustub

@@ -19,18 +19,18 @@ namespace bustub {
  * BoundStatement is the base class of any type of bound SQL statement.
  */
 class BoundStatement {
- public:
+public:
   explicit BoundStatement(StatementType type);
   virtual ~BoundStatement() = default;
 
   /** The statement type. */
   StatementType type_;
 
- public:
+public:
   /** Render this statement as a string. */
   virtual auto ToString() const -> std::string {
     throw Exception("ToString not supported for this type of SQLStatement");
   }
 };
 
-}  // namespace bustub
+} // namespace bustub
